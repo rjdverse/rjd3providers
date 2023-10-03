@@ -12,6 +12,9 @@
   #RProtoBuf::readProtoFiles2(protoPath = proto.dir)
   
   # reload providers
+  tryCatch({
   .jcall("jdplus/spreadsheet/base/r/SpreadSheets","V", "updateTsFactory")
   .jcall("jdplus/text/base/r/Utility","V", "updateTsFactory")
+  }, error = function(err) {})
+  
 }
