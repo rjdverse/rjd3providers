@@ -9,7 +9,7 @@ spreadsheet_series(
   sheet = 1,
   series = 1,
   period = 0,
-  aggregation = "None",
+  aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
   partialAggregation = F,
   cleanMissings = T,
   fullName = T

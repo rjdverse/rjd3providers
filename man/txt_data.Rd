@@ -9,14 +9,14 @@ txt_data(
   fmt.locale = NULL,
   fmt.date = NULL,
   fmt.number = NULL,
-  fmt.ignore_grouping = T,
+  fmt.ignoreNumberGrouping = T,
   gathering.period = 0,
-  gathering.agg = c("Sum", "Average", "first", "Last", "Max", "Min"),
-  gathering.partial = F,
-  gathering.nomissing = T,
+  gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
+  gathering.partialAggregation = F,
+  gathering.includeMissing = T,
   charset = NULL,
   delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
-  txtqualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
+  txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
   header = T,
   skip = 0
 )
@@ -30,21 +30,21 @@ txt_data(
 
 \item{fmt.number}{}
 
-\item{fmt.ignore_grouping}{}
+\item{fmt.ignoreNumberGrouping}{}
 
 \item{gathering.period}{}
 
-\item{gathering.agg}{}
+\item{gathering.aggregation}{}
 
-\item{gathering.partial}{}
+\item{gathering.partialAggregation}{}
 
-\item{gathering.nomissing}{}
+\item{gathering.includeMissing}{}
 
 \item{charset}{}
 
 \item{delimiter}{}
 
-\item{txtqualifier}{}
+\item{txtQualifier}{}
 
 \item{header}{}
 
