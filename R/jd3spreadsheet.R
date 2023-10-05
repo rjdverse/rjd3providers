@@ -168,7 +168,7 @@ spreadsheet_id_properties<-function(id){
 #' @export
 #'
 #' @examples
-spreadsheet_change_file<-function(id, nfile, o=NULL){
+spreadsheet_change_file<-function(id, nfile, ofile=NULL){
   if (is.null(ofile)) ofile=""
   nid<-.jcall("jdplus/spreadsheet/base/r/SpreadSheets", "S", "changeFile", id, nfile, ofile)
   return (nid)
