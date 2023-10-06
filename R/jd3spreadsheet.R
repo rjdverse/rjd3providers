@@ -2,17 +2,16 @@
 NULL
 
 
-.spreadsheet_source<-function(file, period=0, aggregation = "None", partialAggregation=F, cleanMissing=T){
-  jgathering=.obs_gathering(period, aggregation, partialAggregation, cleanMissing)
+.spreadsheet_source<-function(file, period=0, aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"), partialAggregation=F, includeMissing=F){
+  aggregation=match.arg(aggregation)
+  jgathering=.obs_gathering(period, aggregation, partialAggregation, includeMissing)
   jsource<-.jcall("jdplus/spreadsheet/base/r/SpreadSheets", "Ljdplus/toolkit/base/tsp/DataSource;", "source", 
          as.character(file), .jnull("jdplus/toolkit/base/tsp/util/ObsFormat"), jgathering)
   return (jsource)
 }
 
 .r2jd_spreadsheet_id<-function(id){
-  agg<-id$gathering$aggregation
-  if (is.null(agg)) agg<-""
-  jsrc<-.spreadsheet_source(id$file, id$gathering$period, agg, id$gathering$partial, id$gathering$missing)
+  jsrc<-.spreadsheet_source(id$file, id$gathering$period, id$gathering$aggregation, id$gathering$partialAggregation, id$gathering$includeMissing)
   if (is.null(id$series))
     return (.jcall("jdplus/spreadsheet/base/r/SpreadSheets",  "Ljdplus/toolkit/base/tsp/DataSet;", "sheetDataSet", jsrc, id$sheet))
   else
@@ -31,8 +30,8 @@ NULL
     series=.jcall(jset, "S", "getParameter", "seriesName"),
     gathering=list(period=.jcall(junit, "I", "getAnnualFrequency"), 
                    aggregation=.jcall(jagg, "S", "name"), 
-                   partial=.jcall(jgathering, "Z", "isAllowPartialAggregation"), 
-                   missing=.jcall(jgathering, "Z", "isIncludeMissingValues")  )
+                   partialAggregation=.jcall(jgathering, "Z", "isAllowPartialAggregation"), 
+                   includeMissing=.jcall(jgathering, "Z", "isIncludeMissingValues")  )
   ))
 }
 
@@ -73,7 +72,7 @@ spreadsheet_name<-function(){
 #' @export
 #'
 #' @examples
-spreadsheet_data<-function(file, sheet=1, period=0, aggregation = "None", partialAggregation=F, cleanMissings=T, fullNames=F){
+spreadsheet_data<-function(file, sheet=1, period=0, aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"), partialAggregation=F, cleanMissings=T, fullNames=F){
   jsource<-.spreadsheet_source(file, period, aggregation, partialAggregation, cleanMissings)
   jcoll<-.jcall("jdplus/spreadsheet/base/r/SpreadSheets", "Ljdplus/toolkit/base/api/timeseries/TsCollection;", "collection", jsource, as.integer(sheet), fullNames)
   return (rjd3toolkit::.jd2r_tscollection(jcoll))
@@ -94,7 +93,7 @@ spreadsheet_data<-function(file, sheet=1, period=0, aggregation = "None", partia
 #' @export
 #'
 #' @examples
-spreadsheet_series<-function(file, sheet=1, series=1,  period=0, aggregation = "None", partialAggregation=F, cleanMissings=T, fullName=T){
+spreadsheet_series<-function(file, sheet=1, series=1,  period=0, aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"), partialAggregation=F, cleanMissings=T, fullName=T){
   jsource<-.spreadsheet_source(file, period, aggregation, partialAggregation, cleanMissings)
   jcoll<-.jcall("jdplus/spreadsheet/base/r/SpreadSheets", "Ljdplus/toolkit/base/api/timeseries/Ts;", "series", jsource, as.integer(sheet), as.integer(series), fullName)
   return (rjd3toolkit::.jd2r_ts(jcoll))
@@ -157,5 +156,21 @@ spreadsheet_to_id<-function(props){
 spreadsheet_id_properties<-function(id){
   jset<-.jcall("jdplus/spreadsheet/base/r/SpreadSheets","Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
   return (.jd2r_spreadsheet_id(jset))
+}
+
+#' Change the file of a moniker
+#'
+#' @param id Identifier of the series (from its moniker)
+#' @param nfile New file name
+#' @param ofile Old file name. NULL or "" to change any file to the new file
+#'
+#' @return
+#' @export
+#'
+#' @examples
+spreadsheet_change_file<-function(id, nfile, ofile=NULL){
+  if (is.null(ofile)) ofile=""
+  nid<-.jcall("jdplus/spreadsheet/base/r/SpreadSheets", "S", "changeFile", id, nfile, ofile)
+  return (nid)
 }
 

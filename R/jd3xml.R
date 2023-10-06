@@ -159,4 +159,19 @@ xml_id_properties<-function(id){
   return (.jd2r_xml_id(jset))
 }
 
+#' Change the file of a moniker
+#'
+#' @param id Identifier of the series (from its moniker)
+#' @param nfile New file name
+#' @param ofile Old file name. NULL or "" to change any file to the new file
+#'
+#' @return
+#' @export
+#'
+#' @examples
+xml_change_file<-function(id, nfile, ofile=NULL){
+  if (is.null(ofile)) ofile=""
+  nid<-.jcall("jdplus/text/base/r/XmlFiles", "S", "changeFile", id, nfile, ofile)
+  return (nid)
+}
 

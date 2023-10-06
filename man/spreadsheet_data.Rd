@@ -8,7 +8,7 @@ spreadsheet_data(
   file,
   sheet = 1,
   period = 0,
-  aggregation = "None",
+  aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
   partialAggregation = F,
   cleanMissings = T,
   fullNames = F
