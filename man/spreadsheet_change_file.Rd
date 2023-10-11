@@ -4,7 +4,7 @@
 \alias{spreadsheet_change_file}
 \title{Change the file of a moniker}
 \usage{
-spreadsheet_change_file(id, nfile, o = NULL)
+spreadsheet_change_file(id, nfile, ofile = NULL)
 }
 \arguments{
 \item{id}{Identifier of the series (from its moniker)}
