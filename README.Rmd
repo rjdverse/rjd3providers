@@ -1,0 +1,85 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# rjd3providers
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+## Overview
+
+rjd3providers provides tools to explore the default time series providers (.xslx, .csv, .txt and .xml files). With this package you can now manipulate raw series files. For example, using this R package, you will be able to:
+
+- change the **path** of the raw data
+- change the file **type**
+- manipulate **monikers**
+- change file **read properties**
+
+
+## Installation
+
+To get the current stable version (from the latest release):
+
+``` {r installation-release, echo = TRUE, eval = FALSE}
+# install.packages("remotes")
+remotes::install_github("rjdemetra/rjd3toolkit@*release")
+remotes::install_github("rjdemetra/rjd3providers@*release")
+```
+
+To get the current development version from GitHub:
+
+``` {r installation-devel, echo = TRUE, eval = FALSE}
+# install.packages("remotes")
+remotes::install_github("rjdemetra/rjd3providers")
+```
+
+
+## Usage
+
+rjd3providers relies on the [rJava](https://cran.r-project.org/web/packages/rJava/index.html) package and Java SE 17 or later version is required.
+
+### Generate all the TS information 
+
+``` {r generate_info, echo = TRUE, eval = TRUE}
+library("rjd3providers")
+
+xlsx_file <- paste0(system.file("examples", package="rjd3providers"), "/Insee.xlsx")
+spreadsheet_content(xlsx_file)
+
+ts1 <- spreadsheet_series(file = xlsx_file, sheet = 1L, series = 3)
+str(ts1)
+
+all_ts <- spreadsheet_data(file = xlsx_file, sheet = 2L)
+```
+
+### Change path of an SA-ITEM
+
+``` {r change_path, echo = TRUE, eval = FALSE}
+# install.packages("remotes")
+# remotes::install_github("rjdemetra/rjdemetra3")
+
+new_jd3_ts <- spreadsheet_series(file = xlsx_file, sheet = 1L, series = 3)
+rjdemetra3::set_ts(jsap1, 2, new_jd3_ts)
+
+# open an existing WS
+ws <- rjdemetra3::.jws_open(file = some_ws_path)
+# open an existing SAP
+jsap <- rjdemetra3::.jws_sap(ws, idx = 1L)
+
+# Change the TS object with the new moniker
+rjdemetra3::set_ts(jsap = jsap, idx = 1, y = ts1)
+
+rjdemetra3::save_workspace(jws = ws_path, file = "./ws/ws_path_v3.xml", replace = TRUE)
+```
