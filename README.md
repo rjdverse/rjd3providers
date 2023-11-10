@@ -8,7 +8,7 @@
 
 ## Overview
 
-rjd3providers provides tools to explore the default time series
+rjd3providers provides tools to explore default time series
 providers (.xslx, .csv, .txt and .xml files). With this package you can
 now manipulate raw series files. For example, using this R package, you
 will be able to:
