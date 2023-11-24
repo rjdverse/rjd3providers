@@ -4,21 +4,15 @@
 \alias{xml_data}
 \title{Title}
 \usage{
-xml_data(file, collection = 1, charset = NULL, fullNames = F)
+xml_data(file, collection = 1, charset = NULL, fullNames = FALSE)
 }
 \arguments{
-\item{file}{}
-
-\item{collection}{}
-
-\item{charset}{}
-
 \item{fullNames}{}
 }
 \description{
 Title
 }
 \examples{
-set_xml_paths(system.file("examples", package="rjd3providers"))
-xml_all<-xml_data("prod.xml", 1, charset = "iso-8859-1")
+set_xml_paths(system.file("examples", package = "rjd3providers"))
+xml_all <- xml_data("prod.xml", 1, charset = "iso-8859-1")
 }

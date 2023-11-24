@@ -10,26 +10,12 @@ spreadsheet_series(
   series = 1,
   period = 0,
   aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
-  partialAggregation = F,
-  cleanMissings = T,
-  fullName = T
+  partialAggregation = FALSE,
+  cleanMissings = TRUE,
+  fullName = TRUE
 )
 }
 \arguments{
-\item{file}{}
-
-\item{sheet}{}
-
-\item{series}{}
-
-\item{period}{}
-
-\item{aggregation}{}
-
-\item{partialAggregation}{}
-
-\item{cleanMissings}{}
-
 \item{fullName}{}
 }
 \description{

@@ -9,51 +9,25 @@ txt_data(
   fmt.locale = NULL,
   fmt.date = NULL,
   fmt.number = NULL,
-  fmt.ignoreNumberGrouping = T,
+  fmt.ignoreNumberGrouping = TRUE,
   gathering.period = 0,
   gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
-  gathering.partialAggregation = F,
-  gathering.includeMissing = T,
+  gathering.partialAggregation = FALSE,
+  gathering.includeMissing = TRUE,
   charset = NULL,
   delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
   txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
-  header = T,
+  header = TRUE,
   skip = 0
 )
 }
 \arguments{
-\item{file}{}
-
-\item{fmt.locale}{}
-
-\item{fmt.date}{}
-
-\item{fmt.number}{}
-
-\item{fmt.ignoreNumberGrouping}{}
-
-\item{gathering.period}{}
-
-\item{gathering.aggregation}{}
-
-\item{gathering.partialAggregation}{}
-
-\item{gathering.includeMissing}{}
-
-\item{charset}{}
-
-\item{delimiter}{}
-
-\item{txtQualifier}{}
-
-\item{header}{}
-
 \item{skip}{}
 }
 \description{
 Title
 }
 \examples{
-set_txt_paths(system.file("examples", package="rjd3providers"))
-all<-txt_data("abs.csv", delimiter = 'COMMA')
+set_txt_paths(system.file("examples", package = "rjd3providers"))
+all <- txt_data("abs.csv", delimiter = "COMMA")
 }
