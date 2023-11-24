@@ -13,5 +13,5 @@ set_xml_paths(paths)
 Set the paths of the provider
 }
 \examples{
-set_xml_paths(system.file("examples", package="rjd3providers"))
+set_xml_paths(system.file("examples", package = "rjd3providers"))
 }

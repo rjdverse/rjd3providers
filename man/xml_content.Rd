@@ -13,6 +13,6 @@ xml_content(file, charset = NULL)
 Title
 }
 \examples{
-set_xml_paths(system.file("examples", package="rjd3providers"))
+set_xml_paths(system.file("examples", package = "rjd3providers"))
 xml_content("prod.xml")
 }
