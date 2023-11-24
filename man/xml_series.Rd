@@ -4,23 +4,15 @@
 \alias{xml_series}
 \title{Title}
 \usage{
-xml_series(file, collection = 1, series = 1, charset = NULL, fullName = T)
+xml_series(file, collection = 1, series = 1, charset = NULL, fullName = TRUE)
 }
 \arguments{
-\item{file}{}
-
-\item{collection}{}
-
-\item{series}{}
-
-\item{charset}{}
-
 \item{fullName}{}
 }
 \description{
 Title
 }
 \examples{
-set_xml_paths(system.file("examples", package="rjd3providers"))
-xml_1_5<-xml_series("prod.xml", 1, 5, charset = "iso-8859-1")
+set_xml_paths(system.file("examples", package = "rjd3providers"))
+xml_1_5 <- xml_series("prod.xml", 1, 5, charset = "iso-8859-1")
 }

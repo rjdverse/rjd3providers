@@ -9,24 +9,12 @@ spreadsheet_data(
   sheet = 1,
   period = 0,
   aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
-  partialAggregation = F,
-  cleanMissings = T,
-  fullNames = F
+  partialAggregation = FALSE,
+  cleanMissings = TRUE,
+  fullNames = FALSE
 )
 }
 \arguments{
-\item{file}{}
-
-\item{sheet}{}
-
-\item{period}{}
-
-\item{aggregation}{}
-
-\item{partialAggregation}{}
-
-\item{cleanMissings}{}
-
 \item{fullNames}{}
 }
 \description{
