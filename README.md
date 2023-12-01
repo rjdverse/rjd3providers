@@ -37,7 +37,7 @@ remotes::install_github("rjdemetra/rjd3providers")
 
 ## Usage
 
-rjd3providers relies on the
+rjd3providers relies on
 [rJava](https://cran.r-project.org/web/packages/rJava/index.html)
 package and Java SE 17 or later version is required.
 
