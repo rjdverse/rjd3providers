@@ -1,7 +1,6 @@
 #' @include providers.R
 NULL
 
-
 .spreadsheet_source <- function(file, period = 0, aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"), partialAggregation = FALSE, includeMissing = FALSE) {
     aggregation <- match.arg(aggregation)
     jgathering <- .obs_gathering(period, aggregation, partialAggregation, includeMissing)
