@@ -8,7 +8,7 @@
 
 ## Overview
 
-rjd3providers provides tools to explore default time series
+rjd3providers provides tools to explore the default time series
 providers (.xslx, .csv, .txt and .xml files). With this package you can
 now manipulate raw series files. For example, using this R package, you
 will be able to:
@@ -37,7 +37,7 @@ remotes::install_github("rjdemetra/rjd3providers")
 
 ## Usage
 
-rjd3providers relies on
+rjd3providers relies on the
 [rJava](https://cran.r-project.org/web/packages/rJava/index.html)
 package and Java SE 17 or later version is required.
 
@@ -46,7 +46,7 @@ package and Java SE 17 or later version is required.
 ``` r
 library("rjd3providers")
 
-xlsx_file <- paste0(system.file("examples", package="rjd3providers"), "/Insee.xlsx")
+xlsx_file <- paste0(system.file("examples", package = "rjd3providers"), "/Insee.xlsx")
 spreadsheet_content(xlsx_file)
 #> $`FRANCE Textile`
 #> [1] "Textiles, industries de l'habillement, industrie du cuir et de la chaussure 001562874"
