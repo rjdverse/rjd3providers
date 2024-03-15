@@ -1,16 +1,16 @@
 Package: rjd3providers
 Type: Package
 Title: Interface to 'JDemetra+ 3.0' Seasonal Adjustment Software
-Version: 3.2.1
+Version: 3.2.2
 Authors@R: c(
   person("Jean", "Palate", role = c("aut", "cre"),
                 email = "jean.palate@nbb.be"))
-Description: Interface around 'JDemetra+ 3.x' sa-toolkit (<https://github.com/jdemetra/jdemetra-core>), STACE project 
+Description: Interface around 'JDemetra+ 3.x' (<https://github.com/jdemetra/jdemetra-core>), STACE project. It offers full acces to txt, csv, xml and spreadsheets files.
 Depends:
   R (>= 3.6.0)
 Imports:
   rJava (>= 1.0-6),
-  rjd3toolkit (>= 3.2.1),
+  rjd3toolkit (>= 3.2.2),
 Remotes:
   github::rjdemetra/rjd3toolkit
 SystemRequirements: Java JRE 17 or higher

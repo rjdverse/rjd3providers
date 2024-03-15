@@ -20,3 +20,7 @@ spreadsheet_data(
 \description{
 Title
 }
+\examples{
+set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
+xls_all <- spreadsheet_data("insee.xlsx", 1)
+}
