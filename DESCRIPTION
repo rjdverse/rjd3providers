@@ -15,13 +15,13 @@ Remotes:
   github::rjdemetra/rjd3toolkit
 SystemRequirements: Java JRE 17 or higher
 License: EUPL
-URL: https://github.com/jdemetra/rjd3stl, https://rjdemetra.github.io/rjd3providers/
+URL: https://github.com/jdemetra/rjd3providers, https://rjdemetra.github.io/rjd3providers/
 LazyData: TRUE
 Suggests:
     knitr,
     rmarkdown
 RoxygenNote: 7.2.3
-BugReports: https://github.com/jdemetra/rjdemetra3/issues
+BugReports: https://github.com/jdemetra/rjd3providers/issues
 Encoding: UTF-8
 Collate: 
     'providers.R'
