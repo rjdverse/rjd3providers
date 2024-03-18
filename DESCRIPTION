@@ -15,7 +15,7 @@ Remotes:
   github::rjdemetra/rjd3toolkit
 SystemRequirements: Java JRE 17 or higher
 License: EUPL
-URL: https://github.com/jdemetra/rjd3stl
+URL: https://github.com/jdemetra/rjd3stl, https://rjdemetra.github.io/rjd3providers/
 LazyData: TRUE
 Suggests:
     knitr,
