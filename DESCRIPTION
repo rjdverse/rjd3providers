@@ -13,7 +13,7 @@ Imports:
   rjd3toolkit (>= 3.2.2)
 Remotes:
   github::rjdemetra/rjd3toolkit
-SystemRequirements: Java JRE 17 or higher
+SystemRequirements: Java (>= 17)
 License: EUPL
 URL: https://github.com/jdemetra/rjd3providers, https://rjdemetra.github.io/rjd3providers/
 LazyData: TRUE
