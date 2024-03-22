@@ -20,5 +20,6 @@ PackageUseDevtools: Yes
 PackageInstallArgs: --no-multiarch --with-keep.source
 PackageBuildBinaryArgs: --no-multiarch
 PackageCheckArgs: --no-multiarch
+PackageRoxygenize: rd,collate,namespace,vignette
 
 UseNativePipeOperator: Yes

@@ -28,4 +28,5 @@ Collate:
     'jd3spreadsheet.R'
     'jd3txt.R'
     'jd3xml.R'
+    'update_path.R'
     'zzz.R'
