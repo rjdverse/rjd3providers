@@ -10,17 +10,17 @@ Depends:
   R (>= 3.6.0)
 Imports:
   rJava (>= 1.0-6),
-  rjd3toolkit (>= 3.2.2),
+  rjd3toolkit (>= 3.2.2)
 Remotes:
   github::rjdemetra/rjd3toolkit
-SystemRequirements: Java JRE 17 or higher
+SystemRequirements: Java (>= 17)
 License: EUPL
 URL: https://github.com/jdemetra/rjd3providers, https://rjdemetra.github.io/rjd3providers/
 LazyData: TRUE
 Suggests:
     knitr,
     rmarkdown
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 BugReports: https://github.com/jdemetra/rjd3providers/issues
 Encoding: UTF-8
 Collate: 
@@ -28,4 +28,5 @@ Collate:
     'jd3spreadsheet.R'
     'jd3txt.R'
     'jd3xml.R'
+    'update_path.R'
     'zzz.R'

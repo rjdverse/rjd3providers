@@ -6,10 +6,10 @@ output: github_document
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+    collapse = TRUE,
+    comment = "#>",
+    fig.path = "man/figures/README-",
+    out.width = "100%"
 )
 ```
 
@@ -55,7 +55,7 @@ rjd3providers relies on the [rJava](https://cran.r-project.org/web/packages/rJav
 ``` {r generate_info, echo = TRUE, eval = TRUE}
 library("rjd3providers")
 
-xlsx_file <- paste0(system.file("examples", package="rjd3providers"), "/Insee.xlsx")
+xlsx_file <- paste0(system.file("examples", package = "rjd3providers"), "/Insee.xlsx")
 spreadsheet_content(xlsx_file)
 
 ts1 <- spreadsheet_series(file = xlsx_file, sheet = 1L, series = 3)
@@ -83,3 +83,12 @@ rjdemetra3::set_ts(jsap = jsap, idx = 1, y = ts1)
 
 rjdemetra3::save_workspace(jws = ws_path, file = "./ws/ws_path_v3.xml", replace = TRUE)
 ```
+
+
+## Contributing
+
+Any contribution is welcome and should be done through pull requests and/or issues.
+
+## Licensing
+
+The code of this project is licensed under the [European Union Public Licence (EUPL)](https://joinup.ec.europa.eu/page/eupl-text-11-12).
