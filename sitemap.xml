@@ -4,10 +4,19 @@
     <loc>https://rjdemetra.github.io/rjd3providers/404.html</loc>
   </url>
   <url>
+    <loc>https://rjdemetra.github.io/rjd3providers/LICENSE-text.html</loc>
+  </url>
+  <url>
     <loc>https://rjdemetra.github.io/rjd3providers/authors.html</loc>
   </url>
   <url>
     <loc>https://rjdemetra.github.io/rjd3providers/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rjdemetra.github.io/rjd3providers/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rjdemetra.github.io/rjd3providers/reference/check_information.html</loc>
   </url>
   <url>
     <loc>https://rjdemetra.github.io/rjd3providers/reference/dot-spreadsheet_moniker.html</loc>
@@ -46,6 +55,9 @@
     <loc>https://rjdemetra.github.io/rjd3providers/reference/spreadsheet_to_id.html</loc>
   </url>
   <url>
+    <loc>https://rjdemetra.github.io/rjd3providers/reference/spreadsheet_update_path.html</loc>
+  </url>
+  <url>
     <loc>https://rjdemetra.github.io/rjd3providers/reference/txt_change_file.html</loc>
   </url>
   <url>
@@ -65,6 +77,9 @@
   </url>
   <url>
     <loc>https://rjdemetra.github.io/rjd3providers/reference/txt_to_id.html</loc>
+  </url>
+  <url>
+    <loc>https://rjdemetra.github.io/rjd3providers/reference/txt_update_path.html</loc>
   </url>
   <url>
     <loc>https://rjdemetra.github.io/rjd3providers/reference/xml_change_file.html</loc>
