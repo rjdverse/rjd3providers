@@ -19,14 +19,14 @@
 #'
 #' @examples
 #'
-#' library("rjdemetra3")
-#' ws <- rjdemetra3::.jws_open(file = "ws_production.xml")
-#'
-#' # Check if the SA-Item n°3 in the SA-Processing n°1 exist
-#' check_information(jws = ws, idx_sap = 1, idx_sai = 3)
-#'
-#' # Check if the SA-Items 1, 2 and 5 in the SA-Processing n°1 exist
-#' check_information(jws = ws, idx_sap = 1, idx_sai = c(1, 2, 5))
+#' # library("rjdemetra3")
+#' # ws <- rjdemetra3::.jws_open(file = "ws_production.xml")
+#' #
+#' # # Check if the SA-Item n°3 in the SA-Processing n°1 exist
+#' # check_information(jws = ws, idx_sap = 1, idx_sai = 3)
+#' #
+#' # # Check if the SA-Items 1, 2 and 5 in the SA-Processing n°1 exist
+#' # check_information(jws = ws, idx_sap = 1, idx_sai = c(1, 2, 5))
 #'
 check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 
@@ -62,15 +62,15 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 #'
 #' @examples
 #'
-#' library("rjdemetra3")
-#' ws <- rjdemetra3::.jws_open(file = "ws_production.xml")
-#'
-#' # Update all the second SA-Processing with a new path
-#' spreadsheet_update_path(
-#'     jws = jws_object,
-#'     new_path = normalizePath("./data/IPI_nace4.xlsx", mustWork = TRUE),
-#'     idx_sap = 2L
-#' )
+#' # library("rjdemetra3")
+#' # ws <- rjdemetra3::.jws_open(file = "ws_production.xml")
+#' #
+#' # # Update all the second SA-Processing with a new path
+#' # spreadsheet_update_path(
+#' #     jws = jws_object,
+#' #     new_path = normalizePath("./data/IPI_nace4.xlsx", mustWork = TRUE),
+#' #     idx_sap = 2L
+#' # )
 #'
 spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
 
@@ -123,15 +123,15 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
 #'
 #' @examples
 #'
-#' library("rjdemetra3")
-#' ws <- rjdemetra3::.jws_open(file = "ws_production.xml")
-#'
-#' # Update all the second SA-Processing with a new path
-#' spreadsheet_update_path(
-#'     jws = jws_object,
-#'     new_path = normalizePath("./data/IPI_nace4.csv", mustWork = TRUE),
-#'     idx_sap = 1L
-#' )
+#' # library("rjdemetra3")
+#' # ws <- rjdemetra3::.jws_open(file = "ws_production.xml")
+#' #
+#' # # Update all the second SA-Processing with a new path
+#' # spreadsheet_update_path(
+#' #     jws = jws_object,
+#' #     new_path = normalizePath("./data/IPI_nace4.csv", mustWork = TRUE),
+#' #     idx_sap = 1L
+#' # )
 #'
 txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
 
