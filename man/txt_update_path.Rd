@@ -24,14 +24,14 @@ Update the path of a txt/csv file in a workspace
 }
 \examples{
 
-library("rjdemetra3")
-ws <- rjdemetra3::.jws_open(file = "ws_production.xml")
-
-# Update all the second SA-Processing with a new path
-spreadsheet_update_path(
-    jws = jws_object,
-    new_path = normalizePath("./data/IPI_nace4.csv", mustWork = TRUE),
-    idx_sap = 1L
-)
+# library("rjdemetra3")
+# ws <- rjdemetra3::.jws_open(file = "ws_production.xml")
+#
+# # Update all the second SA-Processing with a new path
+# spreadsheet_update_path(
+#     jws = jws_object,
+#     new_path = normalizePath("./data/IPI_nace4.csv", mustWork = TRUE),
+#     idx_sap = 1L
+# )
 
 }
