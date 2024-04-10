@@ -16,7 +16,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [3.2.2] - 2024-03-15
 
-### Changes
+### Changed
 
 * Merge pull request #17 from rjdemetra/develop
 * v3.2.2
@@ -31,7 +31,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [3.2.0] - 2023-11-24
 
-### Changes
+### Changed
 
 * Merge pull request #11 from rjdemetra/develop
 * v3.2.0
@@ -39,7 +39,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [3.1.0] - 2023-10-11
 
-### Changes
+### Changed
 
 * Merge pull request #5 from rjdemetra/develop
 * v3.1.0
