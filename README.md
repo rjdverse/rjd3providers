@@ -9,9 +9,9 @@
 ## Overview
 
 rjd3providers provides tools to explore the default time series
-providers (.xslx, .csv, .txt and .xml files). With this package you can
-now manipulate raw series files. For example, using this R package, you
-will be able to:
+providers (.xslx, .csv, .txt and .xml files) for JDemetra+ v3.x
+Graphical User Interface. It allows to manipulate raw series files. For
+example, using this R package, you will be able to:
 
 - change the **path** of the raw data
 - change the file **type**
@@ -20,26 +20,30 @@ will be able to:
 
 ## Installation
 
+rjd3providers relies on the
+[rJava](https://cran.r-project.org/web/packages/rJava/index.html)
+package.
+
+Running rjd3 packages requires **Java 17 or higher**. How to set up such
+a configuration in R is explained
+[here](https://jdemetra-new-documentation.netlify.app/#Rconfig)
+
 To get the current stable version (from the latest release):
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("rjdemetra/rjd3toolkit@*release")
-remotes::install_github("rjdemetra/rjd3providers@*release")
+remotes::install_github("rjdverse/rjd3toolkit@*release")
+remotes::install_github("rjdverse/rjd3providers@*release")
 ```
 
 To get the current development version from GitHub:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("rjdemetra/rjd3providers")
+remotes::install_github("rjdverse/rjd3providers")
 ```
 
 ## Usage
-
-rjd3providers relies on the
-[rJava](https://cran.r-project.org/web/packages/rJava/index.html)
-package and Java SE 17 or later version is required.
 
 ### Generate all the TS information
 
@@ -112,7 +116,7 @@ str(ts1)
 #>  $ name    : chr "FRANCE Textile\nPréparation de fibres textiles et filature 001563401"
 #>  $ moniker :List of 2
 #>   ..$ source: chr "XCLPRVDR"
-#>   ..$ id    : chr "demetra://tsprovider/XCLPRVDR/20111201/SERIES?cleanMissing=false&file=C%3A%5CUsers%5CUTZK0M%5CAppData%5CLocal%5"| __truncated__
+#>   ..$ id    : chr "demetra://tsprovider/XCLPRVDR/20111201/SERIES?cleanMissing=false&file=C%3A%5CSoftware%5CR%5CR-4.4.0%5Clibrary%5"| __truncated__
 #>   ..- attr(*, "class")= chr "JD3_TSMONIKER"
 #>  $ metadata:List of 3
 #>   ..$ series.name     : chr "Préparation de fibres textiles et filature 001563401"
@@ -129,27 +133,28 @@ all_ts <- spreadsheet_data(file = xlsx_file, sheet = 2L)
 
 ``` r
 # install.packages("remotes")
-# remotes::install_github("rjdemetra/rjdemetra3")
+# remotes::install_github("rjdverse/rjd3workspace")
 
 new_jd3_ts <- spreadsheet_series(file = xlsx_file, sheet = 1L, series = 3)
-rjdemetra3::set_ts(jsap1, 2, new_jd3_ts)
+rjd3workspace::set_ts(jsap1, 2, new_jd3_ts)
 
 # open an existing WS
-ws <- rjdemetra3::.jws_open(file = some_ws_path)
+ws <- rjd3workspace::.jws_open(file = some_ws_path)
 # open an existing SAP
-jsap <- rjdemetra3::.jws_sap(ws, idx = 1L)
+jsap <- rjd3workspace::.jws_sap(ws, idx = 1L)
 
 # Change the TS object with the new moniker
-rjdemetra3::set_ts(jsap = jsap, idx = 1, y = ts1)
+rjd3workspace::set_ts(jsap = jsap, idx = 1, y = ts1)
 
-rjdemetra3::save_workspace(jws = ws_path, file = "./ws/ws_path_v3.xml", replace = TRUE)
+rjd3workspace::save_workspace(jws = ws_path, file = "./ws/ws_path_v3.xml", replace = TRUE)
 ```
-
 
 ## Contributing
 
-Any contribution is welcome and should be done through pull requests and/or issues.
+Any contribution is welcome and should be done through pull requests
+and/or issues.
 
 ## Licensing
 
-The code of this project is licensed under the [European Union Public Licence (EUPL)](https://joinup.ec.europa.eu/page/eupl-text-11-12).
+The code of this project is licensed under the [European Union Public
+Licence (EUPL)](https://joinup.ec.europa.eu/page/eupl-text-11-12).
