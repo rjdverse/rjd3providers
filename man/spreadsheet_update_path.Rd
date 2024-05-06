@@ -27,8 +27,8 @@ The spreadsheet file must be a .xlsx file. .xls file are no longer accepted.
 }
 \examples{
 
-# library("rjdemetra3")
-# ws <- rjdemetra3::.jws_open(file = "ws_production.xml")
+# library("rjd3workspace")
+# ws <- rjd3workspace::.jws_open(file = "ws_production.xml")
 #
 # # Update all the second SA-Processing with a new path
 # spreadsheet_update_path(

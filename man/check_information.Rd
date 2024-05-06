@@ -29,8 +29,8 @@ If the object idx_sap and / or idx_sai have a length > 1 then the checks are ite
 }
 \examples{
 
-# library("rjdemetra3")
-# ws <- rjdemetra3::.jws_open(file = "ws_production.xml")
+# library("rjd3workspace")
+# ws <- rjd3workspace::.jws_open(file = "ws_production.xml")
 #
 # # Check if the SA-Item n°3 in the SA-Processing n°1 exist
 # check_information(jws = ws, idx_sap = 1, idx_sai = 3)

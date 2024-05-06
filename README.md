@@ -20,19 +20,23 @@ will be able to:
 
 ## Installation
 
+Running rjd3 packages requires Java 17 or higher. How to set up such a
+configuration in R is explained
+[here](https://jdemetra-new-documentation.netlify.app/#installing-the-software).
+
 To get the current stable version (from the latest release):
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("rjdemetra/rjd3toolkit@*release")
-remotes::install_github("rjdemetra/rjd3providers@*release")
+remotes::install_github("rjdverse/rjd3toolkit@*release")
+remotes::install_github("rjdverse/rjd3providers@*release")
 ```
 
 To get the current development version from GitHub:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("rjdemetra/rjd3providers")
+remotes::install_github("rjdverse/rjd3providers")
 ```
 
 ## Usage
@@ -129,20 +133,20 @@ all_ts <- spreadsheet_data(file = xlsx_file, sheet = 2L)
 
 ``` r
 # install.packages("remotes")
-# remotes::install_github("rjdemetra/rjdemetra3")
+# remotes::install_github("rjdverse/rjd3workspace")
 
 new_jd3_ts <- spreadsheet_series(file = xlsx_file, sheet = 1L, series = 3)
-rjdemetra3::set_ts(jsap1, 2, new_jd3_ts)
+rjd3workspace::set_ts(jsap1, 2, new_jd3_ts)
 
 # open an existing WS
-ws <- rjdemetra3::.jws_open(file = some_ws_path)
+ws <- rjd3workspace::.jws_open(file = some_ws_path)
 # open an existing SAP
-jsap <- rjdemetra3::.jws_sap(ws, idx = 1L)
+jsap <- rjd3workspace::.jws_sap(ws, idx = 1L)
 
 # Change the TS object with the new moniker
-rjdemetra3::set_ts(jsap = jsap, idx = 1, y = ts1)
+rjd3workspace::set_ts(jsap = jsap, idx = 1, y = ts1)
 
-rjdemetra3::save_workspace(jws = ws_path, file = "./ws/ws_path_v3.xml", replace = TRUE)
+rjd3workspace::save_workspace(jws = ws_path, file = "./ws/ws_path_v3.xml", replace = TRUE)
 ```
 
 ## Package Maintenance and contributing
@@ -155,4 +159,5 @@ should be added or updated.
 ## Licensing
 
 The code of this project is licensed under the [European Union Public
-Licence (EUPL)](https://joinup.ec.europa.eu/page/eupl-text-11-12).
+Licence
+(EUPL)](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12).
