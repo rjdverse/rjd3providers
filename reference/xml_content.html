@@ -64,8 +64,136 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="set_xml_paths.html">set_xml_paths</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, package <span class="op">=</span> <span class="st">"rjd3providers"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">xml_content</span><span class="op">(</span><span class="st">"prod.xml"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall("jdplus/text/base/r/XmlFiles", "[S", "sheets", jsource):</span> java.io.FileNotFoundException: Relative file 'prod.xml' outside paths</span>
+<span class="r-in"><span><span class="fu">xml_content</span><span class="op">(</span><span class="st">"Prod.xml"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $`industrial production`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "Industries manufacturières"                                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [2] "Industries alimentaires et fabrication de boissons"                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [3] "Industrie du tabac"                                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [4] "Industrie textile"                                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [5] "Fabrication d'articles d'habillement, confection d'ouvrages divers en tissu, fabrication de chaussures"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [6] "Industrie du bois et industries connexes"                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [7] "Industrie du papier et du carton"                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [8] "Industrie du cuir"                                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [9] "Industrie chimique et industrie du caoutchouc"                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "Industrie chimique"                                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [11] "Industrie du caoutchouc"                                                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [12] "Industrie des dérivés du pétrole et du charbon"                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [13] "Industrie des produits minéraux non métalliques"                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [14] "Industrie métallurgique de base"                                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [15] "Sidérurgie"                                                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [16] "Industrie des métaux non ferreux"                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [17] "Industrie des fabrications métalliques"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [18] "Fabrication d'ouvrages en métaux à l'exclusion des machines et du matériel de transport"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "Construction de machines, à l'exclusion des machines électriques"                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [20] "Construction électrique"                                                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [21] "Construction de matériel de transport"                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [22] "Appareils de mesure de laboratoire, etc..."                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [23] "Production d'électricité"                                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [24] "Distribution d'eau"                                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [25] "Industries alimentaires et fabrication de boissons"                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [26] "Industries alimentaires"                                                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [27] "Confitures et produits connexes"                                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "Meuneries"                                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [29] "Sucre"                                                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [30] "Huiles végétales et animales"                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] "Margarine"                                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [32] "Fabrication de boissons"                                                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [33] "Brasseries"                                                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [34] "Distilleries d'alcool"                                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [35] "Industrie du tabac"                                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [36] "Industrie textile: filature et tissage"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "Filature"                                                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] "Coton fin"                                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [39] "Cocons"                                                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [40] "Laine cardée"                                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [41] "Laine peignée"                                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [42] "Lin et chanvre"                                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] "Jute"                                                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [44] "Industrie textile: filature et tissage"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [45] "Tissage"                                                                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "Tissus de coton"                                                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [47] "Tissus de lin"                                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [48] "Tissus de laine"                                                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [49] "Tissus de fibres chimiques"                                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [50] "Tissus de jute"                                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [51] "Bonneterie"                                                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [52] "Filatures et corderies de fibres dures"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [53] "Fabrication d'articles non dénommés ailleurs"                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [54] "Fabrication d'articles d'habillement, confection d'ouvrages divers en tissu, fabrication de chaussures"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "Articles d'habillement"                                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [56] "Autres ouvrages en tissu"                                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [57] "Chaussures et pantoufles"                                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [58] "Industrie du cuir"                                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [59] "Cuirs lourds"                                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [60] "Cuirs légers"                                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] "Industrie du bois et industries connexes"                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [62] "Industrie du papier et du carton"                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [63] "Production"                                                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "Transformation"                                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [65] "Industrie chimique et industrie du caoutchouc"                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [66] "Industrie chimique"                                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [67] "Chimie de base"                                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [68] "Transformation des matières plastiques"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [69] "Savon"                                                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [70] "Azote"                                                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [71] "Industrie du caoutchouc"                                                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [72] "Industrie des dérivés du pétrole et du charbon"                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "Raffineries de pétrole"                                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [74] "Agglomérés de houille"                                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] "Industrie des produits minéraux non métalliques"                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [76] "Terre cuite"                                                                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [77] "Verre"                                                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [78] "Verre plat"                                                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [79] "Verre creux"                                                                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [80] "Ciment"                                                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [81] "Produits céramiques"                                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "Chaux, dolomie, plâtre, aggloméré plâtre, etc..."                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [83] "Industrie métallurgique de base"                                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [84] "Sidérurgie"                                                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] "Fonte"                                                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [86] "Acier brut"                                                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [87] "Produits finis"                                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [88] "Aciéries de moulage, fonderies, tréfileries, étirage et laminage"                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [89] "Aciéries de moulages"                                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [90] "Fonderies de fer"                                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "Tréfileries, étirage, laminage"                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [92] "Industrie métallurgique de base"                                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [93] "Industrie des métaux non ferreux"                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [94] "Produits bruts"                                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [95] "Cuivre"                                                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [96] "Zinc"                                                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [97] "Plomb"                                                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [98] "Etain"                                                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [99] "Demi-produits"                                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "Cokeries dépendant de l'industrie métallurgique"                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [101] "Industrie des fabrications métalliques"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [102] "Fabrication d'ouvrages en métaux à l'exclusion des machines et du matériel de transport"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [103] "Forge, estampage, gros emboutissage"                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [104] "Travail de la tôle, etc..."                                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [105] "Accessoires métalliques du bâtiment"                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [106] "Ponts, charpentes, etc..."                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [107] "Armes et munitions"                                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [108] "Industrie des fabrications métalliques"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "Construction de machines, à l'exclusion des machines électriques"                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [110] "Machines motrices, etc..."                                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [111] "Machines-outils, etc..."                                                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] "Constructions mécaniques"                                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [113] "Appareils de levage, pesage, etc..."                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [114] "Appareils pour diverses industries"                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [115] "Machines textiles et accessoires"                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [116] "Industrie des fabrications métalliques"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [117] "Construction électrique"                                                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "Machines rotatives et statiques"                                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [119] "Appareils industriels et électro-domestiques"                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [120] "Autres produits"                                                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [121] "Industrie des fabrications métalliques"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [122] "Construction de matériel de transport"                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [123] "Construction navale"                                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [124] "Automobiles, cycles, etc..."                                                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [125] "Matériel de chemin de fer et tramways"                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [126] "Industrie aéronautique"                                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "Appareils de mesure de laboratoire, etc..."                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

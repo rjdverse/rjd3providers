@@ -64,10 +64,20 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="set_xml_paths.html">set_xml_paths</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, package <span class="op">=</span> <span class="st">"rjd3providers"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">xml_1_5</span> <span class="op">&lt;-</span> <span class="fu"><a href="xml_series.html">xml_series</a></span><span class="op">(</span><span class="st">"prod.xml"</span>, <span class="fl">1</span>, <span class="fl">5</span>, charset <span class="op">=</span> <span class="st">"iso-8859-1"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/api/timeseries/Ts;",     "series", jsource, as.integer(collection), as.integer(series),     fullName):</span> java.io.FileNotFoundException: Relative file 'prod.xml' outside paths</span>
+<span class="r-in"><span><span class="va">xml_1_5</span> <span class="op">&lt;-</span> <span class="fu"><a href="xml_series.html">xml_series</a></span><span class="op">(</span><span class="st">"Prod.xml"</span>, <span class="fl">1</span>, <span class="fl">5</span>, charset <span class="op">=</span> <span class="st">"iso-8859-1"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">xml_id_properties</span><span class="op">(</span><span class="va">xml_1_5</span><span class="op">$</span><span class="va">moniker</span><span class="op">$</span><span class="va">id</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'xml_1_5' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $file</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Prod.xml"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $charset</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ISO-8859-1"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $collection</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $series</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
