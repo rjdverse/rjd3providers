@@ -14,5 +14,5 @@ Title
 }
 \examples{
 set_xml_paths(system.file("examples", package = "rjd3providers"))
-xml_content("prod.xml")
+xml_content("Prod.xml")
 }

@@ -149,12 +149,15 @@ rjd3workspace::set_ts(jsap = jsap, idx = 1, y = ts1)
 rjd3workspace::save_workspace(jws = ws_path, file = "./ws/ws_path_v3.xml", replace = TRUE)
 ```
 
-## Contributing
+## Package Maintenance and contributing
 
 Any contribution is welcome and should be done through pull requests
-and/or issues.
+and/or issues. pull requests should include **updated tests** and
+**updated documentation**. If functionality is changed, docstrings
+should be added or updated.
+
 
 ## Licensing
 
-The code of this project is licensed under the [European Union Public
-Licence (EUPL)](https://joinup.ec.europa.eu/page/eupl-text-11-12).
+The code of this project is licensed under the [European Union Public Licence (EUPL)](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12).
+

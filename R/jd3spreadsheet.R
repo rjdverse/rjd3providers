@@ -79,7 +79,7 @@ spreadsheet_name <- function() {
 #'
 #' @examples
 #' set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
-#' xls_all <- spreadsheet_data("insee.xlsx", 1)
+#' xls_all <- spreadsheet_data("Insee.xlsx", 1)
 spreadsheet_data <- function(file, sheet = 1, period = 0, aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"), partialAggregation = FALSE, cleanMissings = TRUE, fullNames = FALSE) {
     jsource <- .spreadsheet_source(file, period, aggregation, partialAggregation, cleanMissings)
     jcoll <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "Ljdplus/toolkit/base/api/timeseries/TsCollection;", "collection", jsource, as.integer(sheet), fullNames)
