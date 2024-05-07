@@ -123,7 +123,7 @@ set_txt_paths <- function(paths) {
 #'
 #' @examples
 #' set_txt_paths(system.file("examples", package = "rjd3providers"))
-#' txt_all <- txt_content("abs.csv", delimiter = "COMMA")
+#' txt_all <- txt_content("ABS.csv", delimiter = "COMMA")
 txt_content <- function(file, fmt.locale = NULL, fmt.date = NULL, fmt.number = NULL, fmt.ignoreNumberGrouping = TRUE,
                         gathering.period = 0, gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"), gathering.partialAggregation = FALSE, gathering.includeMissing = TRUE,
                         charset = NULL, delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"), txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"), header = TRUE, skip = 0) {
@@ -158,7 +158,7 @@ txt_content <- function(file, fmt.locale = NULL, fmt.date = NULL, fmt.number = N
 #'
 #' @examples
 #' set_txt_paths(system.file("examples", package = "rjd3providers"))
-#' all <- txt_data("abs.csv", delimiter = "COMMA")
+#' all <- txt_data("ABS.csv", delimiter = "COMMA")
 txt_data <- function(file, fmt.locale = NULL, fmt.date = NULL, fmt.number = NULL, fmt.ignoreNumberGrouping = TRUE,
                      gathering.period = 0, gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"), gathering.partialAggregation = FALSE, gathering.includeMissing = TRUE,
                      charset = NULL, delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"), txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"), header = TRUE, skip = 0) {
@@ -194,7 +194,7 @@ txt_data <- function(file, fmt.locale = NULL, fmt.date = NULL, fmt.number = NULL
 #'
 #' @examples
 #' set_txt_paths(system.file("examples", package = "rjd3providers"))
-#' txt_5 <- txt_series("abs.csv", series = 15, delimiter = "COMMA")
+#' txt_5 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 txt_series <- function(file, series, fmt.locale = NULL, fmt.date = NULL, fmt.number = NULL, fmt.ignoreNumberGrouping = TRUE,
                        gathering.period = 0, gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"), gathering.partialAggregation = FALSE, gathering.includeMissing = TRUE,
                        charset = NULL, delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"), txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"), header = TRUE, skip = 0) {

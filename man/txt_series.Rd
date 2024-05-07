@@ -30,5 +30,5 @@ Title
 }
 \examples{
 set_txt_paths(system.file("examples", package = "rjd3providers"))
-txt_5 <- txt_series("abs.csv", series = 15, delimiter = "COMMA")
+txt_5 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 }
