@@ -14,5 +14,5 @@ Title
 }
 \examples{
 set_xml_paths(system.file("examples", package = "rjd3providers"))
-xml_all <- xml_data("prod.xml", 1, charset = "iso-8859-1")
+xml_all <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
 }

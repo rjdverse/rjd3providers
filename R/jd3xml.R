@@ -74,7 +74,7 @@ set_xml_paths <- function(paths) {
 #'
 #' @examples
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
-#' xml_content("prod.xml")
+#' xml_content("Prod.xml")
 xml_content <- function(file, charset = NULL) {
     jsource <- .xml_source(file, charset)
     sheets <- .jcall("jdplus/text/base/r/XmlFiles", "[S", "sheets", jsource)
@@ -99,7 +99,7 @@ xml_content <- function(file, charset = NULL) {
 #'
 #' @examples
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
-#' xml_all <- xml_data("prod.xml", 1, charset = "iso-8859-1")
+#' xml_all <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
 xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
     jsource <- .xml_source(file, charset)
     jcoll <- .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/api/timeseries/TsCollection;", "collection", jsource, as.integer(collection), fullNames)
@@ -119,7 +119,7 @@ xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
 #'
 #' @examples
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
-#' xml_1_5 <- xml_series("prod.xml", 1, 5, charset = "iso-8859-1")
+#' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullName = TRUE) {
     jsource <- .xml_source(file, charset)
     jcoll <- .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/api/timeseries/Ts;", "series", jsource, as.integer(collection), as.integer(series), fullName)
@@ -135,7 +135,7 @@ xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullNam
 #'
 #' @examples
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
-#' xml_1_5 <- xml_series("prod.xml", 1, 5, charset = "iso-8859-1")
+#' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 #' q <- xml_id_properties(xml_1_5$moniker$id)
 #' q$series <- 50
 #' xml_to_id(q)
@@ -154,7 +154,7 @@ xml_to_id <- function(props) {
 #'
 #' @examples
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
-#' xml_1_5 <- xml_series("prod.xml", 1, 5, charset = "iso-8859-1")
+#' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 #' xml_id_properties(xml_1_5$moniker$id)
 xml_id_properties <- function(id) {
     jset <- .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
