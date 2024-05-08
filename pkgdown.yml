@@ -2,7 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.0.9
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-05-07T10:23Z
+last_built: 2024-05-08T09:08Z
 urls:
   reference: https://rjdverse.github.io/rjd3providers/reference
   article: https://rjdverse.github.io/rjd3providers/articles
