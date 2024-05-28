@@ -37,7 +37,7 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
     }
 
     for (id_sap in idx_sap) {
-        jsap_i <- rjd3workspace::.jws_sap(jws_path, idx = id_sap)
+        jsap_i <- rjd3workspace::.jws_sap(jws, idx = id_sap)
 
         if (!is.null(idx_sai) && max(idx_sai) > rjd3workspace::.jsap_sa_count(jsap_i)) {
             stop("The SAI n°", max(idx_sai), " doesn't exist in the SAP n°", id_sap)
