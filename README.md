@@ -1,9 +1,18 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rjd3providers
+# `rjd3providers` <a href="https://rjdverse.github.io/rjd3providers/"><img src="man/figures/logo.png" align="right" height="150" style="float:right; height:150px;"/></a>
 
 <!-- badges: start -->
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/rjd3providers)](https://CRAN.R-project.org/package=rjd3providers)
+
+[![R-CMD-check](https://github.com/rjdverse/rjd3providers/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rjdverse/rjd3providers/actions/workflows/R-CMD-check.yaml)
+[![lint](https://github.com/rjdverse/rjd3providers/actions/workflows/lint.yaml/badge.svg)](https://github.com/rjdverse/rjd3providers/actions/workflows/lint.yaml)
+
+[![GH Pages
+built](https://github.com/rjdverse/rjd3providers/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/rjdverse/rjd3providers/actions/workflows/pkgdown.yaml)
 <!-- badges: end -->
 
 ## Overview
@@ -109,6 +118,9 @@ spreadsheet_content(xlsx_file)
 #>  [9] "Fabrication d'aliments pour animaux 001563352"                                                     
 #> [10] "Fabrication de boissons 001563041"                                                                 
 #> [11] "Fabrication de produits à base de tabac 001563044"
+```
+
+``` r
 
 ts1 <- spreadsheet_series(file = xlsx_file, sheet = 1L, series = 3)
 str(ts1)
@@ -116,7 +128,7 @@ str(ts1)
 #>  $ name    : chr "FRANCE Textile\nPréparation de fibres textiles et filature 001563401"
 #>  $ moniker :List of 2
 #>   ..$ source: chr "XCLPRVDR"
-#>   ..$ id    : chr "demetra://tsprovider/XCLPRVDR/20111201/SERIES?cleanMissing=false&file=C%3A%5CSoftware%5CR%5CR-4.4.0%5Clibrary%5"| __truncated__
+#>   ..$ id    : chr "demetra://tsprovider/XCLPRVDR/20111201/SERIES?cleanMissing=false&file=C%3A%5CUsers%5CUTZK0M%5CAppData%5CLocal%5"| __truncated__
 #>   ..- attr(*, "class")= chr "JD3_TSMONIKER"
 #>  $ metadata:List of 3
 #>   ..$ series.name     : chr "Préparation de fibres textiles et filature 001563401"
@@ -125,6 +137,9 @@ str(ts1)
 #>  $ data    : Time-Series [1:236] from 1990 to 2010: 315 296 318 280 279 ...
 #>   ..- attr(*, "name")= chr ""
 #>  - attr(*, "class")= chr "JD3_TS"
+```
+
+``` r
 
 all_ts <- spreadsheet_data(file = xlsx_file, sheet = 2L)
 ```
@@ -156,8 +171,8 @@ and/or issues. pull requests should include **updated tests** and
 **updated documentation**. If functionality is changed, docstrings
 should be added or updated.
 
-
 ## Licensing
 
-The code of this project is licensed under the [European Union Public Licence (EUPL)](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12).
-
+The code of this project is licensed under the [European Union Public
+Licence
+(EUPL)](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12).
