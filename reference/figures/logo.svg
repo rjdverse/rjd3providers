@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 491 566.9" style="enable-background:new 0 0 491 566.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F6EDD9;}
+	.st1{fill:#4EB748;}
+	.st2{fill:#F05378;}
+	.st3{fill:#004C75;}
+	.st4{fill:#44ADE2;}
+	.st5{fill:#5B7A98;}
+	.st6{font-family:'Helvetica';}
+	.st7{font-size:17.262px;}
+	.st8{fill:#FFFFFF;}
+	.st9{fill:none;stroke:#4EB748;stroke-width:6;stroke-miterlimit:10;}
+	.st10{opacity:0.2;fill:#5B7A98;}
+	.st11{font-family:'NexaBold';}
+	.st12{font-size:61.9977px;}
+</style>
+<g id="Background">
+	<polygon class="st0" points="245.5,547.6 16.8,415.5 16.8,151.4 245.5,19.4 474.2,151.4 474.2,415.5 	"/>
+	<g>
+		<text transform="matrix(0.866 -0.5 0.5 0.866 246.3539 534.5188)" class="st1 st6 st7">github.com/rjdverse/rjd3providers</text>
+	</g>
+</g>
+<g id="Hexagone">
+	<path class="st8" d="M163.8,90.2C163.8,90.2,163.7,90.2,163.8,90.2l0,212.1l154.5,0l0-178L280,90.2H163.8z"/>
+	<g id="Barplot">
+		<rect x="244.8" y="266.2" class="st4" width="15.3" height="16.4"/>
+		<rect x="275.4" y="266.2" class="st4" width="15.3" height="30.8"/>
+		<rect x="306" y="266.2" class="st4" width="15.3" height="12"/>
+	</g>
+	<rect id="Axe" x="220.9" y="264.7" width="101.6" height="3.1"/>
+	<polygon class="st3" points="320,275.7 296.6,239.3 268,251.7 235.8,256.8 231.7,235.7 235.6,234.9 239,252.3 266.9,247.8 
+		298.2,234.3 323.4,273.6 	"/>
+	<polygon class="st2" points="224,275.6 222,272.1 235.3,264.4 269.4,216.7 298.5,265.7 320,246.8 322.7,249.8 297.5,271.9 
+		269.1,224 238.1,267.4 	"/>
+	<g id="Spreadsheet">
+		<rect x="180.4" y="217.8" class="st1" width="70" height="6.2"/>
+		<rect x="180.4" y="243.6" class="st1" width="47.4" height="6.2"/>
+		<rect x="180.6" y="269.4" class="st1" width="41.5" height="6.2"/>
+		<path class="st1" d="M318.3,311H163.8c-4.8,0-8.7-3.9-8.7-8.7V90.2c0-4.8,3.9-8.7,8.7-8.7h119.6l43.7,38.9v181.8
+			C327,307.1,323.1,311,318.3,311z M163.8,90.2C163.8,90.2,163.7,90.2,163.8,90.2l0,212.1l154.5,0l0-178L280,90.2H163.8z"/>
+		<line class="st9" x1="180.4" y1="143.3" x2="301.5" y2="143.3"/>
+		<line class="st9" x1="180.4" y1="169.2" x2="301.8" y2="169.2"/>
+		<rect x="180.6" y="191.9" class="st1" width="120.9" height="6.2"/>
+	</g>
+	<path class="st1" d="M245.5,0L0,141.7v283.5l245.5,141.7L491,425.2V141.7L245.5,0z M474.2,415.5l-228.7,132l-228.7-132V151.4
+		l228.7-132l228.7,132V415.5z"/>
+	<path id="Loupe_1_" class="st5" d="M346,297.6c13-31.3-0.1-67.8-30.3-83.5c-15.5-8.1-33.4-9.7-50.1-4.4
+		c-16.8,5.3-30.5,16.7-38.6,32.3c-16.8,32.1-4.3,72,27.8,88.8c14.7,7.7,31.7,9.5,47.8,5.1c15.5-4.2,28.9-13.9,37.6-27.3
+		c24.4,12.8,48.8,25.5,73.2,38.3c2-3.6,4.1-7.2,6.1-10.8C395,323.2,370.5,310.4,346,297.6z M337.9,299.9
+		c-7.3,14.1-19.7,24.4-34.9,29.2c-15.2,4.8-31.3,3.3-45.3-4c-14.1-7.3-24.4-19.7-29.2-34.9c-4.8-15.2-3.3-31.3,4-45.3
+		c6.4-12.3,16.5-21.3,28.2-26.6c16.1-7.2,35.2-7.3,52,1.5C341.8,234.9,353.1,270.9,337.9,299.9z"/>
+	<path class="st10" d="M337.9,299.9c-7.3,14.1-19.7,24.4-34.9,29.2c-15.2,4.8-31.3,3.3-45.3-4c-14.1-7.3-24.4-19.7-29.2-34.9
+		c-4.8-15.2-3.3-31.3,4-45.3c6.4-12.3,16.5-21.3,28.2-26.6c16.1-7.2,35.2-7.3,52,1.5C341.8,234.9,353.1,270.9,337.9,299.9z"/>
+</g>
+<g id="Text">
+	<g>
+		<text transform="matrix(1 0 0 1 45.2625 384.4639)"><tspan x="0" y="0" class="st1 st11 st12">rjd</tspan><tspan x="79.1" y="0" class="st2 st11 st12">3</tspan><tspan x="119.7" y="0" class="st1 st11 st12">providers</tspan></text>
+	</g>
+</g>
+</svg>
