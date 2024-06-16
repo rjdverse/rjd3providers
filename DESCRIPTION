@@ -6,7 +6,9 @@ Authors@R: c(
   person("Jean", "Palate", role = c("aut"),
                 email = "jean.palate@nbb.be"),
   person("Alessandro", "Piovani", role = c("aut", "cre"),
-                 email = "alessandro.piovani@istat.it"))
+                 email = "alessandro.piovani@istat.it"),
+  person("Tanguy", "Barthelemy", role = c("ctb", "art"),
+                 email ="tanguy.barthelemy@insee.fr"))
 Description: Interface to 'JDemetra+ 3.x' (<https://github.com/jdemetra>) time series analysis software. It offers full acces to txt, csv, xml and spreadsheets files whicha are meant to be read by JDemetra+ Graphical User Interface.
 Depends:
   R (>= 4.1.0)
