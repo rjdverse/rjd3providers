@@ -13,6 +13,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - new functions to update path for txt `txt_update_path`
 - new functions to update path for spreadsheet `spreadsheet_update_path`
 
+### Changed
+
+* New JARS
 
 ## [3.2.2] - 2024-03-15
 
