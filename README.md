@@ -1,17 +1,26 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rjd3providers
+# `rjd3providers` <a href="https://rjdverse.github.io/rjd3providers/"><img src="man/figures/logo.png" align="right" height="150" style="float:right; height:150px;"/></a>
 
 <!-- badges: start -->
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/rjd3providers)](https://CRAN.R-project.org/package=rjd3providers)
+
+[![R-CMD-check](https://github.com/rjdverse/rjd3providers/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rjdverse/rjd3providers/actions/workflows/R-CMD-check.yaml)
+[![lint](https://github.com/rjdverse/rjd3providers/actions/workflows/lint.yaml/badge.svg)](https://github.com/rjdverse/rjd3providers/actions/workflows/lint.yaml)
+
+[![GH Pages
+built](https://github.com/rjdverse/rjd3providers/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/rjdverse/rjd3providers/actions/workflows/pkgdown.yaml)
 <!-- badges: end -->
 
 ## Overview
 
-rjd3providers provides tools to explore default time series
-providers (.xslx, .csv, .txt and .xml files). With this package you can
-now manipulate raw series files. For example, using this R package, you
-will be able to:
+rjd3providers provides tools to explore the default time series
+providers (.xslx, .csv, .txt and .xml files) for JDemetra+ v3.x
+Graphical User Interface. It allows to manipulate raw series files. For
+example, using this R package, you will be able to:
 
 - change the **path** of the raw data
 - change the file **type**
@@ -20,33 +29,50 @@ will be able to:
 
 ## Installation
 
+rjd3providers relies on the
+[rJava](https://cran.r-project.org/web/packages/rJava/index.html)
+package.
+
+Running rjd3 packages requires **Java 17 or higher**. How to set up such
+a configuration in R is explained
+[here](https://jdemetra-new-documentation.netlify.app/#Rconfig)
+
+### Latest release
+
 To get the current stable version (from the latest release):
 
+- From GitHub:
+
 ``` r
 # install.packages("remotes")
-remotes::install_github("rjdemetra/rjd3toolkit@*release")
-remotes::install_github("rjdemetra/rjd3providers@*release")
+remotes::install_github("rjdverse/rjd3toolkit@*release")
+remotes::install_github("rjdverse/rjd3providers@*release", build_vignettes = TRUE)
 ```
 
-To get the current development version from GitHub:
+- From [r-universe](https://rjdverse.r-universe.dev/rjd3providers):
+
+``` r
+install.packages("rjd3providers", repos = c("https://rjdverse.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+### Development version
+
+You can install the development version of **rjd3providers** from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("rjdemetra/rjd3providers")
+remotes::install_github("rjdverse/rjd3providers")
 ```
 
 ## Usage
-
-rjd3providers relies on
-[rJava](https://cran.r-project.org/web/packages/rJava/index.html)
-package and Java SE 17 or later version is required.
 
 ### Generate all the TS information
 
 ``` r
 library("rjd3providers")
 
-xlsx_file <- paste0(system.file("examples", package="rjd3providers"), "/Insee.xlsx")
+xlsx_file <- paste0(system.file("examples", package = "rjd3providers"), "/Insee.xlsx")
 spreadsheet_content(xlsx_file)
 #> $`FRANCE Textile`
 #> [1] "Textiles, industries de l'habillement, industrie du cuir et de la chaussure 001562874"
@@ -129,18 +155,31 @@ all_ts <- spreadsheet_data(file = xlsx_file, sheet = 2L)
 
 ``` r
 # install.packages("remotes")
-# remotes::install_github("rjdemetra/rjdemetra3")
+# remotes::install_github("rjdverse/rjd3workspace")
 
 new_jd3_ts <- spreadsheet_series(file = xlsx_file, sheet = 1L, series = 3)
-rjdemetra3::set_ts(jsap1, 2, new_jd3_ts)
+rjd3workspace::set_ts(jsap1, 2, new_jd3_ts)
 
 # open an existing WS
-ws <- rjdemetra3::.jws_open(file = some_ws_path)
+ws <- rjd3workspace::.jws_open(file = some_ws_path)
 # open an existing SAP
-jsap <- rjdemetra3::.jws_sap(ws, idx = 1L)
+jsap <- rjd3workspace::.jws_sap(ws, idx = 1L)
 
 # Change the TS object with the new moniker
-rjdemetra3::set_ts(jsap = jsap, idx = 1, y = ts1)
+rjd3workspace::set_ts(jsap = jsap, idx = 1, y = ts1)
 
-rjdemetra3::save_workspace(jws = ws_path, file = "./ws/ws_path_v3.xml", replace = TRUE)
+rjd3workspace::save_workspace(jws = ws_path, file = "./ws/ws_path_v3.xml", replace = TRUE)
 ```
+
+## Package Maintenance and contributing
+
+Any contribution is welcome and should be done through pull requests
+and/or issues. pull requests should include **updated tests** and
+**updated documentation**. If functionality is changed, docstrings
+should be added or updated.
+
+## Licensing
+
+The code of this project is licensed under the [European Union Public
+Licence
+(EUPL)](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12).

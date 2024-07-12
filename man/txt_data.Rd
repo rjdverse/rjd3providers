@@ -29,5 +29,5 @@ Title
 }
 \examples{
 set_txt_paths(system.file("examples", package = "rjd3providers"))
-all <- txt_data("abs.csv", delimiter = "COMMA")
+all <- txt_data("ABS.csv", delimiter = "COMMA")
 }
