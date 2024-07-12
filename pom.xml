@@ -11,8 +11,8 @@
 	<description>Usage: mvn -Pcopy-jars</description>
 
 	<properties>
-		<jdplus-main.version>3.2.2</jdplus-main.version>
-		<spreadsheet4j.version>2.5.8</spreadsheet4j.version>
+		<jdplus-main.version>3.2.4</jdplus-main.version>
+		<spreadsheet4j.version>2.5.9</spreadsheet4j.version>
 	</properties>
 
 	<dependencies>
