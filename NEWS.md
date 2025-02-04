@@ -8,8 +8,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [3.2.3] - 2024-07-12
+### Removed
 
+* functions to change path of a WS
+
+
+## [3.2.3] - 2024-07-12
 
 ### Added
 
@@ -19,6 +23,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 * New JARS
+
 
 ## [3.2.2] - 2024-03-15
 

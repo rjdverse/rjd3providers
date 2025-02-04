@@ -1,36 +1,34 @@
-Package: rjd3providers
 Type: Package
+Package: rjd3providers
 Title: Interface to 'JDemetra+ 3.x' time series analysis software.
 Version: 3.2.3.9000
 Authors@R: c(
-  person("Jean", "Palate", role = c("aut"),
-                email = "jean.palate@nbb.be"),
-  person("Alessandro", "Piovani", role = c("aut", "cre"),
-                 email = "alessandro.piovani@istat.it"),
-  person("Tanguy", "Barthelemy", role = c("ctb", "art"),
-                 email ="tanguy.barthelemy@insee.fr"))
-Description: Interface to 'JDemetra+ 3.x' (<https://github.com/jdemetra>) time series analysis software. It offers full acces to txt, csv, xml and spreadsheets files whicha are meant to be read by JDemetra+ Graphical User Interface.
+    person("Jean", "Palate", , "jean.palate@nbb.be", role = "aut"),
+    person("Alessandro", "Piovani", , "alessandro.piovani@istat.it", role = c("aut", "cre")),
+    person("Tanguy", "Barthelemy", , "tanguy.barthelemy@insee.fr", role = c("ctb", "art"))
+  )
+Description: Interface to 'JDemetra+ 3.x' (<https://github.com/jdemetra>)
+    time series analysis software. It offers full acces to txt, csv, xml
+    and spreadsheets files whicha are meant to be read by JDemetra+
+    Graphical User Interface.
+License: EUPL
+URL: https://github.com/rjdverse/rjd3providers,
+    https://rjdverse.github.io/rjd3providers/
+BugReports: https://github.com/rjdverse/rjd3providers/issues
 Depends:
-  R (>= 4.1.0)
+    R (>= 4.1.0)
 Imports:
-  rJava (>= 1.0-6),
-  rjd3toolkit (>= 3.2.2)
+    rJava (>= 1.0-6),
+    rjd3toolkit (>= 3.2.2)
 Remotes: 
     github::rjdverse/rjd3toolkit
-SystemRequirements: Java (>= 17)
-License: EUPL
-URL: https://github.com/rjdverse/rjd3providers, https://rjdverse.github.io/rjd3providers/
-LazyData: TRUE
-Suggests:
-    knitr,
-    rmarkdown
-RoxygenNote: 7.3.1
-BugReports: https://github.com/rjdverse/rjd3providers/issues
 Encoding: UTF-8
+LazyData: TRUE
+RoxygenNote: 7.3.2
+SystemRequirements: Java (>= 17)
 Collate: 
     'providers.R'
     'jd3spreadsheet.R'
     'jd3txt.R'
     'jd3xml.R'
-    'update_path.R'
     'zzz.R'
