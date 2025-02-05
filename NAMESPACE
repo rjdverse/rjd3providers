@@ -3,6 +3,7 @@
 export(.obs_format)
 export(.obs_gathering)
 export(.spreadsheet_moniker)
+export(.txt_moniker)
 export(.xml_source)
 export(set_spreadsheet_paths)
 export(set_txt_paths)

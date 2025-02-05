@@ -23,10 +23,20 @@
 .r2jd_xml_id <- function(id) {
     jsrc <- .xml_source(id$file, id$charset)
     if (is.null(id$series)) {
-        return(.jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "sheetDataSet", jsrc, as.integer(id$collection)))
+        output <- .jcall(
+            obj = "jdplus/text/base/r/XmlFiles",
+            returnSig = "Ljdplus/toolkit/base/tsp/DataSet;",
+            method = "sheetDataSet", jsrc, as.integer(id$collection)
+        )
     } else {
-        return(.jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "seriesDataSet", jsrc, as.integer(id$collection), as.integer(id$series)))
+        output <- .jcall(
+            obj = "jdplus/text/base/r/XmlFiles",
+            returnSig = "Ljdplus/toolkit/base/tsp/DataSet;",
+            method = "seriesDataSet",
+            jsrc, as.integer(id$collection), as.integer(id$series)
+        )
     }
+    return(output)
 }
 
 .jd2r_xml_id <- function(jset) {
@@ -102,7 +112,12 @@ xml_content <- function(file, charset = NULL) {
 #' xml_all <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
 xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
     jsource <- .xml_source(file, charset)
-    jcoll <- .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/api/timeseries/TsCollection;", "collection", jsource, as.integer(collection), fullNames)
+    jcoll <- .jcall(
+        obj = "jdplus/text/base/r/XmlFiles",
+        returnSig = "Ljdplus/toolkit/base/api/timeseries/TsCollection;",
+        method = "collection",
+        jsource, as.integer(collection), fullNames
+    )
     return(rjd3toolkit::.jd2r_tscollection(jcoll))
 }
 
@@ -122,7 +137,12 @@ xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullName = TRUE) {
     jsource <- .xml_source(file, charset)
-    jcoll <- .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/api/timeseries/Ts;", "series", jsource, as.integer(collection), as.integer(series), fullName)
+    jcoll <- .jcall(
+        obj = "jdplus/text/base/r/XmlFiles",
+        returnSig = "Ljdplus/toolkit/base/api/timeseries/Ts;",
+        method = "series",
+        jsource, as.integer(collection), as.integer(series), fullName
+    )
     return(rjd3toolkit::.jd2r_ts(jcoll))
 }
 

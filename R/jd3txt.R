@@ -1,13 +1,26 @@
 #' @include providers.R
 
-.txt_source <- function(file, fmt.locale = NULL, fmt.date = NULL, fmt.number = NULL, fmt.ignoreNumberGrouping = TRUE,
-                        gathering.period = 0, gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"), gathering.partialAggregation = FALSE, gathering.includeMissing = FALSE,
-                        charset = NULL, delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"), textQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"), headers = TRUE, skipLines = 0) {
+.txt_source <- function(
+        file,
+        fmt.locale = NULL,
+        fmt.date = NULL,
+        fmt.number = NULL,
+        fmt.ignoreNumberGrouping = TRUE,
+        gathering.period = 0,
+        gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
+        gathering.partialAggregation = FALSE,
+        gathering.includeMissing = FALSE,
+        charset = NULL,
+        delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
+        textQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
+        headers = TRUE,
+        skipLines = 0) {
     gathering.aggregation <- match.arg(gathering.aggregation)
     delimiter <- match.arg(delimiter)
     textQualifier <- match.arg(textQualifier)
     jfmt <- .obs_format(fmt.locale, fmt.date, fmt.number, fmt.ignoreNumberGrouping)
-    jgathering <- .obs_gathering(gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.includeMissing)
+    jgathering <- .obs_gathering(gathering.period, gathering.aggregation,
+                                 gathering.partialAggregation, gathering.includeMissing)
     if (is.null(charset)) charset <- "utf-8"
     jsource <- .jcall(
         "jdplus/text/base/r/TxtFiles", "Ljdplus/toolkit/base/tsp/DataSource;", "source",
@@ -19,16 +32,38 @@
 
 .r2jd_txt_id <- function(id) {
     jsrc <- .txt_source(
-        file = id$file, fmt.locale = id$format$locale, fmt.date = id$format$datePattern,
-        fmt.number = id$format$numberPattern, fmt.ignoreNumberGrouping = id$format$ignoreNumberGrouping,
-        gathering.period = id$gathering$period, gathering.aggregation = id$gathering$aggregation, gathering.partialAggregation = id$gathering$partial, gathering.includeMissing = id$gathering$missing,
-        charset = id$charset, delimiter = id$delimiter, textQualifier = id$textQualifier, headers = id$headers, skipLines = id$skipLines
+        file = id$file,
+        fmt.locale = id$format$locale,
+        fmt.date = id$format$datePattern,
+        fmt.number = id$format$numberPattern,
+        fmt.ignoreNumberGrouping = id$format$ignoreNumberGrouping,
+        gathering.period = id$gathering$period,
+        gathering.aggregation = id$gathering$aggregation,
+        gathering.partialAggregation = id$gathering$partial,
+        gathering.includeMissing = id$gathering$missing,
+        charset = id$charset,
+        delimiter = id$delimiter,
+        textQualifier = id$textQualifier,
+        headers = id$headers,
+        skipLines = id$skipLines
     )
     if (is.null(id$series)) {
-        return(.jcall("jdplus/text/base/r/TxtFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "sheetDataSet", jsrc))
+        output <- .jcall(
+            obj = "jdplus/text/base/r/TxtFiles",
+            returnSig = "Ljdplus/toolkit/base/tsp/DataSet;",
+            method = "sheetDataSet",
+            jsrc
+        )
     } else {
-        return(.jcall("jdplus/text/base/r/TxtFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "seriesDataSet", jsrc, as.integer(id$series)))
+        output <- .jcall(
+            obj = "jdplus/text/base/r/TxtFiles",
+            returnSig = "Ljdplus/toolkit/base/tsp/DataSet;",
+            method = "seriesDataSet",
+            jsrc, as.integer(id$series)
+        )
     }
+
+    return(output)
 }
 
 .jd2r_txt_id <- function(jset) {
@@ -82,11 +117,14 @@ txt_name <- function() {
 #' @export
 #'
 #' @examples
-.spreadsheet_moniker <- function(id) {
+.txt_moniker <- function(id) {
     jmoniker <- .jcall(
-        "jdplus/base/toolkit/api/timeseries/TsMoniker", "Ljdplus/base/toolkit/api/timeseries/TsMoniker;", "of",
+        obj = "jdplus/base/toolkit/api/timeseries/TsMoniker",
+        returnSig = "Ljdplus/base/toolkit/api/timeseries/TsMoniker;",
+        method = "of",
         txt_name(), id
     )
+    return(jmoniker)
 }
 
 #' Title
@@ -124,9 +162,21 @@ set_txt_paths <- function(paths) {
 #' @examples
 #' set_txt_paths(system.file("examples", package = "rjd3providers"))
 #' txt_all <- txt_content("ABS.csv", delimiter = "COMMA")
-txt_content <- function(file, fmt.locale = NULL, fmt.date = NULL, fmt.number = NULL, fmt.ignoreNumberGrouping = TRUE,
-                        gathering.period = 0, gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"), gathering.partialAggregation = FALSE, gathering.includeMissing = TRUE,
-                        charset = NULL, delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"), txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"), header = TRUE, skip = 0) {
+txt_content <- function(
+        file,
+        fmt.locale = NULL,
+        fmt.date = NULL,
+        fmt.number = NULL,
+        fmt.ignoreNumberGrouping = TRUE,
+        gathering.period = 0,
+        gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
+        gathering.partialAggregation = FALSE,
+        gathering.includeMissing = TRUE,
+        charset = NULL,
+        delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
+        txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
+        header = TRUE,
+        skip = 0) {
     jsource <- .txt_source(
         file, fmt.locale, fmt.date, fmt.number, fmt.ignoreNumberGrouping,
         gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.includeMissing,
@@ -159,15 +209,31 @@ txt_content <- function(file, fmt.locale = NULL, fmt.date = NULL, fmt.number = N
 #' @examples
 #' set_txt_paths(system.file("examples", package = "rjd3providers"))
 #' all <- txt_data("ABS.csv", delimiter = "COMMA")
-txt_data <- function(file, fmt.locale = NULL, fmt.date = NULL, fmt.number = NULL, fmt.ignoreNumberGrouping = TRUE,
-                     gathering.period = 0, gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"), gathering.partialAggregation = FALSE, gathering.includeMissing = TRUE,
-                     charset = NULL, delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"), txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"), header = TRUE, skip = 0) {
+txt_data <- function(
+        file,
+        fmt.locale = NULL,
+        fmt.date = NULL,
+        fmt.number = NULL,
+        fmt.ignoreNumberGrouping = TRUE,
+        gathering.period = 0,
+        gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
+        gathering.partialAggregation = FALSE, gathering.includeMissing = TRUE,
+        charset = NULL,
+        delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
+        txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
+        header = TRUE,
+        skip = 0) {
     jsource <- .txt_source(
         file, fmt.locale, fmt.date, fmt.number, fmt.ignoreNumberGrouping,
         gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.includeMissing,
         charset, delimiter, txtQualifier, header, skip
     )
-    jcoll <- .jcall("jdplus/text/base/r/TxtFiles", "Ljdplus/toolkit/base/api/timeseries/TsCollection;", "collection", jsource)
+    jcoll <- .jcall(
+        obj = "jdplus/text/base/r/TxtFiles",
+        returnSig = "Ljdplus/toolkit/base/api/timeseries/TsCollection;",
+        method = "collection",
+        jsource
+    )
     return(rjd3toolkit::.jd2r_tscollection(jcoll))
 }
 
@@ -195,15 +261,33 @@ txt_data <- function(file, fmt.locale = NULL, fmt.date = NULL, fmt.number = NULL
 #' @examples
 #' set_txt_paths(system.file("examples", package = "rjd3providers"))
 #' txt_5 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
-txt_series <- function(file, series, fmt.locale = NULL, fmt.date = NULL, fmt.number = NULL, fmt.ignoreNumberGrouping = TRUE,
-                       gathering.period = 0, gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"), gathering.partialAggregation = FALSE, gathering.includeMissing = TRUE,
-                       charset = NULL, delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"), txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"), header = TRUE, skip = 0) {
+txt_series <- function(
+        file,
+        series,
+        fmt.locale = NULL,
+        fmt.date = NULL,
+        fmt.number = NULL,
+        fmt.ignoreNumberGrouping = TRUE,
+        gathering.period = 0,
+        gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
+        gathering.partialAggregation = FALSE,
+        gathering.includeMissing = TRUE,
+        charset = NULL,
+        delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
+        txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
+        header = TRUE,
+        skip = 0) {
     jsource <- .txt_source(
         file, fmt.locale, fmt.date, fmt.number, fmt.ignoreNumberGrouping,
         gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.includeMissing,
         charset, delimiter, txtQualifier, header, skip
     )
-    js <- .jcall("jdplus/text/base/r/TxtFiles", "Ljdplus/toolkit/base/api/timeseries/Ts;", "series", jsource, as.integer(series))
+    js <- .jcall(
+        obj = "jdplus/text/base/r/TxtFiles",
+        returnSig = "Ljdplus/toolkit/base/api/timeseries/Ts;",
+        method = "series",
+        jsource, as.integer(series)
+    )
     return(rjd3toolkit::.jd2r_ts(js))
 }
 
