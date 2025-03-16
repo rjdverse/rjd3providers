@@ -4,8 +4,8 @@
 <url><loc>https://rjdverse.github.io/rjd3providers/authors.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/index.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/news/index.html</loc></url>
-<url><loc>https://rjdverse.github.io/rjd3providers/reference/check_information.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/dot-spreadsheet_moniker.html</loc></url>
+<url><loc>https://rjdverse.github.io/rjd3providers/reference/dot-txt_moniker.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/index.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/set_spreadsheet_paths.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/set_txt_paths.html</loc></url>
@@ -17,7 +17,6 @@
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/spreadsheet_name.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/spreadsheet_series.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/spreadsheet_to_id.html</loc></url>
-<url><loc>https://rjdverse.github.io/rjd3providers/reference/spreadsheet_update_path.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/txt_change_file.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/txt_content.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/txt_data.html</loc></url>
@@ -25,7 +24,6 @@
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/txt_name.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/txt_series.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/txt_to_id.html</loc></url>
-<url><loc>https://rjdverse.github.io/rjd3providers/reference/txt_update_path.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/xml_change_file.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/xml_content.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3providers/reference/xml_data.html</loc></url>

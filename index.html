@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Interface to JDemetra+ 3.x time series analysis software. • rjd3providers</title>
+<title>Interface to JDemetra+ 3.x time series analysis software • rjd3providers</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -16,9 +16,9 @@
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Interface to JDemetra+ 3.x time series analysis software.">
-<meta name="description" content="Interface to JDemetra+ 3.x (&lt;https://github.com/jdemetra&gt;) time series analysis software. It offers full acces to txt, csv, xml and spreadsheets files whicha are meant to be read by JDemetra+ Graphical User Interface.">
-<meta property="og:description" content="Interface to JDemetra+ 3.x (&lt;https://github.com/jdemetra&gt;) time series analysis software. It offers full acces to txt, csv, xml and spreadsheets files whicha are meant to be read by JDemetra+ Graphical User Interface.">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Interface to JDemetra+ 3.x time series analysis software">
+<meta name="description" content="Interface to JDemetra+ 3.x (&lt;https://github.com/jdemetra&gt;) time series analysis software. It offers full access to txt, csv, xml and spreadsheets files which are meant to be read by JDemetra+ Graphical User Interface.">
+<meta property="og:description" content="Interface to JDemetra+ 3.x (&lt;https://github.com/jdemetra&gt;) time series analysis software. It offers full access to txt, csv, xml and spreadsheets files which are meant to be read by JDemetra+ Graphical User Interface.">
 <meta property="og:image" content="https://rjdverse.github.io/rjd3providers/logo.svg">
 </head>
 <body>
@@ -55,8 +55,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header">
-<img src="logo.svg" class="logo" alt=""><h1 id="rjd3providers-">
-<code>rjd3providers</code> 
+<img src="logo.svg" class="logo" alt=""><h1 id="rjd3providers-">{rjd3providers} 
 <a class="anchor" aria-label="anchor" href="#rjd3providers-"></a>
 </h1>
 </div>
@@ -67,7 +66,7 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>rjd3providers provides tools to explore the default time series providers (.xslx, .csv, .txt and .xml files) for JDemetra+ v3.x Graphical User Interface. It allows to manipulate raw series files. For example, using this R package, you will be able to:</p>
+<p><strong>{rjd3providers}</strong> provides tools to explore the default time series providers (.xslx, .csv, .txt and .xml files) for JDemetra+ v3.x Graphical User Interface. It allows to manipulate raw series files. For example, using this R package, you will be able to:</p>
 <ul>
 <li>change the <strong>path</strong> of the raw data</li>
 <li>change the file <strong>type</strong>
@@ -81,7 +80,7 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>rjd3providers relies on the <a href="https://cran.r-project.org/web/packages/rJava/index.html" class="external-link">rJava</a> package.</p>
+<p><strong>{rjd3providers}</strong> relies on the <a href="https://cran.r-project.org/web/packages/rJava/index.html" class="external-link"><strong>{rJava}</strong></a> package.</p>
 <p>Running rjd3 packages requires <strong>Java 17 or higher</strong>. How to set up such a configuration in R is explained <a href="https://jdemetra-new-documentation.netlify.app/#Rconfig" class="external-link">here</a></p>
 <div class="section level3">
 <h3 id="latest-release">Latest release<a class="anchor" aria-label="anchor" href="#latest-release"></a>
@@ -92,7 +91,6 @@
 </ul>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rjdverse/rjd3toolkit@*release"</span><span class="op">)</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rjdverse/rjd3providers@*release"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>From <a href="https://rjdverse.r-universe.dev/rjd3providers" class="external-link">r-universe</a>:</li>
@@ -103,7 +101,7 @@
 <div class="section level3">
 <h3 id="development-version">Development version<a class="anchor" aria-label="anchor" href="#development-version"></a>
 </h3>
-<p>You can install the development version of <strong>rjd3providers</strong> from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<p>You can install the development version of <strong>{rjd3providers}</strong> from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rjdverse/rjd3providers"</span><span class="op">)</span></span></code></pre></div>
@@ -196,26 +194,6 @@
 <span></span>
 <span><span class="va">all_ts</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/spreadsheet_data.html">spreadsheet_data</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">xlsx_file</span>, sheet <span class="op">=</span> <span class="fl">2L</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="change-path-of-an-sa-item">Change path of an SA-ITEM<a class="anchor" aria-label="anchor" href="#change-path-of-an-sa-item"></a>
-</h3>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="co"># remotes::install_github("rjdverse/rjd3workspace")</span></span>
-<span></span>
-<span><span class="va">new_jd3_ts</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/spreadsheet_series.html">spreadsheet_series</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">xlsx_file</span>, sheet <span class="op">=</span> <span class="fl">1L</span>, series <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
-<span><span class="fu">rjd3workspace</span><span class="fu">::</span><span class="fu">set_ts</span><span class="op">(</span><span class="va">jsap1</span>, <span class="fl">2</span>, <span class="va">new_jd3_ts</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># open an existing WS</span></span>
-<span><span class="va">ws</span> <span class="op">&lt;-</span> <span class="fu">rjd3workspace</span><span class="fu">::</span><span class="fu">.jws_open</span><span class="op">(</span>file <span class="op">=</span> <span class="va">some_ws_path</span><span class="op">)</span></span>
-<span><span class="co"># open an existing SAP</span></span>
-<span><span class="va">jsap</span> <span class="op">&lt;-</span> <span class="fu">rjd3workspace</span><span class="fu">::</span><span class="fu">.jws_sap</span><span class="op">(</span><span class="va">ws</span>, idx <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Change the TS object with the new moniker</span></span>
-<span><span class="fu">rjd3workspace</span><span class="fu">::</span><span class="fu">set_ts</span><span class="op">(</span>jsap <span class="op">=</span> <span class="va">jsap</span>, idx <span class="op">=</span> <span class="fl">1</span>, y <span class="op">=</span> <span class="va">ts1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">rjd3workspace</span><span class="fu">::</span><span class="fu">save_workspace</span><span class="op">(</span>jws <span class="op">=</span> <span class="va">ws_path</span>, file <span class="op">=</span> <span class="st">"./ws/ws_path_v3.xml"</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-</div>
 </div>
 <div class="section level2">
 <h2 id="package-maintenance-and-contributing">Package Maintenance and contributing<a class="anchor" aria-label="anchor" href="#package-maintenance-and-contributing"></a>
@@ -225,7 +203,7 @@
 <div class="section level2">
 <h2 id="licensing">Licensing<a class="anchor" aria-label="anchor" href="#licensing"></a>
 </h2>
-<p>The code of this project is licensed under the <a href="https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12" class="external-link">European Union Public Licence (EUPL)</a>.</p>
+<p>The code of this project is licensed under the <a href="https://interoperable-europe.ec.europa.eu:443/collection/eupl/eupl-text-eupl-12" class="external-link">European Union Public Licence (EUPL)</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -239,7 +217,8 @@
 <div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li>EUPL</li>
+<li>file <a href="LICENSE-text.html">LICENSE</a>
+</li>
 </ul>
 </div>
 
@@ -264,6 +243,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://CRAN.R-project.org/package=rjd3providers" class="external-link"><img src="https://www.r-pkg.org/badges/version/rjd3providers" alt="CRAN status"></a></li>
+<li><a href="http://www.awesomeofficialstatistics.org" class="external-link"><img src="https://awesome.re/mentioned-badge.svg" alt="Mentioned in Awesome Official Statistics"></a></li>
 </ul>
 </div>
 
