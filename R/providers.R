@@ -1,6 +1,9 @@
 #' @export
 #' @rdname jd3_utilities
-.obs_gathering <- function(period = 0, aggregationType = NULL, allowPartialAggregation = FALSE, includeMissing = FALSE) {
+.obs_gathering <- function(period = 0,
+                           aggregationType = NULL,
+                           allowPartialAggregation = FALSE,
+                           includeMissing = FALSE) {
     if (is.null(aggregationType)) aggregationType <- "None"
     if (is.null(allowPartialAggregation)) allowPartialAggregation <- FALSE
     if (is.null(includeMissing)) includeMissing <- FALSE
@@ -8,7 +11,8 @@
         obj = "jdplus/toolkit/base/r/util/Providers",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/util/ObsGathering;",
         method = "obsGathering",
-        as.integer(period), as.character(aggregationType), as.logical(allowPartialAggregation), as.logical(includeMissing)
+        as.integer(period), as.character(aggregationType),
+        as.logical(allowPartialAggregation), as.logical(includeMissing)
     )
     return(jobs)
 }
