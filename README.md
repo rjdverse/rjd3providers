@@ -1,12 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# `rjd3providers` <a href="https://rjdverse.github.io/rjd3providers/"><img src="man/figures/logo.png" align="right" height="150" style="float:right; height:150px;"/></a>
+# {rjd3providers} <a href="https://rjdverse.github.io/rjd3providers/"><img src="man/figures/logo.png" align="right" height="150" style="float:right; height:150px;"/></a>
 
 <!-- badges: start -->
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rjd3providers)](https://CRAN.R-project.org/package=rjd3providers)
+[![Mentioned in Awesome Official
+Statistics](https://awesome.re/mentioned-badge.svg)](http://www.awesomeofficialstatistics.org)
 
 [![R-CMD-check](https://github.com/rjdverse/rjd3providers/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rjdverse/rjd3providers/actions/workflows/R-CMD-check.yaml)
 [![lint](https://github.com/rjdverse/rjd3providers/actions/workflows/lint.yaml/badge.svg)](https://github.com/rjdverse/rjd3providers/actions/workflows/lint.yaml)
@@ -17,7 +19,7 @@ built](https://github.com/rjdverse/rjd3providers/actions/workflows/pkgdown.yaml/
 
 ## Overview
 
-rjd3providers provides tools to explore the default time series
+**{rjd3providers}** provides tools to explore the default time series
 providers (.xslx, .csv, .txt and .xml files) for JDemetra+ v3.x
 Graphical User Interface. It allows to manipulate raw series files. For
 example, using this R package, you will be able to:
@@ -29,8 +31,8 @@ example, using this R package, you will be able to:
 
 ## Installation
 
-rjd3providers relies on the
-[rJava](https://cran.r-project.org/web/packages/rJava/index.html)
+**{rjd3providers}** relies on the
+[**{rJava}**](https://cran.r-project.org/web/packages/rJava/index.html)
 package.
 
 Running rjd3 packages requires **Java 17 or higher**. How to set up such
@@ -45,7 +47,6 @@ To get the current stable version (from the latest release):
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("rjdverse/rjd3toolkit@*release")
 remotes::install_github("rjdverse/rjd3providers@*release", build_vignettes = TRUE)
 ```
 
@@ -57,7 +58,7 @@ install.packages("rjd3providers", repos = c("https://rjdverse.r-universe.dev", "
 
 ### Development version
 
-You can install the development version of **rjd3providers** from
+You can install the development version of **{rjd3providers}** from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -151,26 +152,6 @@ str(ts1)
 all_ts <- spreadsheet_data(file = xlsx_file, sheet = 2L)
 ```
 
-### Change path of an SA-ITEM
-
-``` r
-# install.packages("remotes")
-# remotes::install_github("rjdverse/rjd3workspace")
-
-new_jd3_ts <- spreadsheet_series(file = xlsx_file, sheet = 1L, series = 3)
-rjd3workspace::set_ts(jsap1, 2, new_jd3_ts)
-
-# open an existing WS
-ws <- rjd3workspace::.jws_open(file = some_ws_path)
-# open an existing SAP
-jsap <- rjd3workspace::.jws_sap(ws, idx = 1L)
-
-# Change the TS object with the new moniker
-rjd3workspace::set_ts(jsap = jsap, idx = 1, y = ts1)
-
-rjd3workspace::save_workspace(jws = ws_path, file = "./ws/ws_path_v3.xml", replace = TRUE)
-```
-
 ## Package Maintenance and contributing
 
 Any contribution is welcome and should be done through pull requests
@@ -182,4 +163,4 @@ should be added or updated.
 
 The code of this project is licensed under the [European Union Public
 Licence
-(EUPL)](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12).
+(EUPL)](https://interoperable-europe.ec.europa.eu:443/collection/eupl/eupl-text-eupl-12).
