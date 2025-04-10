@@ -8,6 +8,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [3.5.0] - 2025-04-09
+
+
 ### Removed
 
 * functions to change path of a WS
@@ -56,7 +59,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * v3.1.0
 
 
-[Unreleased]: https://github.com/rjdverse/rjd3providers/compare/v3.2.3...HEAD
+[Unreleased]: https://github.com/rjdverse/rjd3providers/compare/v3.5.0...HEAD
+[3.5.0]: https://github.com/rjdverse/rjd3providers/compare/v3.2.3...v3.5.0
 [3.2.3]: https://github.com/rjdverse/rjd3providers/compare/v3.2.2...v3.2.3
 [3.2.2]: https://github.com/rjdverse/rjd3providers/compare/v3.2.1...v3.2.2
 [3.2.1]: https://github.com/rjdverse/rjd3providers/compare/v3.2.0...v3.2.1
