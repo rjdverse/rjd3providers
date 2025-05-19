@@ -39,7 +39,7 @@
         fmt.ignoreNumberGrouping = id$format$ignoreNumberGrouping,
         gathering.period = id$gathering$period,
         gathering.aggregation = id$gathering$aggregation,
-        gathering.partialAggregation = id$gathering$partial,
+        gathering.partialAggregation = id$gathering$partialAggregation,
         gathering.includeMissing = id$gathering$missing,
         charset = id$charset,
         delimiter = id$delimiter,
