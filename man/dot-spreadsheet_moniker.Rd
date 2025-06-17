@@ -12,3 +12,7 @@
 \description{
 Generates a java moniker for the corresponding id
 }
+\examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{\}) # examplesIf}
+}

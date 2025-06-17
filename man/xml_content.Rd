@@ -13,6 +13,8 @@ xml_content(file, charset = NULL)
 Title
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_xml_paths(system.file("examples", package = "rjd3providers"))
 xml_content("Prod.xml")
+\dontshow{\}) # examplesIf}
 }

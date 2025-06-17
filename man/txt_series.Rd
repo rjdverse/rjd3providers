@@ -29,6 +29,8 @@ txt_series(
 Title
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_txt_paths(system.file("examples", package = "rjd3providers"))
 txt_5 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
+\dontshow{\}) # examplesIf}
 }

@@ -89,7 +89,7 @@ NULL
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 spreadsheet_name <- function() {
     return(.jfield("jdplus/spreadsheet/base/api/SpreadSheetProvider", name = "NAME"))
 }
@@ -101,7 +101,7 @@ spreadsheet_name <- function() {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 .spreadsheet_moniker <- function(id) {
     jmoniker <- .jcall(
         obj = "jdplus/base/toolkit/api/timeseries/TsMoniker",
@@ -125,7 +125,7 @@ spreadsheet_name <- function() {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
 #' xls_all <- spreadsheet_data("Insee.xlsx", 1)
 spreadsheet_data <- function(
@@ -158,7 +158,7 @@ spreadsheet_data <- function(
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 spreadsheet_series <- function(
         file,
         sheet = 1,
@@ -185,7 +185,7 @@ spreadsheet_series <- function(
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 spreadsheet_content <- function(file) {
     jsource <- .spreadsheet_source(file, 0, "None", FALSE, FALSE)
     sheets <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "[S", "sheets", jsource)
@@ -205,7 +205,7 @@ spreadsheet_content <- function(file) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 set_spreadsheet_paths <- function(paths) {
     .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "V", "setPaths", .jarray(paths))
 }
@@ -217,7 +217,7 @@ set_spreadsheet_paths <- function(paths) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 spreadsheet_to_id <- function(props) {
     jset <- .r2jd_spreadsheet_id(props)
     id <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "S", "encode", jset)
@@ -231,7 +231,7 @@ spreadsheet_to_id <- function(props) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 spreadsheet_id_properties <- function(id) {
     jset <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
     return(.jd2r_spreadsheet_id(jset))
@@ -246,7 +246,7 @@ spreadsheet_id_properties <- function(id) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 spreadsheet_change_file <- function(id, nfile, ofile = NULL) {
     if (is.null(ofile)) ofile <- ""
     nid <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "S", "changeFile", id, nfile, ofile)
