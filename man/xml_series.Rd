@@ -13,6 +13,8 @@ xml_series(file, collection = 1, series = 1, charset = NULL, fullName = TRUE)
 Title
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_xml_paths(system.file("examples", package = "rjd3providers"))
 xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
+\dontshow{\}) # examplesIf}
 }

@@ -28,6 +28,8 @@ txt_data(
 Title
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_txt_paths(system.file("examples", package = "rjd3providers"))
 all <- txt_data("ABS.csv", delimiter = "COMMA")
+\dontshow{\}) # examplesIf}
 }
