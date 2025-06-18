@@ -13,5 +13,7 @@ set_xml_paths(paths)
 Set the paths of the provider
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_xml_paths(system.file("examples", package = "rjd3providers"))
+\dontshow{\}) # examplesIf}
 }

@@ -12,3 +12,7 @@ spreadsheet_to_id(props)
 \description{
 Generates the id corresponding to a list of properties
 }
+\examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{\}) # examplesIf}
+}

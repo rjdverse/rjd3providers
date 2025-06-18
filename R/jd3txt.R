@@ -39,7 +39,7 @@
         fmt.ignoreNumberGrouping = id$format$ignoreNumberGrouping,
         gathering.period = id$gathering$period,
         gathering.aggregation = id$gathering$aggregation,
-        gathering.partialAggregation = id$gathering$partial,
+        gathering.partialAggregation = id$gathering$partialAggregation,
         gathering.includeMissing = id$gathering$missing,
         charset = id$charset,
         delimiter = id$delimiter,
@@ -104,7 +104,7 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 txt_name <- function() {
     return(.jfield("jdplus/text/base/api/TxtProvider", name = "NAME"))
 }
@@ -116,7 +116,7 @@ txt_name <- function() {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 .txt_moniker <- function(id) {
     jmoniker <- .jcall(
         obj = "jdplus/base/toolkit/api/timeseries/TsMoniker",
@@ -134,7 +134,7 @@ txt_name <- function() {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 set_txt_paths <- function(paths) {
     .jcall("jdplus/text/base/r/TxtFiles", "V", "setPaths", .jarray(paths))
 }
@@ -159,7 +159,7 @@ set_txt_paths <- function(paths) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' set_txt_paths(system.file("examples", package = "rjd3providers"))
 #' txt_all <- txt_content("ABS.csv", delimiter = "COMMA")
 txt_content <- function(
@@ -206,7 +206,7 @@ txt_content <- function(
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' set_txt_paths(system.file("examples", package = "rjd3providers"))
 #' all <- txt_data("ABS.csv", delimiter = "COMMA")
 txt_data <- function(
@@ -258,7 +258,7 @@ txt_data <- function(
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' set_txt_paths(system.file("examples", package = "rjd3providers"))
 #' txt_5 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 txt_series <- function(
@@ -298,7 +298,7 @@ txt_series <- function(
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 txt_to_id <- function(props) {
     jset <- .r2jd_txt_id(props)
     id <- .jcall("jdplus/text/base/r/TxtFiles", "S", "encode", jset)
@@ -312,7 +312,7 @@ txt_to_id <- function(props) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 txt_id_properties <- function(id) {
     jset <- .jcall("jdplus/text/base/r/TxtFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
     return(.jd2r_txt_id(jset))
@@ -327,7 +327,7 @@ txt_id_properties <- function(id) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 txt_change_file <- function(id, nfile, ofile = NULL) {
     if (is.null(ofile)) ofile <- ""
     nid <- .jcall("jdplus/text/base/r/TxtFiles", "S", "changeFile", id, nfile, ofile)

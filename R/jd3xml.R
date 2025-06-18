@@ -8,7 +8,7 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 .xml_source <- function(file, charset = NULL) {
     if (is.null(charset)) {
         charset <- "utf-8"
@@ -56,7 +56,7 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' xml_name()
 xml_name <- function() {
     return(.jfield("jdplus/text/base/api/XmlProvider", name = "NAME"))
@@ -69,7 +69,7 @@ xml_name <- function() {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
 set_xml_paths <- function(paths) {
     .jcall("jdplus/text/base/r/XmlFiles", "V", "setPaths", .jarray(paths))
@@ -82,7 +82,7 @@ set_xml_paths <- function(paths) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
 #' xml_content("Prod.xml")
 xml_content <- function(file, charset = NULL) {
@@ -107,7 +107,7 @@ xml_content <- function(file, charset = NULL) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
 #' xml_all <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
 xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
@@ -132,7 +132,7 @@ xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullName = TRUE) {
@@ -153,7 +153,7 @@ xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullNam
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 #' q <- xml_id_properties(xml_1_5$moniker$id)
@@ -172,7 +172,7 @@ xml_to_id <- function(props) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 #' xml_id_properties(xml_1_5$moniker$id)
@@ -190,7 +190,7 @@ xml_id_properties <- function(id) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 xml_change_file <- function(id, nfile, ofile = NULL) {
     if (is.null(ofile)) ofile <- ""
     nid <- .jcall("jdplus/text/base/r/XmlFiles", "S", "changeFile", id, nfile, ofile)

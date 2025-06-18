@@ -8,7 +8,7 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rjd3providers)](https://CRAN.R-project.org/package=rjd3providers)
 [![Mentioned in Awesome Official
-Statistics](https://awesome.re/mentioned-badge.svg)](http://www.awesomeofficialstatistics.org)
+Statistics](https://awesome.re/mentioned-badge.svg)](https://github.com/SNStatComp/awesome-official-statistics-software)
 
 [![R-CMD-check](https://github.com/rjdverse/rjd3providers/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rjdverse/rjd3providers/actions/workflows/R-CMD-check.yaml)
 [![lint](https://github.com/rjdverse/rjd3providers/actions/workflows/lint.yaml/badge.svg)](https://github.com/rjdverse/rjd3providers/actions/workflows/lint.yaml)
