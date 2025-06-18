@@ -8,6 +8,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [3.5.1] - 2025-06-18
+
+
 ## [3.5.2] - 2025-06-18
 
 
@@ -62,7 +65,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * v3.1.0
 
 
-[Unreleased]: https://github.com/rjdverse/rjd3providers/compare/v3.5.2...HEAD
+[Unreleased]: https://github.com/rjdverse/rjd3providers/compare/v3.5.1...HEAD
+[3.5.1]: https://github.com/rjdverse/rjd3providers/compare/v3.5.2...v3.5.1
 [3.5.2]: https://github.com/rjdverse/rjd3providers/compare/v3.5.0...v3.5.2
 [3.5.0]: https://github.com/rjdverse/rjd3providers/compare/v3.2.3...v3.5.0
 [3.2.3]: https://github.com/rjdverse/rjd3providers/compare/v3.2.2...v3.2.3
