@@ -27,6 +27,7 @@ LazyData: TRUE
 RoxygenNote: 7.3.2
 SystemRequirements: Java (>= 17)
 Collate: 
+    'deprecated.R'
     'providers.R'
     'jd3spreadsheet.R'
     'jd3txt.R'

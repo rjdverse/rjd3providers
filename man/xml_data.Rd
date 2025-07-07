@@ -2,15 +2,24 @@
 % Please edit documentation in R/jd3xml.R
 \name{xml_data}
 \alias{xml_data}
-\title{Title}
+\title{Retrieves all the time series in a specified sheet from a spreadsheet file}
 \usage{
 xml_data(file, collection = 1, charset = NULL, fullNames = FALSE)
 }
 \arguments{
-\item{fullNames}{}
+\item{file}{The xml file}
+
+\item{collection}{The 1-based position of the collection containing the requested data}
+
+\item{charset}{The character set used in the file}
+
+\item{fullNames}{Specifies if full names (containing the name of the sheet and the name of the series) are used or not}
+}
+\value{
+A ts collection with all the series
 }
 \description{
-Title
+Retrieves all the time series in a specified sheet from a spreadsheet file
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

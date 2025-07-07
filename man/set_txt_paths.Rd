@@ -2,17 +2,23 @@
 % Please edit documentation in R/jd3txt.R
 \name{set_txt_paths}
 \alias{set_txt_paths}
-\title{Title}
+\title{Set the paths to txt files (to be used with relative identifiers)}
 \usage{
 set_txt_paths(paths)
 }
 \arguments{
-\item{paths}{}
+\item{paths}{The folders containing the txt files Only used in relative addresses.}
+}
+\value{
+No output
+
+An internal java moniker
 }
 \description{
-Title
+Set the paths to txt files (to be used with relative identifiers)
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_txt_paths(system.file("examples", package = "rjd3providers"))
 \dontshow{\}) # examplesIf}
 }

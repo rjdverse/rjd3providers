@@ -1,14 +1,5 @@
 #' @include providers.R
 
-#' Title
-#'
-#' @param file
-#' @param cs
-#'
-#' @return
-#' @export
-#'
-#' @examplesIf jversion >= 17
 .xml_source <- function(file, charset = NULL) {
     if (is.null(charset)) {
         charset <- "utf-8"
@@ -51,9 +42,9 @@
     ))
 }
 
-#' Gets the name of the provider
+#' Gets the name of the xml provider
 #'
-#' @return
+#' @return The name of the xml provider, to be used in monikers
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -62,11 +53,27 @@ xml_name <- function() {
     return(.jfield("jdplus/text/base/api/XmlProvider", name = "NAME"))
 }
 
-#' Set the paths of the provider
+#' Generates a java moniker for the corresponding id
 #'
-#' @param paths
+#' @param id Identifier of the requested information
 #'
-#' @return
+#' @return An internal java moniker
+#' @export
+.xml_moniker <- function(id) {
+    jmoniker <- .jcall(
+        obj = "jdplus/base/toolkit/api/timeseries/TsMoniker",
+        returnSig = "Ljdplus/base/toolkit/api/timeseries/TsMoniker;",
+        method = "of",
+        .jfield("jdplus/spreadsheet/base/api/SpreadSheetProvider", name = "NAME"), id
+    )
+    return(jmoniker)
+}
+
+#' Set the paths to xml files (to be used with relative identifiers)
+#'
+#' @param paths The folders containing the xml files. Only used in relative addresses.
+#'
+#' @return No output
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -75,13 +82,18 @@ set_xml_paths <- function(paths) {
     .jcall("jdplus/text/base/r/XmlFiles", "V", "setPaths", .jarray(paths))
 }
 
-#' Title
+#' Provides the content of an xml file designed for time series
 #'
-#' @param file
+#' @param file The considered file
+#' @param charset The character set used in the file (NULL to use the default)
 #'
-#' @return
+#' @return Provides all the names of the time series contained in the file, grouped by collection
+#'
 #' @export
 #'
+#' @examplesIf jversion >= 17
+#' set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
+#' print(spreadsheet_content("Insee.xlsx"))
 #' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
 #' xml_content("Prod.xml")
@@ -97,14 +109,14 @@ xml_content <- function(file, charset = NULL) {
     return(rslt)
 }
 
-#' Title
+#' Retrieves all the time series in a specified sheet from a spreadsheet file
 #'
-#' @param file
-#' @param collection
-#' @param charset
-#' @param fullNames
+#' @param file The xml file
+#' @param collection The 1-based position of the collection containing the requested data
+#' @param charset The character set used in the file
+#' @param fullNames Specifies if full names (containing the name of the sheet and the name of the series) are used or not
 #'
-#' @return
+#' @return A ts collection with all the series
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -123,13 +135,13 @@ xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
 
 #' Title
 #'
-#' @param file
-#' @param collection
-#' @param series
-#' @param charset
-#' @param fullName
+#' @param file The xml file
+#' @param collection The 1-based position of the collection containing the requested data
+#' @param series The 1-based position of the series in the selected collection
+#' @param charset The character set used in the file
+#' @param fullName Specifies if a full name (containing the name of the collection and the name of the series) is used or not
 #'
-#' @return
+#' @return Returns the specified time series
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -148,18 +160,17 @@ xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullNam
 
 #' Generates the id corresponding to a list of properties
 #'
-#' @param props
-#'
-#' @return
+#' @param props The properties defining the identifier.
+#' @return The identifier corresponding to the properties
 #' @export
 #'
 #' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
-#' q <- xml_id_properties(xml_1_5$moniker$id)
+#' q <- xml_properties(xml_1_5$moniker$id)
 #' q$series <- 50
-#' xml_to_id(q)
-xml_to_id <- function(props) {
+#' xml_id(q)
+xml_id <- function(props) {
     jset <- .r2jd_xml_id(props)
     id <- .jcall("jdplus/text/base/r/XmlFiles", "S", "encode", jset)
     return(id)
@@ -167,27 +178,28 @@ xml_to_id <- function(props) {
 
 #' Gets the list of the properties corresponding to the identifier of a moniker
 #'
-#' @param id
-#'
-#' @return
+#' @param id Identifier of a series or of a collection of series.
+#' @return Returns a list with the elements of the id: file, collection[, series], charset, fullnames
 #' @export
 #'
 #' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
-#' xml_id_properties(xml_1_5$moniker$id)
-xml_id_properties <- function(id) {
+#' xml_properties(xml_1_5$moniker$id)
+#' xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
+#' xml_properties(xml_1$moniker$id)
+xml_properties <- function(id) {
     jset <- .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
     return(.jd2r_xml_id(jset))
 }
 
 #' Change the file of a moniker
 #'
-#' @param id Identifier of the series (from its moniker)
-#' @param nfile New file name
-#' @param ofile Old file name. NULL or "" to change any file to the new file
+#' @param id Identifier of a series or of a collection of series.
+#' @param nfile New file name.
+#' @param ofile Old file name. NULL or "" to change any file to the new file.
 #'
-#' @return
+#' @return The new identifier
 #' @export
 #'
 #' @examplesIf jversion >= 17

@@ -7,7 +7,18 @@
 xml_series(file, collection = 1, series = 1, charset = NULL, fullName = TRUE)
 }
 \arguments{
-\item{fullName}{}
+\item{file}{The xml file}
+
+\item{collection}{The 1-based position of the collection containing the requested data}
+
+\item{series}{The 1-based position of the series in the selected collection}
+
+\item{charset}{The character set used in the file}
+
+\item{fullName}{Specifies if a full name (containing the name of the collection and the name of the series) is used or not}
+}
+\value{
+Returns the specified time series
 }
 \description{
 Title

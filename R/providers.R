@@ -1,24 +1,37 @@
+
+#' Generates the Java object for automatic aggregation of the data
+#'
 #' @export
-#' @rdname jd3_utilities
+#'
+#' @param period The annual frequency of the series. If 0, the frequency
+#' @param aggregationType  The type of the aggregation to be applied on the series (only used if "period" is different from 0)
+#' @param allowPartialAggregation Specifies if  the aggregation is performed or not when they are missing periods
+#' @param includeMissings Specifies if missing values at the beginning and at the end of the data are included in the series
 .obs_gathering <- function(period = 0,
                            aggregationType = NULL,
                            allowPartialAggregation = FALSE,
-                           includeMissing = FALSE) {
+                           includeMissings = FALSE) {
     if (is.null(aggregationType)) aggregationType <- "None"
     if (is.null(allowPartialAggregation)) allowPartialAggregation <- FALSE
-    if (is.null(includeMissing)) includeMissing <- FALSE
+    if (is.null(includeMissings)) includeMissings <- FALSE
     jobs <- .jcall(
         obj = "jdplus/toolkit/base/r/util/Providers",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/util/ObsGathering;",
         method = "obsGathering",
         as.integer(period), as.character(aggregationType),
-        as.logical(allowPartialAggregation), as.logical(includeMissing)
+        as.logical(allowPartialAggregation), as.logical(includeMissings)
     )
     return(jobs)
 }
 
+#' Generates the Java object for data formats
+#'
 #' @export
-#' @rdname jd3_utilities
+#'
+#' @param locale Locale language. Null to use the default
+#' @param dateFmt Format of the date. Null to use the default of the locale
+#' @param numberFmt Format of the number. Null to use the default of the locale
+#' @param ignoreNumberGrouping Ignore number grouping
 .obs_format <- function(locale = NULL, dateFmt = NULL, numberFmt = NULL, ignoreNumberGrouping = TRUE) {
     if (is.null(locale)) locale <- ""
     if (is.null(dateFmt)) dateFmt <- ""
