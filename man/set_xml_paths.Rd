@@ -2,15 +2,18 @@
 % Please edit documentation in R/jd3xml.R
 \name{set_xml_paths}
 \alias{set_xml_paths}
-\title{Set the paths of the provider}
+\title{Set the paths to xml files (to be used with relative identifiers)}
 \usage{
 set_xml_paths(paths)
 }
 \arguments{
-\item{paths}{}
+\item{paths}{The folders containing the xml files. Only used in relative addresses.}
+}
+\value{
+No output
 }
 \description{
-Set the paths of the provider
+Set the paths to xml files (to be used with relative identifiers)
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

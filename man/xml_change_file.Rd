@@ -7,11 +7,14 @@
 xml_change_file(id, nfile, ofile = NULL)
 }
 \arguments{
-\item{id}{Identifier of the series (from its moniker)}
+\item{id}{Identifier of a series or of a collection of series.}
 
-\item{nfile}{New file name}
+\item{nfile}{New file name.}
 
-\item{ofile}{Old file name. NULL or "" to change any file to the new file}
+\item{ofile}{Old file name. NULL or "" to change any file to the new file.}
+}
+\value{
+The new identifier
 }
 \description{
 Change the file of a moniker

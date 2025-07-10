@@ -99,24 +99,24 @@
     ))
 }
 
-#' Title
+#' Gets the name of the text provider
 #'
-#' @return
+#' @return The name of the text provider, to be used in monikers
 #' @export
 #'
 #' @examplesIf jversion >= 17
+#' txt_name()
 txt_name <- function() {
     return(.jfield("jdplus/text/base/api/TxtProvider", name = "NAME"))
 }
 
 #' Generates a java moniker for the corresponding id
 #'
-#' @param id
+#' @param id Identifier of the requested information
 #'
-#' @return
+#' @return An internal java moniker
 #' @export
 #'
-#' @examplesIf jversion >= 17
 .txt_moniker <- function(id) {
     jmoniker <- .jcall(
         obj = "jdplus/base/toolkit/api/timeseries/TsMoniker",
@@ -127,36 +127,39 @@ txt_name <- function() {
     return(jmoniker)
 }
 
-#' Title
+#' Set the paths to txt files (to be used with relative identifiers)
 #'
-#' @param paths
+#' @param paths The folders containing the txt files Only used in relative addresses.
 #'
-#' @return
+#' @return No output
+#'
+#' @return An internal java moniker
 #' @export
 #'
 #' @examplesIf jversion >= 17
+#' set_txt_paths(system.file("examples", package = "rjd3providers"))
 set_txt_paths <- function(paths) {
     .jcall("jdplus/text/base/r/TxtFiles", "V", "setPaths", .jarray(paths))
 }
 
-#' Title
+#' Provides the content of a text file designed for time series
 #'
-#' @param file
-#' @param fmt.locale
-#' @param fmt.date
-#' @param fmt.number
-#' @param fmt.ignoreNumberGrouping
-#' @param gathering.period
-#' @param gathering.aggregation
-#' @param gathering.partialAggregation
-#' @param gathering.includeMissing
-#' @param charset
-#' @param delimiter
-#' @param txtQualifier
-#' @param header
-#' @param skip
+#' @param file The text file
+#' @param fmt.locale Locale language. Null to use the default
+#' @param fmt.date Format of the date. Null to use the default of the locale
+#' @param fmt.number Format of the number. Null to use the default of the locale
+#' @param fmt.ignoreNumberGrouping Ignore number grouping
+#' @param gathering.period The annual frequency of the series. If 0, the frequency
+#' @param gathering.aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0)
+#' @param gathering.partialAggregation Specifies if  the aggregation is performed or not when they are missing periods
+#' @param gathering.includeMissing Specifies if missing values at the beginning or at the end of the data are included in the time series
+#' @param charset Specifies the charset
+#' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")
+#' @param txtQualifier Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")
+#' @param header The file contains headers
+#' @param skip Skips some columns
 #'
-#' @return
+#' @return Provides all the names of the time series contained in the text file
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -186,24 +189,24 @@ txt_content <- function(
     return(series)
 }
 
-#' Title
+#' Retrieves all the time series in a text file (.txt, .csv...)
 #'
-#' @param file
-#' @param fmt.locale
-#' @param fmt.date
-#' @param fmt.number
-#' @param fmt.ignoreNumberGrouping
-#' @param gathering.period
-#' @param gathering.aggregation
-#' @param gathering.partialAggregation
-#' @param gathering.includeMissing
-#' @param charset
-#' @param delimiter
-#' @param txtQualifier
-#' @param header
-#' @param skip
+#' @param file The text file
+#' @param fmt.locale Locale language. Null to use the default
+#' @param fmt.date Format of the date. Null to use the default of the locale
+#' @param fmt.number Format of the number. Null to use the default of the locale
+#' @param fmt.ignoreNumberGrouping Ignore number grouping
+#' @param gathering.period The annual frequency of the series. If 0, the frequency
+#' @param gathering.aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0)
+#' @param gathering.partialAggregation Specifies if  the aggregation is performed or not when they are missing periods
+#' @param gathering.includeMissing Specifies if missing values at the beginning or at the end of the data are included in the time series
+#' @param charset Specifies the charset
+#' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")
+#' @param txtQualifier Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")
+#' @param header The file contains headers
+#' @param skip Skips some columns
 #'
-#' @return
+#' @return A ts collection with all the series
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -237,30 +240,30 @@ txt_data <- function(
     return(rjd3toolkit::.jd2r_tscollection(jcoll))
 }
 
-#' Title
+#' Retrieves a time series from a spreadsheet file
 #'
-#' @param file
-#' @param series
-#' @param fmt.locale
-#' @param fmt.date
-#' @param fmt.number
-#' @param fmt.ignoreNumberGrouping
-#' @param gathering.period
-#' @param gathering.aggregation
-#' @param gathering.partialAggregation
-#' @param gathering.includeMissing
-#' @param charset
-#' @param delimiter
-#' @param txtQualifier
-#' @param header
-#' @param skip
+#' @param file The text file
+#' @param series The 1-based position of the series in the selected sheet
+#' @param fmt.locale Locale language. Null to use the default
+#' @param fmt.date Format of the date. Null to use the default of the locale
+#' @param fmt.number Format of the number. Null to use the default of the locale
+#' @param fmt.ignoreNumberGrouping Ignore number grouping
+#' @param gathering.period The annual frequency of the series. If 0, the frequency
+#' @param gathering.aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0)
+#' @param gathering.partialAggregation Specifies if  the aggregation is performed or not when they are missing periods
+#' @param gathering.includeMissing Specifies if missing values at the beginning or at the end of the data are included in the time series
+#' @param charset Specifies the charset
+#' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")
+#' @param txtQualifier Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")
+#' @param header The file contains headers
+#' @param skip Skips some columns
 #'
-#' @return
+#' @return Returns the specified time series
 #' @export
 #'
 #' @examplesIf jversion >= 17
 #' set_txt_paths(system.file("examples", package = "rjd3providers"))
-#' txt_5 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
+#' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 txt_series <- function(
         file,
         series,
@@ -293,13 +296,13 @@ txt_series <- function(
 
 #' Generates the id corresponding to a list of properties
 #'
-#' @param props
+#' @param props The properties defining the identifier.
 #'
-#' @return
+#' @return The identifier corresponding to the properties
 #' @export
 #'
 #' @examplesIf jversion >= 17
-txt_to_id <- function(props) {
+txt_id <- function(props) {
     jset <- .r2jd_txt_id(props)
     id <- .jcall("jdplus/text/base/r/TxtFiles", "S", "encode", jset)
     return(id)
@@ -307,24 +310,28 @@ txt_to_id <- function(props) {
 
 #' Gets the list of the properties corresponding to the identifier of a moniker
 #'
-#' @param id
+#' @param id Identifier of a series or of a collection of series.
 #'
-#' @return
+#' @return Returns a list with the elements of the id: file [, series], format, gathering, ...)
 #' @export
 #'
 #' @examplesIf jversion >= 17
-txt_id_properties <- function(id) {
+#' set_txt_paths(system.file("examples", package = "rjd3providers"))
+#' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
+#' id<-txt_15$moniker$id
+#' print(txt_properties(id))
+txt_properties <- function(id) {
     jset <- .jcall("jdplus/text/base/r/TxtFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
     return(.jd2r_txt_id(jset))
 }
 
-#' Title
+#' Change the file of a moniker
 #'
-#' @param id Identifier of the series (from its moniker)
-#' @param nfile New file name
-#' @param ofile Old file name. NULL or "" to change any file to the new file
+#' @param id Identifier of a series or of a collection of series.
+#' @param nfile New file name.
+#' @param ofile Old file name. NULL or "" to change any file to the new file.
 #'
-#' @return
+#' @return The new identifier
 #' @export
 #'
 #' @examplesIf jversion >= 17

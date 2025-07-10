@@ -2,14 +2,18 @@
 % Please edit documentation in R/jd3spreadsheet.R
 \name{spreadsheet_name}
 \alias{spreadsheet_name}
-\title{Title}
+\title{Gets the name of the spreadsheet provider}
 \usage{
 spreadsheet_name()
 }
+\value{
+The name of the spreadsheet provider, to be used in monikers
+}
 \description{
-Title
+Gets the name of the spreadsheet provider
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+print(spreadsheet_name())
 \dontshow{\}) # examplesIf}
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3txt.R
 \name{txt_data}
 \alias{txt_data}
-\title{Title}
+\title{Retrieves all the time series in a text file (.txt, .csv...)}
 \usage{
 txt_data(
   file,
@@ -22,10 +22,39 @@ txt_data(
 )
 }
 \arguments{
-\item{skip}{}
+\item{file}{The text file}
+
+\item{fmt.locale}{Locale language. Null to use the default}
+
+\item{fmt.date}{Format of the date. Null to use the default of the locale}
+
+\item{fmt.number}{Format of the number. Null to use the default of the locale}
+
+\item{fmt.ignoreNumberGrouping}{Ignore number grouping}
+
+\item{gathering.period}{The annual frequency of the series. If 0, the frequency}
+
+\item{gathering.aggregation}{The type of the aggregation to be applied on the series (only used if "period" is different from 0)}
+
+\item{gathering.partialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods}
+
+\item{gathering.includeMissing}{Specifies if missing values at the beginning or at the end of the data are included in the time series}
+
+\item{charset}{Specifies the charset}
+
+\item{delimiter}{Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")}
+
+\item{txtQualifier}{Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")}
+
+\item{header}{The file contains headers}
+
+\item{skip}{Skips some columns}
+}
+\value{
+A ts collection with all the series
 }
 \description{
-Title
+Retrieves all the time series in a text file (.txt, .csv...)
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
