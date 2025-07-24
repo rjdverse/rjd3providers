@@ -301,8 +301,7 @@ txt_series <- function(
 #' @return The identifier corresponding to the properties
 #' @export
 #'
-#' @examplesIf jversion >= 17
-txt_id <- function(props) {
+txt_properties_to_id <- function(props) {
     jset <- .r2jd_txt_id(props)
     id <- .jcall("jdplus/text/base/r/TxtFiles", "S", "encode", jset)
     return(id)
@@ -319,8 +318,8 @@ txt_id <- function(props) {
 #' set_txt_paths(system.file("examples", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 #' id<-txt_15$moniker$id
-#' print(txt_properties(id))
-txt_properties <- function(id) {
+#' print(txt_id_to_properties(id))
+txt_id_to_properties <- function(id) {
     jset <- .jcall("jdplus/text/base/r/TxtFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
     return(.jd2r_txt_id(jset))
 }
@@ -334,7 +333,6 @@ txt_properties <- function(id) {
 #' @return The new identifier
 #' @export
 #'
-#' @examplesIf jversion >= 17
 txt_change_file <- function(id, nfile, ofile = NULL) {
     if (is.null(ofile)) ofile <- ""
     nid <- .jcall("jdplus/text/base/r/TxtFiles", "S", "changeFile", id, nfile, ofile)
