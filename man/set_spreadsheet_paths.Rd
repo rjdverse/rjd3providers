@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3spreadsheet.R
 \name{set_spreadsheet_paths}
 \alias{set_spreadsheet_paths}
-\title{Set the paths to spreadsheet files (to be used with relative identifiers)}
+\title{Set the paths to spreadsheet files (to be used with relative identifiers).}
 \usage{
 set_spreadsheet_paths(paths)
 }
@@ -10,10 +10,10 @@ set_spreadsheet_paths(paths)
 \item{paths}{The folders containing the spreadsheet files Only used in relative addresses.}
 }
 \value{
-No output
+No output.
 }
 \description{
-Set the paths to spreadsheet files (to be used with relative identifiers)
+Set the paths to spreadsheet files (to be used with relative identifiers).
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

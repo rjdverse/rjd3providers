@@ -13,7 +13,7 @@ txt_content(
   gathering.period = 0,
   gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
   gathering.partialAggregation = FALSE,
-  gathering.includeMissing = TRUE,
+  gathering.includeMissing = FALSE,
   charset = NULL,
   delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
   txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
@@ -48,7 +48,7 @@ txt_content(
 
 \item{header}{The file contains headers}
 
-\item{skip}{Skips some columns}
+\item{skip}{Skips some lines}
 }
 \value{
 Provides all the names of the time series contained in the text file

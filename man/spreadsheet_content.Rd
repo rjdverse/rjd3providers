@@ -2,18 +2,18 @@
 % Please edit documentation in R/jd3spreadsheet.R
 \name{spreadsheet_content}
 \alias{spreadsheet_content}
-\title{Provides the content of a spreadsheet designed for time series}
+\title{Provides the content of a spreadsheet designed for time series.}
 \usage{
 spreadsheet_content(file)
 }
 \arguments{
-\item{file}{The considered workbook}
+\item{file}{The considered workbook.}
 }
 \value{
-Provides all the names of the time series contained in the workbook, organized by worksheet; the output is a list of lists of names
+Provides all the names of the time series contained in the workbook, organized by worksheet; the output is a list of lists of names.
 }
 \description{
-Provides the content of a spreadsheet designed for time series
+Provides the content of a spreadsheet designed for time series.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

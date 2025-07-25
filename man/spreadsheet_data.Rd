@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3spreadsheet.R
 \name{spreadsheet_data}
 \alias{spreadsheet_data}
-\title{Retrieves all the time series in a specified sheet from a spreadsheet file}
+\title{Retrieves all the time series in a specified sheet from a spreadsheet file.}
 \usage{
 spreadsheet_data(
   file,
@@ -15,29 +15,30 @@ spreadsheet_data(
 )
 }
 \arguments{
-\item{file}{The spreadsheet file}
+\item{file}{The spreadsheet file.}
 
-\item{sheet}{The 1-based position of the sheet containing the requested data}
+\item{sheet}{The name or the 1-based position of the sheet containing the requested data.}
 
-\item{period}{The annual frequency of the series. If 0, the frequency}
+\item{period}{The annual frequency of the series. If 0, the frequency.}
 
-\item{aggregation}{The type of the aggregation to be applied on the series (only used if "period" is different from 0)}
+\item{aggregation}{The type of the aggregation to be applied on the series (only used if "period" is different from 0).}
 
-\item{partialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods}
+\item{partialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods.}
 
-\item{cleanMissings}{Specifies if missing values are removed at the beginning or at the end of the data}
+\item{cleanMissings}{Specifies if missing values are removed at the beginning or at the end of the data.}
 
-\item{fullNames}{Specifies if full names (containing the name of the sheet and the name of the series) are used or not}
+\item{fullNames}{Specifies if full names (containing the name of the sheet and the name of the series) are used or not.}
 }
 \value{
-A ts collection with all the series
+A ts collection with all the series.
 }
 \description{
-Retrieves all the time series in a specified sheet from a spreadsheet file
+Retrieves all the time series in a specified sheet from a spreadsheet file.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
 xls_all <- spreadsheet_data("Insee.xlsx", 1)
+txt_all <- spreadsheet_data("Insee.xlsx", "FRANCE Textile")
 \dontshow{\}) # examplesIf}
 }

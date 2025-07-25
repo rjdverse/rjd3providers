@@ -110,17 +110,19 @@ txt_name <- function() {
     return(.jfield("jdplus/text/base/api/TxtProvider", name = "NAME"))
 }
 
-#' Generates a java moniker for the corresponding id
+#' Generates a java moniker for the corresponding id.
 #'
-#' @param id Identifier of the requested information
+#' @param id Identifier of the requested information.
 #'
-#' @return An internal java moniker
+#' @return An internal java moniker.
+#' @examplesIf jversion >= 17
+#' .txt_moniker("toy_id")
 #' @export
 #'
 .txt_moniker <- function(id) {
     jmoniker <- .jcall(
-        obj = "jdplus/base/toolkit/api/timeseries/TsMoniker",
-        returnSig = "Ljdplus/base/toolkit/api/timeseries/TsMoniker;",
+        obj = "jdplus/toolkit/base/api/timeseries/TsMoniker",
+        returnSig = "Ljdplus/toolkit/base/api/timeseries/TsMoniker;",
         method = "of",
         txt_name(), id
     )
@@ -157,7 +159,7 @@ set_txt_paths <- function(paths) {
 #' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")
 #' @param txtQualifier Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")
 #' @param header The file contains headers
-#' @param skip Skips some columns
+#' @param skip Skips some lines
 #'
 #' @return Provides all the names of the time series contained in the text file
 #' @export
@@ -174,7 +176,7 @@ txt_content <- function(
         gathering.period = 0,
         gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
         gathering.partialAggregation = FALSE,
-        gathering.includeMissing = TRUE,
+        gathering.includeMissing = FALSE,
         charset = NULL,
         delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
         txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
@@ -204,7 +206,7 @@ txt_content <- function(
 #' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")
 #' @param txtQualifier Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")
 #' @param header The file contains headers
-#' @param skip Skips some columns
+#' @param skip Skips some lines
 #'
 #' @return A ts collection with all the series
 #' @export
@@ -220,7 +222,7 @@ txt_data <- function(
         fmt.ignoreNumberGrouping = TRUE,
         gathering.period = 0,
         gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
-        gathering.partialAggregation = FALSE, gathering.includeMissing = TRUE,
+        gathering.partialAggregation = FALSE, gathering.includeMissing = FALSE,
         charset = NULL,
         delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
         txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
@@ -256,7 +258,7 @@ txt_data <- function(
 #' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")
 #' @param txtQualifier Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")
 #' @param header The file contains headers
-#' @param skip Skips some columns
+#' @param skip Skips some lines
 #'
 #' @return Returns the specified time series
 #' @export
@@ -274,7 +276,7 @@ txt_series <- function(
         gathering.period = 0,
         gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
         gathering.partialAggregation = FALSE,
-        gathering.includeMissing = TRUE,
+        gathering.includeMissing = FALSE,
         charset = NULL,
         delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
         txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),

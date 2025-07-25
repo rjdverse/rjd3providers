@@ -42,38 +42,40 @@
     ))
 }
 
-#' Gets the name of the xml provider
+#' Gets the name of the xml provider.
 #'
-#' @return The name of the xml provider, to be used in monikers
+#' @return The name of the xml provider, to be used in monikers.
 #' @export
 #'
 #' @examplesIf jversion >= 17
 #' xml_name()
 xml_name <- function() {
-    return(.jfield("jdplus/text/base/api/XmlProvider", name = "NAME"))
+    return(.jfield("jdplus/text/base/api/XmlProvider", "S", name = "NAME"))
 }
 
-#' Generates a java moniker for the corresponding id
+#' Generates a java moniker for the corresponding id.
 #'
-#' @param id Identifier of the requested information
+#' @param id Identifier of the requested information.
 #'
-#' @return An internal java moniker
+#' @return An internal java moniker.
+#' @examplesIf jversion >= 17
+#' .xml_moniker("toy_id")
 #' @export
 .xml_moniker <- function(id) {
     jmoniker <- .jcall(
-        obj = "jdplus/base/toolkit/api/timeseries/TsMoniker",
-        returnSig = "Ljdplus/base/toolkit/api/timeseries/TsMoniker;",
+        obj = "jdplus/toolkit/base/api/timeseries/TsMoniker",
+        returnSig = "Ljdplus/toolkit/base/api/timeseries/TsMoniker;",
         method = "of",
-        .jfield("jdplus/spreadsheet/base/api/SpreadSheetProvider", name = "NAME"), id
+        xml_name(), id
     )
     return(jmoniker)
 }
 
-#' Set the paths to xml files (to be used with relative identifiers)
+#' Set the paths to xml files (to be used with relative identifiers).
 #'
 #' @param paths The folders containing the xml files. Only used in relative addresses.
 #'
-#' @return No output
+#' @return No output.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -82,12 +84,12 @@ set_xml_paths <- function(paths) {
     .jcall("jdplus/text/base/r/XmlFiles", "V", "setPaths", .jarray(paths))
 }
 
-#' Provides the content of an xml file designed for time series
+#' Provides the content of an xml file designed for time series.
 #'
-#' @param file The considered file
-#' @param charset The character set used in the file (NULL to use the default)
+#' @param file The considered file.
+#' @param charset The character set used in the file (NULL to use the default).
 #'
-#' @return Provides all the names of the time series contained in the file, grouped by collection
+#' @return Provides all the names of the time series contained in the file, grouped by collection.
 #'
 #' @export
 #'
@@ -109,10 +111,10 @@ xml_content <- function(file, charset = NULL) {
     return(rslt)
 }
 
-#' Retrieves all the time series in a specified sheet from a spreadsheet file
+#' Retrieves all the time series in a specified sheet from a spreadsheet file.
 #'
-#' @param file The xml file
-#' @param collection The 1-based position of the collection containing the requested data
+#' @param file The xml file.
+#' @param collection The name or the 1-based position of the collection containing the requested data.
 #' @param charset The character set used in the file
 #' @param fullNames Specifies if full names (containing the name of the sheet and the name of the series) are used or not
 #'
@@ -121,9 +123,19 @@ xml_content <- function(file, charset = NULL) {
 #'
 #' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("examples", package = "rjd3providers"))
-#' xml_all <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
+#' xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
+#' xml_all <- xml_data("Prod.xml", "industrial production", charset = "iso-8859-1")
 xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
     jsource <- .xml_source(file, charset)
+    if (! is.numeric(collection)){
+        sheets<-.jcall(
+            obj = "jdplus/text/base/r/XmlFiles",
+            returnSig = "[S",
+            method = "sheets",
+            jsource)
+        collection<-match(collection, sheets)[1]
+        if (is.na(collection)) stop("Invalid collection name")
+    }
     jcoll <- .jcall(
         obj = "jdplus/text/base/r/XmlFiles",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/TsCollection;",

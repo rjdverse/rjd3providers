@@ -13,7 +13,7 @@ txt_data(
   gathering.period = 0,
   gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
   gathering.partialAggregation = FALSE,
-  gathering.includeMissing = TRUE,
+  gathering.includeMissing = FALSE,
   charset = NULL,
   delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
   txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
@@ -48,7 +48,7 @@ txt_data(
 
 \item{header}{The file contains headers}
 
-\item{skip}{Skips some columns}
+\item{skip}{Skips some lines}
 }
 \value{
 A ts collection with all the series

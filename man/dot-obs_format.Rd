@@ -20,6 +20,11 @@
 
 \item{ignoreNumberGrouping}{Ignore number grouping}
 }
+\value{
+An internal Java object.
+#' @examplesIf jversion >= 17
+.obs_format(local="french-be")
+}
 \description{
 Generates the Java object for data formats
 }

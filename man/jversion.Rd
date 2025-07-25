@@ -3,14 +3,17 @@
 \docType{data}
 \name{jversion}
 \alias{jversion}
-\title{Java version}
+\title{Java version.}
 \format{
 An object of class \code{integer} of length 1.
 }
 \usage{
 jversion
 }
+\value{
+Current Java version.
+}
 \description{
-Java version
+Java version.
 }
 \keyword{datasets}

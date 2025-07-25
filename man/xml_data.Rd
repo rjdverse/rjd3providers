@@ -2,14 +2,14 @@
 % Please edit documentation in R/jd3xml.R
 \name{xml_data}
 \alias{xml_data}
-\title{Retrieves all the time series in a specified sheet from a spreadsheet file}
+\title{Retrieves all the time series in a specified sheet from a spreadsheet file.}
 \usage{
 xml_data(file, collection = 1, charset = NULL, fullNames = FALSE)
 }
 \arguments{
-\item{file}{The xml file}
+\item{file}{The xml file.}
 
-\item{collection}{The 1-based position of the collection containing the requested data}
+\item{collection}{The name or the 1-based position of the collection containing the requested data.}
 
 \item{charset}{The character set used in the file}
 
@@ -19,11 +19,12 @@ xml_data(file, collection = 1, charset = NULL, fullNames = FALSE)
 A ts collection with all the series
 }
 \description{
-Retrieves all the time series in a specified sheet from a spreadsheet file
+Retrieves all the time series in a specified sheet from a spreadsheet file.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_xml_paths(system.file("examples", package = "rjd3providers"))
-xml_all <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
+xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
+xml_all <- xml_data("Prod.xml", "industrial production", charset = "iso-8859-1")
 \dontshow{\}) # examplesIf}
 }

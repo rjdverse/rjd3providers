@@ -12,13 +12,18 @@
 )
 }
 \arguments{
-\item{period}{The annual frequency of the series. If 0, the frequency}
+\item{period}{The annual frequency of the series. If 0, the frequency.}
 
-\item{aggregationType}{The type of the aggregation to be applied on the series (only used if "period" is different from 0)}
+\item{aggregationType}{The type of the aggregation to be applied on the series (only used if "period" is different from 0).}
 
-\item{allowPartialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods}
+\item{allowPartialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods.}
 
-\item{includeMissings}{Specifies if missing values at the beginning and at the end of the data are included in the series}
+\item{includeMissings}{Specifies if missing values at the beginning and at the end of the data are included in the series.}
+}
+\value{
+An internal Java object.
+#' @examplesIf jversion >= 17
+.obs_gathering(period=4, aggregationType="Sum")
 }
 \description{
 Generates the Java object for automatic aggregation of the data

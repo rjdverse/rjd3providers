@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3spreadsheet.R
 \name{spreadsheet_properties}
 \alias{spreadsheet_properties}
-\title{Gets the list of the properties corresponding to the identifier of a moniker}
+\title{Gets the list of the properties corresponding to the identifier of a moniker.}
 \usage{
 spreadsheet_properties(id)
 }
@@ -10,13 +10,13 @@ spreadsheet_properties(id)
 \item{id}{Identifier of a series or of a collection of series.}
 }
 \value{
-Returns a list with the elements of the id: file, sheet, series, gathering); the gathering is a list with the following items: period (-1 by default), the aggregation ("None"), partialAggregation (FALSE), includeMissing (FALSE)
+Returns a list with the elements of the id: file, sheet, series, gathering); the gathering is a list with the following items: period (-1 by default), the aggregation ("None"), partialAggregation (FALSE), includeMissing (FALSE).
 }
 \description{
-Gets the list of the properties corresponding to the identifier of a moniker
+Gets the list of the properties corresponding to the identifier of a moniker.
 }
 \details{
-When the period in the gathering list is defined, the user must specify the aggregation type ("Sum", "Average", "First", "Last", "Min", "Max") and some additional parameters (partial aggregation and suppression of leading/trailing missing values)
+When the period in the gathering list is defined, the user must specify the aggregation type ("Sum", "Average", "First", "Last", "Min", "Max") and some additional parameters (partial aggregation and suppression of leading/trailing missing values).
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

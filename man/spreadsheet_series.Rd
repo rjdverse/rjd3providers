@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3spreadsheet.R
 \name{spreadsheet_series}
 \alias{spreadsheet_series}
-\title{Retrieves a time series from a spreadsheet file}
+\title{Retrieves a time series from a spreadsheet file.}
 \usage{
 spreadsheet_series(
   file,
@@ -16,31 +16,32 @@ spreadsheet_series(
 )
 }
 \arguments{
-\item{file}{The spreadsheet file}
+\item{file}{The spreadsheet file.}
 
-\item{sheet}{The 1-based position of the sheet containing the requested data}
+\item{sheet}{The name or the 1-based position of the sheet containing the requested data.}
 
-\item{series}{The 1-based position of the series in the selected sheet}
+\item{series}{The name or the 1-based position of the series in the selected sheet.}
 
-\item{period}{The annual frequency of the series. If 0, the frequency}
+\item{period}{The annual frequency of the series. If 0, the frequency.}
 
-\item{aggregation}{The type of the aggregation to be applied on the series (only used if "period" is different from 0)}
+\item{aggregation}{The type of the aggregation to be applied on the series (only used if "period" is different from 0).}
 
-\item{partialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods}
+\item{partialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods.}
 
-\item{cleanMissings}{Specifies if missing values are removed at the beginning or at the end of the data}
+\item{cleanMissings}{Specifies if missing values are removed at the beginning or at the end of the data.}
 
-\item{fullName}{Specifies if a full name (containing the name of the sheet and the name of the series) is used or not}
+\item{fullName}{Specifies if a full name (containing the name of the sheet and the name of the series) is used or not.}
 }
 \value{
-Returns the specified time series
+Returns the specified time series.
 }
 \description{
-Retrieves a time series from a spreadsheet file
+Retrieves a time series from a spreadsheet file.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
 xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
+txt_s1 <- spreadsheet_series("Insee.xlsx", "FRANCE Textile", 1)
 \dontshow{\}) # examplesIf}
 }

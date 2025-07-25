@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3spreadsheet.R
 \name{spreadsheet_id}
 \alias{spreadsheet_id}
-\title{Generates the id corresponding to a list of properties}
+\title{Generates the id corresponding to a list of properties.}
 \usage{
 spreadsheet_id(props)
 }
@@ -10,10 +10,10 @@ spreadsheet_id(props)
 \item{props}{The properties defining the identifier.}
 }
 \value{
-The identifier corresponding to the properties
+The identifier corresponding to the properties.
 }
 \description{
-Generates the id corresponding to a list of properties
+Generates the id corresponding to a list of properties.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
