@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3txt.R
 \name{txt_change_file}
 \alias{txt_change_file}
-\title{Change the file of a moniker}
+\title{Change the file of a text moniker}
 \usage{
 txt_change_file(id, nfile, ofile = NULL)
 }
@@ -17,9 +17,13 @@ txt_change_file(id, nfile, ofile = NULL)
 The new identifier
 }
 \description{
-Change the file of a moniker
+Change the file of a text moniker
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_txt_paths(system.file("extdata", package = "rjd3providers"))
+txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
+id<-txt_15$moniker$id
+txt_change_file(id, "test.csv")
 \dontshow{\}) # examplesIf}
 }

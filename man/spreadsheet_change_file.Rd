@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3spreadsheet.R
 \name{spreadsheet_change_file}
 \alias{spreadsheet_change_file}
-\title{Change the file of a moniker.}
+\title{Change the file of a spreadsheet moniker.}
 \usage{
 spreadsheet_change_file(id, nfile, ofile = NULL)
 }
@@ -17,7 +17,7 @@ spreadsheet_change_file(id, nfile, ofile = NULL)
 Returns the new identifier.
 }
 \description{
-Change the file of a moniker.
+Change the file of a spreadsheet moniker.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

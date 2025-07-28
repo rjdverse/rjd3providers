@@ -94,11 +94,9 @@ set_xml_paths <- function(paths) {
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
-#' print(spreadsheet_content("Insee.xlsx"))
-#' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_content("Prod.xml")
+#' print(xml_content)
 xml_content <- function(file, charset = NULL) {
     jsource <- .xml_source(file, charset)
     sheets <- .jcall("jdplus/text/base/r/XmlFiles", "[S", "sheets", jsource)
@@ -111,14 +109,14 @@ xml_content <- function(file, charset = NULL) {
     return(rslt)
 }
 
-#' Retrieves all the time series in a specified sheet from a spreadsheet file.
+#' Retrieves all the time series in a specified collection from an xml file.
 #'
 #' @param file The xml file.
 #' @param collection The name or the 1-based position of the collection containing the requested data.
 #' @param charset The character set used in the file
-#' @param fullNames Specifies if full names (containing the name of the sheet and the name of the series) are used or not
+#' @param fullNames Specifies if full names (containing the name of the sheet and the name of the series) are used or not.
 #'
-#' @return A ts collection with all the series
+#' @return A ts collection with all the series.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -145,13 +143,13 @@ xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
     return(rjd3toolkit::.jd2r_tscollection(jcoll))
 }
 
-#' Title
+#' Retrieves a time series from an xml file
 #'
-#' @param file The xml file
-#' @param collection The 1-based position of the collection containing the requested data
-#' @param series The 1-based position of the series in the selected collection
-#' @param charset The character set used in the file
-#' @param fullName Specifies if a full name (containing the name of the collection and the name of the series) is used or not
+#' @param file The xml file.
+#' @param collection The name or the 1-based position of the collection containing the requested data.
+#' @param series The name or the 1-based position of the series in the selected collection.
+#' @param charset The character set used in the file.
+#' @param fullName Specifies if a full name (containing the name of the collection and the name of the series) is used or not.
 #'
 #' @return Returns the specified time series
 #' @export
@@ -159,8 +157,23 @@ xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
 #' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
+#' xml_cn <- xml_series("Prod.xml", "industrial production", "Construction navale", charset = "iso-8859-1")
 xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullName = TRUE) {
     jsource <- .xml_source(file, charset)
+    if (! is.numeric(collection)){
+        sheets<-.jcall(
+            obj = "jdplus/text/base/r/XmlFiles",
+            returnSig = "[S",
+            method = "sheets",
+            jsource)
+        collection<-match(collection, sheets)[1]
+        if (is.na(collection)) stop("Invalid collection name")
+    }
+    if (! is.numeric(series)){
+        all <- .jcall("jdplus/text/base/r/XmlFiles", "[S", "series", jsource, as.integer(collection))
+        series<-match(series, all)[1]
+        if (is.na(series)) stop("Invalid series name")
+    }
     jcoll <- .jcall(
         obj = "jdplus/text/base/r/XmlFiles",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/Ts;",
@@ -170,10 +183,10 @@ xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullNam
     return(rjd3toolkit::.jd2r_ts(jcoll))
 }
 
-#' Generates the id corresponding to a list of properties
+#' Generates the id corresponding to a list of an xml properties.
 #'
 #' @param props The properties defining the identifier.
-#' @return The identifier corresponding to the properties
+#' @return The identifier corresponding to the properties.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -188,10 +201,10 @@ xml_id <- function(props) {
     return(id)
 }
 
-#' Gets the list of the properties corresponding to the identifier of a moniker
+#' Gets the list of the properties corresponding to the identifier of a moniker.
 #'
 #' @param id Identifier of a series or of a collection of series.
-#' @return Returns a list with the elements of the id: file, collection[, series], charset, fullnames
+#' @return Returns a list with the elements of the id: file, collection[, series], charset, fullnames.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -205,16 +218,20 @@ xml_properties <- function(id) {
     return(.jd2r_xml_id(jset))
 }
 
-#' Change the file of a moniker
+#' Change the file of an xml moniker.
 #'
 #' @param id Identifier of a series or of a collection of series.
 #' @param nfile New file name.
 #' @param ofile Old file name. NULL or "" to change any file to the new file.
 #'
-#' @return The new identifier
+#' @return The new identifier.
 #' @export
 #'
 #' @examplesIf jversion >= 17
+#' set_xml_paths(system.file("extdata", package = "rjd3providers"))
+#' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
+#' id<-xml_1_5$moniker$id
+#' xml_change_file(id, "test.xml")
 xml_change_file <- function(id, nfile, ofile = NULL) {
     if (is.null(ofile)) ofile <- ""
     nid <- .jcall("jdplus/text/base/r/XmlFiles", "S", "changeFile", id, nfile, ofile)

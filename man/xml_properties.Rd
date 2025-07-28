@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3xml.R
 \name{xml_properties}
 \alias{xml_properties}
-\title{Gets the list of the properties corresponding to the identifier of a moniker}
+\title{Gets the list of the properties corresponding to the identifier of a moniker.}
 \usage{
 xml_properties(id)
 }
@@ -10,10 +10,10 @@ xml_properties(id)
 \item{id}{Identifier of a series or of a collection of series.}
 }
 \value{
-Returns a list with the elements of the id: file, collection[, series], charset, fullnames
+Returns a list with the elements of the id: file, collection[, series], charset, fullnames.
 }
 \description{
-Gets the list of the properties corresponding to the identifier of a moniker
+Gets the list of the properties corresponding to the identifier of a moniker.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

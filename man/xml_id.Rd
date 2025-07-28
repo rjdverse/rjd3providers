@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3xml.R
 \name{xml_id}
 \alias{xml_id}
-\title{Generates the id corresponding to a list of properties}
+\title{Generates the id corresponding to a list of an xml properties.}
 \usage{
 xml_id(props)
 }
@@ -10,10 +10,10 @@ xml_id(props)
 \item{props}{The properties defining the identifier.}
 }
 \value{
-The identifier corresponding to the properties
+The identifier corresponding to the properties.
 }
 \description{
-Generates the id corresponding to a list of properties
+Generates the id corresponding to a list of an xml properties.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

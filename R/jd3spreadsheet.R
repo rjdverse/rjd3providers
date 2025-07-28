@@ -247,7 +247,7 @@ spreadsheet_content <- function(file) {
     return(rslt)
 }
 
-#' Generates the id corresponding to a list of properties.
+#' Generates the id corresponding to a list of spreadsheet properties.
 #'
 #' @param props The properties defining the identifier.
 #'
@@ -294,7 +294,7 @@ spreadsheet_properties <- function(id) {
     return(.jd2r_spreadsheet_id(jset))
 }
 
-#' Change the file of a moniker.
+#' Change the file of a spreadsheet moniker.
 #'
 #' @param id Identifier of a series or of a collection of series.
 #' @param nfile New file name.

@@ -242,10 +242,10 @@ txt_data <- function(
     return(rjd3toolkit::.jd2r_tscollection(jcoll))
 }
 
-#' Retrieves a time series from a spreadsheet file
+#' Retrieves a time series from a a text file (.txt, .csv...)
 #'
 #' @param file The text file
-#' @param series The 1-based position of the series in the selected sheet
+#' @param series The name or the 1-based position of the series in the selected sheet
 #' @param fmt.locale Locale language. Null to use the default
 #' @param fmt.date Format of the date. Null to use the default of the locale
 #' @param fmt.number Format of the number. Null to use the default of the locale
@@ -266,6 +266,7 @@ txt_data <- function(
 #' @examplesIf jversion >= 17
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
+#' txt_09 <- txt_series("ABS.csv", series = "0.2.09.10.M", delimiter = "COMMA")
 txt_series <- function(
         file,
         series,
@@ -287,6 +288,12 @@ txt_series <- function(
         gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.cleanMissing,
         charset, delimiter, txtQualifier, header, skip
     )
+    if (! is.numeric(series)){
+        all <- .jcall("jdplus/text/base/r/TxtFiles", "[S", "series", jsource)
+        series<-match(series, all)[1]
+        if (is.na(series)) stop("Invalid series name")
+    }
+
     js <- .jcall(
         obj = "jdplus/text/base/r/TxtFiles",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/Ts;",
@@ -296,14 +303,25 @@ txt_series <- function(
     return(rjd3toolkit::.jd2r_ts(js))
 }
 
-#' Generates the id corresponding to a list of properties
+#' Generates the id corresponding to a list of a text properties.
 #'
 #' @param props The properties defining the identifier.
 #'
-#' @return The identifier corresponding to the properties
+#' @return The identifier corresponding to the properties.
 #' @export
 #'
 #' @examplesIf jversion >= 17
+#' set_txt_paths(system.file("extdata", package = "rjd3providers"))
+#' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
+#' id<-txt_15$moniker$id
+#' source<-txt_name()
+#' props<-txt_properties(id)
+#' props$gathering$period<-4
+#' props$gathering$aggregation<-"Max"
+#' M<-rjd3toolkit::to_ts(txt_name(), txt_id(props))
+#' props$gathering$aggregation<-"Min"
+#' m<-rjd3toolkit::to_ts(txt_name(), txt_id(props))
+#' ts.plot(ts.union(M$data,m$data), col=c("red", "blue"))
 txt_id <- function(props) {
     jset <- .r2jd_txt_id(props)
     id <- .jcall("jdplus/text/base/r/TxtFiles", "S", "encode", jset)
@@ -314,7 +332,7 @@ txt_id <- function(props) {
 #'
 #' @param id Identifier of a series or of a collection of series.
 #'
-#' @return Returns a list with the elements of the id: file [, series], format, gathering, ...)
+#' @return Returns a list with the elements of the id: file [, series], format, gathering, ...).
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -327,7 +345,7 @@ txt_properties <- function(id) {
     return(.jd2r_txt_id(jset))
 }
 
-#' Change the file of a moniker
+#' Change the file of a text moniker
 #'
 #' @param id Identifier of a series or of a collection of series.
 #' @param nfile New file name.
@@ -337,6 +355,10 @@ txt_properties <- function(id) {
 #' @export
 #'
 #' @examplesIf jversion >= 17
+#' set_txt_paths(system.file("extdata", package = "rjd3providers"))
+#' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
+#' id<-txt_15$moniker$id
+#' txt_change_file(id, "test.csv")
 txt_change_file <- function(id, nfile, ofile = NULL) {
     if (is.null(ofile)) ofile <- ""
     nid <- .jcall("jdplus/text/base/r/TxtFiles", "S", "changeFile", id, nfile, ofile)

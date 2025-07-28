@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3txt.R
 \name{txt_series}
 \alias{txt_series}
-\title{Retrieves a time series from a spreadsheet file}
+\title{Retrieves a time series from a a text file (.txt, .csv...)}
 \usage{
 txt_series(
   file,
@@ -25,7 +25,7 @@ txt_series(
 \arguments{
 \item{file}{The text file}
 
-\item{series}{The 1-based position of the series in the selected sheet}
+\item{series}{The name or the 1-based position of the series in the selected sheet}
 
 \item{fmt.locale}{Locale language. Null to use the default}
 
@@ -57,11 +57,12 @@ txt_series(
 Returns the specified time series
 }
 \description{
-Retrieves a time series from a spreadsheet file
+Retrieves a time series from a a text file (.txt, .csv...)
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
+txt_09 <- txt_series("ABS.csv", series = "0.2.09.10.M", delimiter = "COMMA")
 \dontshow{\}) # examplesIf}
 }
