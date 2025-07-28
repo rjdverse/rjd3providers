@@ -71,7 +71,7 @@ NULL
         method = "getAggregationType"
     )
     output <- list(
-        file = .jcall(jfile, "S", "getName"),
+        file = .jcall(jfile, "S", "getPath"),
         sheet = .jcall(jset, "S", "getParameter", "sheetName"),
         series = .jcall(jset, "S", "getParameter", "seriesName"),
         gathering = list(

@@ -78,7 +78,7 @@
     jdelimiter <- .jcall(jbean, "Ljdplus/text/base/api/TxtBean$Delimiter;", "getDelimiter")
     jqual <- .jcall(jbean, "Ljdplus/text/base/api/TxtBean$TextQualifier;", "getTextQualifier")
     return(list(
-        file = .jcall(jfile, "S", "getName"),
+        file = .jcall(jfile, "S", "getPath"),
         delimiter = .jcall(jdelimiter, "S", "name"),
         textQualifier = .jcall(jqual, "S", "name"),
         headers = as.integer(.jcall(jbean, "Z", "isHeaders")),

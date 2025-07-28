@@ -35,7 +35,7 @@
     jfile <- .jcall(jbean, "Ljava/io/File;", "getFile")
     jcharset <- .jcall(jbean, "Ljava/nio/charset/Charset;", "getCharset")
     return(list(
-        file = .jcall(jfile, "S", "getName"),
+        file = .jcall(jfile, "S", "getPath"),
         charset = .jcall(jcharset, "S", "name"),
         collection = 1 + as.integer(.jcall(jset, "S", "getParameter", "collectionIndex")),
         series = 1 + as.integer(.jcall(jset, "S", "getParameter", "seriesIndex"))
