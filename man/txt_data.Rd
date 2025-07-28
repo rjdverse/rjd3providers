@@ -13,7 +13,7 @@ txt_data(
   gathering.period = 0,
   gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
   gathering.partialAggregation = FALSE,
-  gathering.includeMissing = FALSE,
+  gathering.cleanMissing = TRUE,
   charset = NULL,
   delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
   txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
@@ -32,13 +32,13 @@ txt_data(
 
 \item{fmt.ignoreNumberGrouping}{Ignore number grouping}
 
-\item{gathering.period}{The annual frequency of the series. If 0, the frequency}
+\item{gathering.period}{The annual frequency of the transformed series. If 0, the actual frequency is used.}
 
 \item{gathering.aggregation}{The type of the aggregation to be applied on the series (only used if "period" is different from 0)}
 
 \item{gathering.partialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods}
 
-\item{gathering.includeMissing}{Specifies if missing values at the beginning or at the end of the data are included in the time series}
+\item{gathering.cleanMissing}{Specifies if missing values at the beginning or at the end of the data are removed from the series.}
 
 \item{charset}{Specifies the charset}
 
@@ -58,7 +58,7 @@ Retrieves all the time series in a text file (.txt, .csv...)
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_txt_paths(system.file("examples", package = "rjd3providers"))
+set_txt_paths(system.file("extdata", package = "rjd3providers"))
 all <- txt_data("ABS.csv", delimiter = "COMMA")
 \dontshow{\}) # examplesIf}
 }

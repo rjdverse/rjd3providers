@@ -21,7 +21,7 @@ Change the file of a moniker.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
+set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 xls_all <- spreadsheet_data("Insee.xlsx", 1)
 id<-xls_all$moniker$id
 spreadsheet_change_file(id, "test.xlsx")

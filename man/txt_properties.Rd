@@ -17,7 +17,7 @@ Gets the list of the properties corresponding to the identifier of a moniker
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_txt_paths(system.file("examples", package = "rjd3providers"))
+set_txt_paths(system.file("extdata", package = "rjd3providers"))
 txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 id<-txt_15$moniker$id
 print(txt_properties(id))

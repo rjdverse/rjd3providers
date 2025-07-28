@@ -6,9 +6,9 @@ NULL
         period = 0,
         aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
         partialAggregation = FALSE,
-        includeMissing = FALSE) {
+        cleanMissing = TRUE) {
     aggregation <- match.arg(aggregation)
-    jgathering <- .obs_gathering(period, aggregation, partialAggregation, includeMissing)
+    jgathering <- .obs_gathering(period, aggregation, partialAggregation, cleanMissing)
     jsource <- .jcall(
         "jdplus/spreadsheet/base/r/SpreadSheets", "Ljdplus/toolkit/base/tsp/DataSource;", "source",
         as.character(file), .jnull("jdplus/toolkit/base/tsp/util/ObsFormat"), jgathering
@@ -22,7 +22,7 @@ NULL
         period = id$gathering$period,
         aggregation = id$gathering$aggregation,
         partialAggregation = id$gathering$partialAggregation,
-        includeMissing = id$gathering$includeMissing
+        cleanMissing = id$gathering$cleanMissing
     )
     if (is.null(id$series)) {
         output <- .jcall(
@@ -78,7 +78,7 @@ NULL
             period = .jcall(junit, "I", "getAnnualFrequency"),
             aggregation = .jcall(jagg, "S", "name"),
             partialAggregation = .jcall(jgathering, "Z", "isAllowPartialAggregation"),
-            includeMissing = .jcall(jgathering, "Z", "isIncludeMissingValues")
+            cleanMissing = ! .jcall(jgathering, "Z", "isIncludeMissingValues")
         )
     )
     return(output)
@@ -103,7 +103,7 @@ spreadsheet_name <- function() {
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
+#' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 set_spreadsheet_paths <- function(paths) {
     .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "V", "setPaths", .jarray(paths))
 }
@@ -131,26 +131,26 @@ set_spreadsheet_paths <- function(paths) {
 #'
 #' @param file The spreadsheet file.
 #' @param sheet The name or the 1-based position of the sheet containing the requested data.
-#' @param period The annual frequency of the series. If 0, the frequency.
-#' @param aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0).
-#' @param partialAggregation Specifies if  the aggregation is performed or not when they are missing periods.
-#' @param cleanMissings Specifies if missing values are removed at the beginning or at the end of the data.
+#' @param gathering.period The annual frequency of the transformed series. If 0, the actual frequency is used.
+#' @param gathering.aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0).
+#' @param gathering.partialAggregation Specifies if  the aggregation is performed or not when they are missing periods.
+#' @param gathering.cleanMissing Specifies if missing values at the beginning or at the end of the data are removed from the series.
 #' @param fullNames Specifies if full names (containing the name of the sheet and the name of the series) are used or not.
 #' @return A ts collection with all the series.
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
+#' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_all <- spreadsheet_data("Insee.xlsx", 1)
 #' txt_all <- spreadsheet_data("Insee.xlsx", "FRANCE Textile")
 spreadsheet_data <- function(
         file, sheet = 1,
-        period = 0,
-        aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
-        partialAggregation = FALSE,
-        cleanMissings = TRUE,
+        gathering.period = 0,
+        gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
+        gathering.partialAggregation = FALSE,
+        gathering.cleanMissing = TRUE,
         fullNames = FALSE) {
-    jsource <- .spreadsheet_source(file, period, aggregation, partialAggregation, cleanMissings)
+    jsource <- .spreadsheet_source(file, gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.cleanMissing)
     if (! is.numeric(sheet)){
         sheets<-.jcall(
             obj = "jdplus/spreadsheet/base/r/SpreadSheets",
@@ -173,30 +173,30 @@ spreadsheet_data <- function(
 #' @param file The spreadsheet file.
 #' @param sheet The name or the 1-based position of the sheet containing the requested data.
 #' @param series The name or the 1-based position of the series in the selected sheet.
-#' @param period The annual frequency of the series. If 0, the frequency.
-#' @param aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0).
-#' @param partialAggregation Specifies if  the aggregation is performed or not when they are missing periods.
-#' @param cleanMissings Specifies if missing values are removed at the beginning or at the end of the data.
+#' @param gathering.period The annual frequency of the transformed series. If 0, the actual frequency is used.
+#' @param gathering.aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0).
+#' @param gathering.partialAggregation Specifies if  the aggregation is performed or not when they are missing periods.
+#' @param gathering.cleanMissing Specifies if missing values are removed at the beginning or at the end of the data.
 #' @param fullName Specifies if a full name (containing the name of the sheet and the name of the series) is used or not.
 #'
 #' @return Returns the specified time series.
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
+#' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 #' txt_s1 <- spreadsheet_series("Insee.xlsx", "FRANCE Textile", 1)
 spreadsheet_series <- function(
         file,
         sheet = 1,
         series = 1,
-        period = 0,
-        aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
-        partialAggregation = FALSE,
-        cleanMissings = TRUE,
+        gathering.period = 0,
+        gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
+        gathering.partialAggregation = FALSE,
+        gathering.cleanMissing = TRUE,
         fullName = TRUE) {
 
-    jsource <- .spreadsheet_source(file, period, aggregation, partialAggregation, cleanMissings)
+    jsource <- .spreadsheet_source(file, gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.cleanMissing)
     if (! is.numeric(sheet)){
         sheets<-.jcall(
             obj = "jdplus/spreadsheet/base/r/SpreadSheets",
@@ -233,7 +233,7 @@ spreadsheet_series <- function(
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
+#' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' print(spreadsheet_content("Insee.xlsx"))
 spreadsheet_content <- function(file) {
     jsource <- .spreadsheet_source(file, 0, "None", FALSE, FALSE)
@@ -255,7 +255,7 @@ spreadsheet_content <- function(file) {
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
+#' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 #' id<-xls_s1_3$moniker$id
 #' source<-spreadsheet_name()
@@ -285,7 +285,7 @@ spreadsheet_id <- function(props) {
 #' @seealso [spreadsheet_id()]
 #'
 #' @examplesIf jversion >= 17
-#' set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
+#' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 #' id<-xls_s1_3$moniker$id
 #' print(spreadsheet_properties(id))
@@ -304,7 +304,7 @@ spreadsheet_properties <- function(id) {
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
+#' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_all <- spreadsheet_data("Insee.xlsx", 1)
 #' id<-xls_all$moniker$id
 #' spreadsheet_change_file(id, "test.xlsx")

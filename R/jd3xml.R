@@ -79,7 +79,7 @@ xml_name <- function() {
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_xml_paths(system.file("examples", package = "rjd3providers"))
+#' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 set_xml_paths <- function(paths) {
     .jcall("jdplus/text/base/r/XmlFiles", "V", "setPaths", .jarray(paths))
 }
@@ -94,10 +94,10 @@ set_xml_paths <- function(paths) {
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
+#' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' print(spreadsheet_content("Insee.xlsx"))
 #' @examplesIf jversion >= 17
-#' set_xml_paths(system.file("examples", package = "rjd3providers"))
+#' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_content("Prod.xml")
 xml_content <- function(file, charset = NULL) {
     jsource <- .xml_source(file, charset)
@@ -122,7 +122,7 @@ xml_content <- function(file, charset = NULL) {
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_xml_paths(system.file("examples", package = "rjd3providers"))
+#' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
 #' xml_all <- xml_data("Prod.xml", "industrial production", charset = "iso-8859-1")
 xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
@@ -157,7 +157,7 @@ xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_xml_paths(system.file("examples", package = "rjd3providers"))
+#' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullName = TRUE) {
     jsource <- .xml_source(file, charset)
@@ -177,7 +177,7 @@ xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullNam
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_xml_paths(system.file("examples", package = "rjd3providers"))
+#' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 #' q <- xml_properties(xml_1_5$moniker$id)
 #' q$series <- 50
@@ -195,7 +195,7 @@ xml_id <- function(props) {
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_xml_paths(system.file("examples", package = "rjd3providers"))
+#' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 #' xml_properties(xml_1_5$moniker$id)
 #' xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")

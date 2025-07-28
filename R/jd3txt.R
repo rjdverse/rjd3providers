@@ -9,7 +9,7 @@
         gathering.period = 0,
         gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
         gathering.partialAggregation = FALSE,
-        gathering.includeMissing = FALSE,
+        gathering.cleanMissing = TRUE,
         charset = NULL,
         delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
         textQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
@@ -20,7 +20,7 @@
     textQualifier <- match.arg(textQualifier)
     jfmt <- .obs_format(fmt.locale, fmt.date, fmt.number, fmt.ignoreNumberGrouping)
     jgathering <- .obs_gathering(gathering.period, gathering.aggregation,
-                                 gathering.partialAggregation, gathering.includeMissing)
+                                 gathering.partialAggregation, gathering.cleanMissing)
     if (is.null(charset)) charset <- "utf-8"
     jsource <- .jcall(
         "jdplus/text/base/r/TxtFiles", "Ljdplus/toolkit/base/tsp/DataSource;", "source",
@@ -40,7 +40,7 @@
         gathering.period = id$gathering$period,
         gathering.aggregation = id$gathering$aggregation,
         gathering.partialAggregation = id$gathering$partialAggregation,
-        gathering.includeMissing = id$gathering$missing,
+        gathering.cleanMissing = id$gathering$cleanMissing,
         charset = id$charset,
         delimiter = id$delimiter,
         textQualifier = id$textQualifier,
@@ -88,7 +88,7 @@
             period = .jcall(junit, "I", "getAnnualFrequency"),
             aggregation = .jcall(jagg, "S", "name"),
             partialAggregation = .jcall(jgathering, "Z", "isAllowPartialAggregation"),
-            includeMissing = .jcall(jgathering, "Z", "isIncludeMissingValues")
+            cleanMissing = ! .jcall(jgathering, "Z", "isIncludeMissingValues")
         ),
         format = list(
             locale = .jcall(jlocale, "S", "toLanguageTag"),
@@ -139,7 +139,7 @@ txt_name <- function() {
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_txt_paths(system.file("examples", package = "rjd3providers"))
+#' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 set_txt_paths <- function(paths) {
     .jcall("jdplus/text/base/r/TxtFiles", "V", "setPaths", .jarray(paths))
 }
@@ -154,7 +154,7 @@ set_txt_paths <- function(paths) {
 #' @param gathering.period The annual frequency of the series. If 0, the frequency
 #' @param gathering.aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0)
 #' @param gathering.partialAggregation Specifies if  the aggregation is performed or not when they are missing periods
-#' @param gathering.includeMissing Specifies if missing values at the beginning or at the end of the data are included in the time series
+#' @param gathering.cleanMissing Specifies if missing values at the beginning or at the end of the data are removed from the series.
 #' @param charset Specifies the charset
 #' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")
 #' @param txtQualifier Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")
@@ -165,7 +165,7 @@ set_txt_paths <- function(paths) {
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_txt_paths(system.file("examples", package = "rjd3providers"))
+#' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_all <- txt_content("ABS.csv", delimiter = "COMMA")
 txt_content <- function(
         file,
@@ -176,7 +176,7 @@ txt_content <- function(
         gathering.period = 0,
         gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
         gathering.partialAggregation = FALSE,
-        gathering.includeMissing = FALSE,
+        gathering.cleanMissing = TRUE,
         charset = NULL,
         delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
         txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
@@ -184,7 +184,7 @@ txt_content <- function(
         skip = 0) {
     jsource <- .txt_source(
         file, fmt.locale, fmt.date, fmt.number, fmt.ignoreNumberGrouping,
-        gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.includeMissing,
+        gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.cleanMissing,
         charset, delimiter, txtQualifier, header, skip
     )
     series <- .jcall("jdplus/text/base/r/TxtFiles", "[S", "series", jsource)
@@ -198,10 +198,10 @@ txt_content <- function(
 #' @param fmt.date Format of the date. Null to use the default of the locale
 #' @param fmt.number Format of the number. Null to use the default of the locale
 #' @param fmt.ignoreNumberGrouping Ignore number grouping
-#' @param gathering.period The annual frequency of the series. If 0, the frequency
+#' @param gathering.period The annual frequency of the transformed series. If 0, the actual frequency is used.
 #' @param gathering.aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0)
 #' @param gathering.partialAggregation Specifies if  the aggregation is performed or not when they are missing periods
-#' @param gathering.includeMissing Specifies if missing values at the beginning or at the end of the data are included in the time series
+#' @param gathering.cleanMissing Specifies if missing values at the beginning or at the end of the data are removed from the series.
 #' @param charset Specifies the charset
 #' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")
 #' @param txtQualifier Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")
@@ -212,7 +212,7 @@ txt_content <- function(
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_txt_paths(system.file("examples", package = "rjd3providers"))
+#' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' all <- txt_data("ABS.csv", delimiter = "COMMA")
 txt_data <- function(
         file,
@@ -222,7 +222,7 @@ txt_data <- function(
         fmt.ignoreNumberGrouping = TRUE,
         gathering.period = 0,
         gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
-        gathering.partialAggregation = FALSE, gathering.includeMissing = FALSE,
+        gathering.partialAggregation = FALSE, gathering.cleanMissing = TRUE,
         charset = NULL,
         delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
         txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
@@ -230,7 +230,7 @@ txt_data <- function(
         skip = 0) {
     jsource <- .txt_source(
         file, fmt.locale, fmt.date, fmt.number, fmt.ignoreNumberGrouping,
-        gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.includeMissing,
+        gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.cleanMissing,
         charset, delimiter, txtQualifier, header, skip
     )
     jcoll <- .jcall(
@@ -250,10 +250,10 @@ txt_data <- function(
 #' @param fmt.date Format of the date. Null to use the default of the locale
 #' @param fmt.number Format of the number. Null to use the default of the locale
 #' @param fmt.ignoreNumberGrouping Ignore number grouping
-#' @param gathering.period The annual frequency of the series. If 0, the frequency
+#' @param gathering.period The annual frequency of the transformed series. If 0, the actual frequency is used.
 #' @param gathering.aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0)
 #' @param gathering.partialAggregation Specifies if  the aggregation is performed or not when they are missing periods
-#' @param gathering.includeMissing Specifies if missing values at the beginning or at the end of the data are included in the time series
+#' @param gathering.cleanMissing Specifies if missing values at the beginning or at the end of the data are removed from the series.
 #' @param charset Specifies the charset
 #' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")
 #' @param txtQualifier Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")
@@ -264,7 +264,7 @@ txt_data <- function(
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_txt_paths(system.file("examples", package = "rjd3providers"))
+#' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 txt_series <- function(
         file,
@@ -276,7 +276,7 @@ txt_series <- function(
         gathering.period = 0,
         gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
         gathering.partialAggregation = FALSE,
-        gathering.includeMissing = FALSE,
+        gathering.cleanMissing = TRUE,
         charset = NULL,
         delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
         txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
@@ -284,7 +284,7 @@ txt_series <- function(
         skip = 0) {
     jsource <- .txt_source(
         file, fmt.locale, fmt.date, fmt.number, fmt.ignoreNumberGrouping,
-        gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.includeMissing,
+        gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.cleanMissing,
         charset, delimiter, txtQualifier, header, skip
     )
     js <- .jcall(
@@ -318,7 +318,7 @@ txt_id <- function(props) {
 #' @export
 #'
 #' @examplesIf jversion >= 17
-#' set_txt_paths(system.file("examples", package = "rjd3providers"))
+#' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 #' id<-txt_15$moniker$id
 #' print(txt_properties(id))

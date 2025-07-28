@@ -22,9 +22,12 @@
 }
 \value{
 An internal Java object.
-#' @examplesIf jversion >= 17
-.obs_format(local="french-be")
 }
 \description{
 Generates the Java object for data formats
+}
+\examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+.obs_format(local="french-be")
+\dontshow{\}) # examplesIf}
 }

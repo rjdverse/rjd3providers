@@ -19,11 +19,11 @@ Provides the content of an xml file designed for time series.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
+set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 print(spreadsheet_content("Insee.xlsx"))
 \dontshow{\}) # examplesIf}
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_xml_paths(system.file("examples", package = "rjd3providers"))
+set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_content("Prod.xml")
 \dontshow{\}) # examplesIf}
 }

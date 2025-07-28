@@ -13,7 +13,7 @@ txt_content(
   gathering.period = 0,
   gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
   gathering.partialAggregation = FALSE,
-  gathering.includeMissing = FALSE,
+  gathering.cleanMissing = TRUE,
   charset = NULL,
   delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
   txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
@@ -38,7 +38,7 @@ txt_content(
 
 \item{gathering.partialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods}
 
-\item{gathering.includeMissing}{Specifies if missing values at the beginning or at the end of the data are included in the time series}
+\item{gathering.cleanMissing}{Specifies if missing values at the beginning or at the end of the data are removed from the series.}
 
 \item{charset}{Specifies the charset}
 
@@ -58,7 +58,7 @@ Provides the content of a text file designed for time series
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_txt_paths(system.file("examples", package = "rjd3providers"))
+set_txt_paths(system.file("extdata", package = "rjd3providers"))
 txt_all <- txt_content("ABS.csv", delimiter = "COMMA")
 \dontshow{\}) # examplesIf}
 }

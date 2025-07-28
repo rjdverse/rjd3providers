@@ -8,7 +8,7 @@
   period = 0,
   aggregationType = NULL,
   allowPartialAggregation = FALSE,
-  includeMissings = FALSE
+  cleanMissing = TRUE
 )
 }
 \arguments{
@@ -18,13 +18,16 @@
 
 \item{allowPartialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods.}
 
-\item{includeMissings}{Specifies if missing values at the beginning and at the end of the data are included in the series.}
+\item{cleanMissing}{Specifies if missing values at the beginning and at the end of the data are removed from the series.}
 }
 \value{
 An internal Java object.
-#' @examplesIf jversion >= 17
-.obs_gathering(period=4, aggregationType="Sum")
 }
 \description{
 Generates the Java object for automatic aggregation of the data
+}
+\examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+.obs_gathering(period=4, aggregationType="Sum")
+\dontshow{\}) # examplesIf}
 }

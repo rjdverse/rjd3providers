@@ -17,7 +17,7 @@ Generates the id corresponding to a list of properties.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
+set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 id<-xls_s1_3$moniker$id
 source<-spreadsheet_name()

@@ -23,7 +23,7 @@ Retrieves all the time series in a specified sheet from a spreadsheet file.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_xml_paths(system.file("examples", package = "rjd3providers"))
+set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
 xml_all <- xml_data("Prod.xml", "industrial production", charset = "iso-8859-1")
 \dontshow{\}) # examplesIf}
