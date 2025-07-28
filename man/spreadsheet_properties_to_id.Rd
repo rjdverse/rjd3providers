@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3spreadsheet.R
 \name{spreadsheet_properties_to_id}
 \alias{spreadsheet_properties_to_id}
-\title{Generates the id corresponding to a list of properties}
+\title{Generates the id corresponding to a list of spreadsheet properties.}
 \usage{
 spreadsheet_properties_to_id(props)
 }
@@ -10,14 +10,14 @@ spreadsheet_properties_to_id(props)
 \item{props}{The properties defining the identifier.}
 }
 \value{
-The identifier corresponding to the properties
+The identifier corresponding to the properties.
 }
 \description{
-Generates the id corresponding to a list of properties
+Generates the id corresponding to a list of spreadsheet properties.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_spreadsheet_paths(system.file("examples", package = "rjd3providers"))
+set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 id<-xls_s1_3$moniker$id
 source<-spreadsheet_name()

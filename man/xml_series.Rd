@@ -2,30 +2,32 @@
 % Please edit documentation in R/jd3xml.R
 \name{xml_series}
 \alias{xml_series}
-\title{Title}
+\title{Retrieves a time series from an xml file}
 \usage{
 xml_series(file, collection = 1, series = 1, charset = NULL, fullName = TRUE)
 }
 \arguments{
-\item{file}{The xml file}
+\item{file}{The xml file.}
 
-\item{collection}{The 1-based position of the collection containing the requested data}
+\item{collection}{The name or the 1-based position of the collection containing the requested data.}
 
-\item{series}{The 1-based position of the series in the selected collection}
+\item{series}{The name or the 1-based position of the series in the selected collection.}
 
-\item{charset}{The character set used in the file}
+\item{charset}{The character set used in the file.}
 
-\item{fullName}{Specifies if a full name (containing the name of the collection and the name of the series) is used or not}
+\item{fullName}{Specifies if a full name (containing the name of the collection and the name of the series) is used or not.}
 }
 \value{
 Returns the specified time series
 }
 \description{
-Title
+Retrieves a time series from an xml file
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_xml_paths(system.file("examples", package = "rjd3providers"))
+set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
+xml_cn <- xml_series("Prod.xml", "industrial production",
+            "Construction navale", charset = "iso-8859-1")
 \dontshow{\}) # examplesIf}
 }

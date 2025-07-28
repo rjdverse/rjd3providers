@@ -19,6 +19,6 @@ Set the paths to txt files (to be used with relative identifiers)
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_txt_paths(system.file("examples", package = "rjd3providers"))
+set_txt_paths(system.file("extdata", package = "rjd3providers"))
 \dontshow{\}) # examplesIf}
 }

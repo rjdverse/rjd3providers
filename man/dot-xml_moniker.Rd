@@ -2,16 +2,21 @@
 % Please edit documentation in R/jd3xml.R
 \name{.xml_moniker}
 \alias{.xml_moniker}
-\title{Generates a java moniker for the corresponding id}
+\title{Generates a java moniker for the corresponding id.}
 \usage{
 .xml_moniker(id)
 }
 \arguments{
-\item{id}{Identifier of the requested information}
+\item{id}{Identifier of the requested information.}
 }
 \value{
-An internal java moniker
+An internal java moniker.
 }
 \description{
-Generates a java moniker for the corresponding id
+Generates a java moniker for the corresponding id.
+}
+\examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+.xml_moniker("toy_id")
+\dontshow{\}) # examplesIf}
 }

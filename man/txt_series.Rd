@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3txt.R
 \name{txt_series}
 \alias{txt_series}
-\title{Retrieves a time series from a spreadsheet file}
+\title{Retrieves a time series from a a text file (.txt, .csv...)}
 \usage{
 txt_series(
   file,
@@ -14,7 +14,7 @@ txt_series(
   gathering.period = 0,
   gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
   gathering.partialAggregation = FALSE,
-  gathering.includeMissing = TRUE,
+  gathering.cleanMissing = TRUE,
   charset = NULL,
   delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
   txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
@@ -25,7 +25,7 @@ txt_series(
 \arguments{
 \item{file}{The text file}
 
-\item{series}{The 1-based position of the series in the selected sheet}
+\item{series}{The name or the 1-based position of the series in the selected sheet}
 
 \item{fmt.locale}{Locale language. Null to use the default}
 
@@ -35,13 +35,13 @@ txt_series(
 
 \item{fmt.ignoreNumberGrouping}{Ignore number grouping}
 
-\item{gathering.period}{The annual frequency of the series. If 0, the frequency}
+\item{gathering.period}{The annual frequency of the transformed series. If 0, the actual frequency is used.}
 
 \item{gathering.aggregation}{The type of the aggregation to be applied on the series (only used if "period" is different from 0)}
 
 \item{gathering.partialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods}
 
-\item{gathering.includeMissing}{Specifies if missing values at the beginning or at the end of the data are included in the time series}
+\item{gathering.cleanMissing}{Specifies if missing values at the beginning or at the end of the data are removed from the series.}
 
 \item{charset}{Specifies the charset}
 
@@ -51,17 +51,18 @@ txt_series(
 
 \item{header}{The file contains headers}
 
-\item{skip}{Skips some columns}
+\item{skip}{Skips some lines}
 }
 \value{
 Returns the specified time series
 }
 \description{
-Retrieves a time series from a spreadsheet file
+Retrieves a time series from a a text file (.txt, .csv...)
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_txt_paths(system.file("examples", package = "rjd3providers"))
+set_txt_paths(system.file("extdata", package = "rjd3providers"))
 txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
+txt_09 <- txt_series("ABS.csv", series = "0.2.09.10.M", delimiter = "COMMA")
 \dontshow{\}) # examplesIf}
 }

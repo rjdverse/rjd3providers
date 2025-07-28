@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3txt.R
 \name{txt_properties_to_id}
 \alias{txt_properties_to_id}
-\title{Generates the id corresponding to a list of properties}
+\title{Generates the id corresponding to a list of a text properties.}
 \usage{
 txt_properties_to_id(props)
 }
@@ -10,8 +10,23 @@ txt_properties_to_id(props)
 \item{props}{The properties defining the identifier.}
 }
 \value{
-The identifier corresponding to the properties
+The identifier corresponding to the properties.
 }
 \description{
-Generates the id corresponding to a list of properties
+Generates the id corresponding to a list of a text properties.
+}
+\examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_txt_paths(system.file("extdata", package = "rjd3providers"))
+txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
+id<-txt_15$moniker$id
+source<-txt_name()
+props<-txt_id_to_properties(id)
+props$gathering$period<-4
+props$gathering$aggregation<-"Max"
+M<-rjd3toolkit::to_ts(txt_name(), txt_properties_to_id(props))
+props$gathering$aggregation<-"Min"
+m<-rjd3toolkit::to_ts(txt_name(), txt_properties_to_id(props))
+ts.plot(ts.union(M$data,m$data), col=c("red", "blue"))
+\dontshow{\}) # examplesIf}
 }

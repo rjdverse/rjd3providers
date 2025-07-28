@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3xml.R
 \name{xml_id_to_properties}
 \alias{xml_id_to_properties}
-\title{Gets the list of the properties corresponding to the identifier of a moniker}
+\title{Gets the list of the properties corresponding to the identifier of a moniker.}
 \usage{
 xml_id_to_properties(id)
 }
@@ -10,14 +10,14 @@ xml_id_to_properties(id)
 \item{id}{Identifier of a series or of a collection of series.}
 }
 \value{
-Returns a list with the elements of the id: file, collection[, series], charset, fullnames
+Returns a list with the elements of the id: file, collection[, series], charset, fullnames.
 }
 \description{
-Gets the list of the properties corresponding to the identifier of a moniker
+Gets the list of the properties corresponding to the identifier of a moniker.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_xml_paths(system.file("examples", package = "rjd3providers"))
+set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 xml_id_to_properties(xml_1_5$moniker$id)
 xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")

@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3xml.R
 \name{set_xml_paths}
 \alias{set_xml_paths}
-\title{Set the paths to xml files (to be used with relative identifiers)}
+\title{Set the paths to xml files (to be used with relative identifiers).}
 \usage{
 set_xml_paths(paths)
 }
@@ -10,13 +10,13 @@ set_xml_paths(paths)
 \item{paths}{The folders containing the xml files. Only used in relative addresses.}
 }
 \value{
-No output
+No output.
 }
 \description{
-Set the paths to xml files (to be used with relative identifiers)
+Set the paths to xml files (to be used with relative identifiers).
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_xml_paths(system.file("examples", package = "rjd3providers"))
+set_xml_paths(system.file("extdata", package = "rjd3providers"))
 \dontshow{\}) # examplesIf}
 }

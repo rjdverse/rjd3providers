@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3xml.R
 \name{xml_change_file}
 \alias{xml_change_file}
-\title{Change the file of a moniker}
+\title{Change the file of an xml moniker.}
 \usage{
 xml_change_file(id, nfile, ofile = NULL)
 }
@@ -14,8 +14,16 @@ xml_change_file(id, nfile, ofile = NULL)
 \item{ofile}{Old file name. NULL or "" to change any file to the new file.}
 }
 \value{
-The new identifier
+The new identifier.
 }
 \description{
-Change the file of a moniker
+Change the file of an xml moniker.
+}
+\examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_xml_paths(system.file("extdata", package = "rjd3providers"))
+xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
+id<-xml_1_5$moniker$id
+xml_change_file(id, "test.xml")
+\dontshow{\}) # examplesIf}
 }

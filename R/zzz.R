@@ -3,8 +3,11 @@
 #' @include jd3spreadsheet.R jd3txt.R jd3xml.R
 NULL
 
-#' Java version
+#' Java version.
+#' @return Current Java version.
 #' @export
+#' @example
+#' print(jversion)
 jversion <- NULL
 
 
