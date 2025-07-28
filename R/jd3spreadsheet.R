@@ -259,14 +259,14 @@ spreadsheet_content <- function(file) {
 #' xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 #' id<-xls_s1_3$moniker$id
 #' source<-spreadsheet_name()
-#' props<-spreadsheet_properties(xls_s1_3$moniker$id)
+#' props<-spreadsheet_id_to_properties(xls_s1_3$moniker$id)
 #' props$gathering$period<-4
 #' props$gathering$aggregation<-"Max"
-#' M<-rjd3toolkit::to_ts(spreadsheet_name(), spreadsheet_id(props))
+#' M<-rjd3toolkit::to_ts(spreadsheet_name(), spreadsheet_properties_to_id(props))
 #' props$gathering$aggregation<-"Min"
-#' m<-rjd3toolkit::to_ts(spreadsheet_name(), spreadsheet_id(props))
+#' m<-rjd3toolkit::to_ts(spreadsheet_name(), spreadsheet_properties_to_id(props))
 #' ts.plot(ts.union(M$data,m$data), col=c("red", "blue"))
-spreadsheet_id <- function(props) {
+spreadsheet_properties_to_id <- function(props) {
     jset <- .r2jd_spreadsheet_id(props)
     id <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "S", "encode", jset)
     return(id)
@@ -282,14 +282,14 @@ spreadsheet_id <- function(props) {
 #' @details
 #' When the period in the gathering list is defined, the user must specify the aggregation type ("Sum", "Average", "First", "Last", "Min", "Max") and some additional parameters (partial aggregation and suppression of leading/trailing missing values).
 #'
-#' @seealso [spreadsheet_id()]
+#' @seealso [spreadsheet_properties_to_id()]
 #'
 #' @examplesIf jversion >= 17
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 #' id<-xls_s1_3$moniker$id
-#' print(spreadsheet_properties(id))
-spreadsheet_properties <- function(id) {
+#' print(spreadsheet_id_to_properties(id))
+spreadsheet_id_to_properties <- function(id) {
     jset <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
     return(.jd2r_spreadsheet_id(jset))
 }

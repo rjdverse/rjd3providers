@@ -315,14 +315,14 @@ txt_series <- function(
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 #' id<-txt_15$moniker$id
 #' source<-txt_name()
-#' props<-txt_properties(id)
+#' props<-txt_id_to_properties(id)
 #' props$gathering$period<-4
 #' props$gathering$aggregation<-"Max"
-#' M<-rjd3toolkit::to_ts(txt_name(), txt_id(props))
+#' M<-rjd3toolkit::to_ts(txt_name(), txt_properties_to_id(props))
 #' props$gathering$aggregation<-"Min"
-#' m<-rjd3toolkit::to_ts(txt_name(), txt_id(props))
+#' m<-rjd3toolkit::to_ts(txt_name(), txt_properties_to_id(props))
 #' ts.plot(ts.union(M$data,m$data), col=c("red", "blue"))
-txt_id <- function(props) {
+txt_properties_to_id <- function(props) {
     jset <- .r2jd_txt_id(props)
     id <- .jcall("jdplus/text/base/r/TxtFiles", "S", "encode", jset)
     return(id)
@@ -339,8 +339,8 @@ txt_id <- function(props) {
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 #' id<-txt_15$moniker$id
-#' print(txt_properties(id))
-txt_properties <- function(id) {
+#' print(txt_id_to_properties(id))
+txt_id_to_properties <- function(id) {
     jset <- .jcall("jdplus/text/base/r/TxtFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
     return(.jd2r_txt_id(jset))
 }

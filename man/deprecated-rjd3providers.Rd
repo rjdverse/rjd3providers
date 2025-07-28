@@ -3,42 +3,24 @@
 \name{deprecated-rjd3providers}
 \alias{deprecated-rjd3providers}
 \alias{spreadsheet_to_id}
-\alias{spreadsheet_id}
 \alias{spreadsheet_id_properties}
-\alias{spreadsheet_properties}
 \alias{txt_to_id}
-\alias{txt_id}
 \alias{txt_id_properties}
-\alias{txt_properties}
 \alias{xml_to_id}
-\alias{xml_id}
 \alias{xml_id_properties}
-\alias{xml_properties}
 \title{Deprecated functions}
 \usage{
 spreadsheet_to_id(props)
 
-spreadsheet_id(props)
-
 spreadsheet_id_properties(id)
-
-spreadsheet_properties(id)
 
 txt_to_id(props)
 
-txt_id(props)
-
 txt_id_properties(id)
-
-txt_properties(id)
 
 xml_to_id(props)
 
-xml_id(props)
-
 xml_id_properties(id)
-
-xml_properties(id)
 }
 \arguments{
 \item{props}{The properties defining the identifier.}

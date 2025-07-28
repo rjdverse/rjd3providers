@@ -11,7 +11,7 @@
     return(jsource)
 }
 
-.r2jd_xml_id <- function(id) {
+.r2jd_xml_properties_to_id <- function(id) {
     jsrc <- .xml_source(id$file, id$charset)
     if (is.null(id$series)) {
         output <- .jcall(
@@ -30,7 +30,7 @@
     return(output)
 }
 
-.jd2r_xml_id <- function(jset) {
+.jd2r_xml_properties_to_id <- function(jset) {
     jbean <- .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/text/base/api/XmlBean;", "sourceOf", jset)
     jfile <- .jcall(jbean, "Ljava/io/File;", "getFile")
     jcharset <- .jcall(jbean, "Ljava/nio/charset/Charset;", "getCharset")
@@ -157,7 +157,8 @@ xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
 #' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
-#' xml_cn <- xml_series("Prod.xml", "industrial production", "Construction navale", charset = "iso-8859-1")
+#' xml_cn <- xml_series("Prod.xml", "industrial production",
+#'             "Construction navale", charset = "iso-8859-1")
 xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullName = TRUE) {
     jsource <- .xml_source(file, charset)
     if (! is.numeric(collection)){
@@ -192,11 +193,11 @@ xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullNam
 #' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
-#' q <- xml_properties(xml_1_5$moniker$id)
+#' q <- xml_id_to_properties(xml_1_5$moniker$id)
 #' q$series <- 50
-#' xml_id(q)
-xml_id <- function(props) {
-    jset <- .r2jd_xml_id(props)
+#' xml_properties_to_id(q)
+xml_properties_to_id <- function(props) {
+    jset <- .r2jd_xml_properties_to_id(props)
     id <- .jcall("jdplus/text/base/r/XmlFiles", "S", "encode", jset)
     return(id)
 }
@@ -210,12 +211,12 @@ xml_id <- function(props) {
 #' @examplesIf jversion >= 17
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
-#' xml_properties(xml_1_5$moniker$id)
+#' xml_id_to_properties(xml_1_5$moniker$id)
 #' xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
-#' xml_properties(xml_1$moniker$id)
-xml_properties <- function(id) {
+#' xml_id_to_properties(xml_1$moniker$id)
+xml_id_to_properties <- function(id) {
     jset <- .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
-    return(.jd2r_xml_id(jset))
+    return(.jd2r_xml_properties_to_id(jset))
 }
 
 #' Change the file of an xml moniker.
