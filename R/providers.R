@@ -7,7 +7,7 @@
 #' @param aggregationType  The type of the aggregation to be applied on the series (only used if "period" is different from 0).
 #' @param allowPartialAggregation Specifies if  the aggregation is performed or not when they are missing periods.
 #' @param cleanMissing Specifies if missing values at the beginning and at the end of the data are removed from the series.
-#' @return An internal Java object.
+#' @returns An internal Java object.
 #' @examplesIf jversion >= 17
 #' .obs_gathering(period=4, aggregationType="Sum")
 .obs_gathering <- function(period = 0,
@@ -35,7 +35,7 @@
 #' @param dateFmt Format of the date. Null to use the default of the locale
 #' @param numberFmt Format of the number. Null to use the default of the locale
 #' @param ignoreNumberGrouping Ignore number grouping
-#' @return An internal Java object.
+#' @returns An internal Java object.
 #' @examplesIf jversion >= 17
 #' .obs_format(local="french-be")
 .obs_format <- function(locale = NULL, dateFmt = NULL, numberFmt = NULL, ignoreNumberGrouping = TRUE) {

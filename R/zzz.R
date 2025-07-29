@@ -4,9 +4,9 @@
 NULL
 
 #' Java version.
-#' @return Current Java version.
+#' @returns Current Java version.
 #' @export
-#' @example
+#' @examples
 #' print(jversion)
 jversion <- NULL
 
