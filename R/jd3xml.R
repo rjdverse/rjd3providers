@@ -44,7 +44,7 @@
 
 #' Gets the name of the xml provider.
 #'
-#' @return The name of the xml provider, to be used in monikers.
+#' @returns The name of the xml provider, to be used in monikers.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -57,7 +57,7 @@ xml_name <- function() {
 #'
 #' @param id Identifier of the requested information.
 #'
-#' @return An internal java moniker.
+#' @returns An internal java moniker.
 #' @examplesIf jversion >= 17
 #' .xml_moniker("toy_id")
 #' @export
@@ -75,7 +75,7 @@ xml_name <- function() {
 #'
 #' @param paths The folders containing the xml files. Only used in relative addresses.
 #'
-#' @return No output.
+#' @returns No output.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -89,7 +89,7 @@ set_xml_paths <- function(paths) {
 #' @param file The considered file.
 #' @param charset The character set used in the file (NULL to use the default).
 #'
-#' @return Provides all the names of the time series contained in the file, grouped by collection.
+#' @returns Provides all the names of the time series contained in the file, grouped by collection.
 #'
 #' @export
 #'
@@ -116,7 +116,7 @@ xml_content <- function(file, charset = NULL) {
 #' @param charset The character set used in the file
 #' @param fullNames Specifies if full names (containing the name of the sheet and the name of the series) are used or not.
 #'
-#' @return A ts collection with all the series.
+#' @returns A ts collection with all the series.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -151,7 +151,7 @@ xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
 #' @param charset The character set used in the file.
 #' @param fullName Specifies if a full name (containing the name of the collection and the name of the series) is used or not.
 #'
-#' @return Returns the specified time series
+#' @returns Returns the specified time series
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -187,7 +187,7 @@ xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullNam
 #' Generates the id corresponding to a list of an xml properties.
 #'
 #' @param props The properties defining the identifier.
-#' @return The identifier corresponding to the properties.
+#' @returns The identifier corresponding to the properties.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -205,7 +205,7 @@ xml_properties_to_id <- function(props) {
 #' Gets the list of the properties corresponding to the identifier of a moniker.
 #'
 #' @param id Identifier of a series or of a collection of series.
-#' @return Returns a list with the elements of the id: file, collection[, series], charset, fullnames.
+#' @returns Returns a list with the elements of the id: file, collection[, series], charset, fullnames.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -225,7 +225,7 @@ xml_id_to_properties <- function(id) {
 #' @param nfile New file name.
 #' @param ofile Old file name. NULL or "" to change any file to the new file.
 #'
-#' @return The new identifier.
+#' @returns The new identifier.
 #' @export
 #'
 #' @examplesIf jversion >= 17

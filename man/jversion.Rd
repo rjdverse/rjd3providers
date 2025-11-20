@@ -16,4 +16,7 @@ Current Java version.
 \description{
 Java version.
 }
+\examples{
+print(jversion)
+}
 \keyword{datasets}

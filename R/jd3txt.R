@@ -101,7 +101,7 @@
 
 #' Gets the name of the text provider
 #'
-#' @return The name of the text provider, to be used in monikers
+#' @returns The name of the text provider, to be used in monikers
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -114,7 +114,7 @@ txt_name <- function() {
 #'
 #' @param id Identifier of the requested information.
 #'
-#' @return An internal java moniker.
+#' @returns An internal java moniker.
 #' @examplesIf jversion >= 17
 #' .txt_moniker("toy_id")
 #' @export
@@ -133,9 +133,9 @@ txt_name <- function() {
 #'
 #' @param paths The folders containing the txt files Only used in relative addresses.
 #'
-#' @return No output
+#' @returns No output
 #'
-#' @return An internal java moniker
+#' @returns An internal java moniker
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -161,7 +161,7 @@ set_txt_paths <- function(paths) {
 #' @param header The file contains headers
 #' @param skip Skips some lines
 #'
-#' @return Provides all the names of the time series contained in the text file
+#' @returns Provides all the names of the time series contained in the text file
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -208,7 +208,7 @@ txt_content <- function(
 #' @param header The file contains headers
 #' @param skip Skips some lines
 #'
-#' @return A ts collection with all the series
+#' @returns A ts collection with all the series
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -260,7 +260,7 @@ txt_data <- function(
 #' @param header The file contains headers
 #' @param skip Skips some lines
 #'
-#' @return Returns the specified time series
+#' @returns Returns the specified time series
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -307,7 +307,7 @@ txt_series <- function(
 #'
 #' @param props The properties defining the identifier.
 #'
-#' @return The identifier corresponding to the properties.
+#' @returns The identifier corresponding to the properties.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -332,7 +332,7 @@ txt_properties_to_id <- function(props) {
 #'
 #' @param id Identifier of a series or of a collection of series.
 #'
-#' @return Returns a list with the elements of the id: file [, series], format, gathering, ...).
+#' @returns Returns a list with the elements of the id: file [, series], format, gathering, ...).
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -351,7 +351,7 @@ txt_id_to_properties <- function(id) {
 #' @param nfile New file name.
 #' @param ofile Old file name. NULL or "" to change any file to the new file.
 #'
-#' @return The new identifier
+#' @returns The new identifier
 #' @export
 #'
 #' @examplesIf jversion >= 17

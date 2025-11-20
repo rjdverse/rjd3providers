@@ -86,7 +86,7 @@ NULL
 
 #' Gets the name of the spreadsheet provider.
 #'
-#' @return The name of the spreadsheet provider, to be used in monikers.
+#' @returns The name of the spreadsheet provider, to be used in monikers.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -99,7 +99,7 @@ spreadsheet_name <- function() {
 #'
 #' @param paths The folders containing the spreadsheet files Only used in relative addresses.
 #'
-#' @return No output.
+#' @returns No output.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -112,7 +112,7 @@ set_spreadsheet_paths <- function(paths) {
 #'
 #' @param id Identifier of the requested information.
 #'
-#' @return An internal Java moniker.
+#' @returns An internal Java moniker.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -136,7 +136,7 @@ set_spreadsheet_paths <- function(paths) {
 #' @param gathering.partialAggregation Specifies if  the aggregation is performed or not when they are missing periods.
 #' @param gathering.cleanMissing Specifies if missing values at the beginning or at the end of the data are removed from the series.
 #' @param fullNames Specifies if full names (containing the name of the sheet and the name of the series) are used or not.
-#' @return A ts collection with all the series.
+#' @returns A ts collection with all the series.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -179,7 +179,7 @@ spreadsheet_data <- function(
 #' @param gathering.cleanMissing Specifies if missing values are removed at the beginning or at the end of the data.
 #' @param fullName Specifies if a full name (containing the name of the sheet and the name of the series) is used or not.
 #'
-#' @return Returns the specified time series.
+#' @returns Returns the specified time series.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -228,7 +228,7 @@ spreadsheet_series <- function(
 #'
 #' @param file The considered workbook.
 #'
-#' @return Provides all the names of the time series contained in the workbook, organized by worksheet; the output is a list of lists of names.
+#' @returns Provides all the names of the time series contained in the workbook, organized by worksheet; the output is a list of lists of names.
 #'
 #' @export
 #'
@@ -251,7 +251,7 @@ spreadsheet_content <- function(file) {
 #'
 #' @param props The properties defining the identifier.
 #'
-#' @return The identifier corresponding to the properties.
+#' @returns The identifier corresponding to the properties.
 #' @export
 #'
 #' @examplesIf jversion >= 17
@@ -276,7 +276,7 @@ spreadsheet_properties_to_id <- function(props) {
 #'
 #' @param id Identifier of a series or of a collection of series.
 #'
-#' @return Returns a list with the elements of the id: file, sheet, series, gathering); the gathering is a list with the following items: period (-1 by default), the aggregation ("None"), partialAggregation (FALSE), includeMissing (FALSE).
+#' @returns Returns a list with the elements of the id: file, sheet, series, gathering); the gathering is a list with the following items: period (-1 by default), the aggregation ("None"), partialAggregation (FALSE), includeMissing (FALSE).
 #' @export
 #'
 #' @details
@@ -300,7 +300,7 @@ spreadsheet_id_to_properties <- function(id) {
 #' @param nfile New file name.
 #' @param ofile Old file name. NULL or "" to change any file to the new file.
 #'
-#' @return Returns the new identifier.
+#' @returns Returns the new identifier.
 #' @export
 #'
 #' @examplesIf jversion >= 17
