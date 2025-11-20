@@ -1,7 +1,6 @@
-# Set the paths to spreadsheet files (to be used with relative identifiers).
+# Title
 
-Set the paths to spreadsheet files (to be used with relative
-identifiers).
+Title
 
 ## Usage
 
@@ -13,15 +12,7 @@ set_spreadsheet_paths(paths)
 
 - paths:
 
-  The folders containing the spreadsheet files Only used in relative
-  addresses.
-
-## Value
-
-No output.
-
 ## Examples
 
 ``` r
-set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 ```

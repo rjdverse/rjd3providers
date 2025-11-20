@@ -1,16 +1,12 @@
-# Gets the name of the xml provider.
+# Gets the name of the provider
 
-Gets the name of the xml provider.
+Gets the name of the provider
 
 ## Usage
 
 ``` r
 xml_name()
 ```
-
-## Value
-
-The name of the xml provider, to be used in monikers.
 
 ## Examples
 

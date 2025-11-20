@@ -1,6 +1,6 @@
-# Gets the name of the spreadsheet provider.
+# Title
 
-Gets the name of the spreadsheet provider.
+Title
 
 ## Usage
 
@@ -8,13 +8,7 @@ Gets the name of the spreadsheet provider.
 spreadsheet_name()
 ```
 
-## Value
-
-The name of the spreadsheet provider, to be used in monikers.
-
 ## Examples
 
 ``` r
-print(spreadsheet_name())
-#> [1] "XCLPRVDR"
 ```
