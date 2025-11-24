@@ -1,6 +1,6 @@
 # Changelog
 
-## rjd3providers 3.6.0
+## rjd3providers 3.6.0.9000
 
 All notable changes to this project will be documented in this file.
 
@@ -11,6 +11,40 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### [Unreleased](https://github.com/rjdverse/rjd3providers/compare/v3.6.0...HEAD)
 
 ### [3.6.0](https://github.com/rjdverse/rjd3providers/compare/v3.5.1...v3.6.0) - 2025-11-24
+
+#### Added
+
+- Missing documentation
+  [\#44](https://github.com/rjdverse/rjd3providers/issues/44)
+
+#### Changed
+
+- Rename `spreadsheet_properties()` into
+  [`spreadsheet_id_to_properties()`](https://rjdverse.github.io/rjd3providers/reference/spreadsheet_id_to_properties.md)
+  [\#38](https://github.com/rjdverse/rjd3providers/issues/38)
+- Rename `spreadsheet_id()` into
+  [`spreadsheet_properties_to_id()`](https://rjdverse.github.io/rjd3providers/reference/spreadsheet_properties_to_id.md)
+  [\#38](https://github.com/rjdverse/rjd3providers/issues/38)
+- Rename `txt_id()` into
+  [`txt_properties_to_id()`](https://rjdverse.github.io/rjd3providers/reference/txt_properties_to_id.md)
+  [\#38](https://github.com/rjdverse/rjd3providers/issues/38)
+- Rename `txt_properties()` into
+  [`txt_id_to_properties()`](https://rjdverse.github.io/rjd3providers/reference/txt_id_to_properties.md)
+  [\#38](https://github.com/rjdverse/rjd3providers/issues/38)
+- Rename `xml_id()` into
+  [`xml_properties_to_id()`](https://rjdverse.github.io/rjd3providers/reference/xml_properties_to_id.md)
+  [\#38](https://github.com/rjdverse/rjd3providers/issues/38)
+- Rename `xml_properties()` into
+  [`xml_id_to_properties()`](https://rjdverse.github.io/rjd3providers/reference/xml_id_to_properties.md)
+  [\#38](https://github.com/rjdverse/rjd3providers/issues/38)
+- The arguments `period`, `aggregation` and `partialAggregation` are
+  renamed with `gathering.` at the beginning (so `gathering.period`,
+  `gathering.aggregation` and `gathering.partialAggregation`)
+
+#### Removed
+
+- The argument `includeMissing` is removed in favour of `cleanMissing`
+  (which is technically the contrary of `includeMissing`)
 
 ### [3.5.1](https://github.com/rjdverse/rjd3providers/compare/v3.5.2...v3.5.1) - 2025-06-18
 
