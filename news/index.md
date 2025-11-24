@@ -1,6 +1,6 @@
 # Changelog
 
-## rjd3providers 3.6.0.9000
+## rjd3providers 3.6.0
 
 All notable changes to this project will be documented in this file.
 
