@@ -1,6 +1,6 @@
-# Title
+# Provides the content of an xml file designed for time series.
 
-Title
+Provides the content of an xml file designed for time series.
 
 ## Usage
 
@@ -12,10 +12,21 @@ xml_content(file, charset = NULL)
 
 - file:
 
+  The considered file.
+
+- charset:
+
+  The character set used in the file (NULL to use the default).
+
+## Value
+
+Provides all the names of the time series contained in the file, grouped
+by collection.
+
 ## Examples
 
 ``` r
-set_xml_paths(system.file("examples", package = "rjd3providers"))
+set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_content("Prod.xml")
 #> $`industrial production`
 #>   [1] "Industries manufacturières"                                                                            
@@ -146,4 +157,21 @@ xml_content("Prod.xml")
 #> [126] "Industrie aéronautique"                                                                                
 #> [127] "Appareils de mesure de laboratoire, etc..."                                                            
 #> 
+print(xml_content)
+#> function (file, charset = NULL) 
+#> {
+#>     jsource <- .xml_source(file, charset)
+#>     sheets <- .jcall("jdplus/text/base/r/XmlFiles", "[S", "sheets", 
+#>         jsource)
+#>     rslt <- list()
+#>     n <- length(sheets)
+#>     for (i in 1:n) {
+#>         series <- .jcall("jdplus/text/base/r/XmlFiles", "[S", 
+#>             "series", jsource, as.integer(i))
+#>         rslt[[sheets[i]]] <- series
+#>     }
+#>     return(rslt)
+#> }
+#> <bytecode: 0x557d39d56318>
+#> <environment: namespace:rjd3providers>
 ```
