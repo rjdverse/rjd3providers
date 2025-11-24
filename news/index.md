@@ -16,6 +16,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Missing documentation
   [\#44](https://github.com/rjdverse/rjd3providers/issues/44)
+- New way to read a spreadsheet with name and index of a sheet or of a
+  series [\#25](https://github.com/rjdverse/rjd3providers/issues/25)
 
 #### Changed
 
@@ -45,6 +47,11 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - The argument `includeMissing` is removed in favour of `cleanMissing`
   (which is technically the contrary of `includeMissing`)
+
+#### Fixed
+
+- Conversion from id to properties and vice versa
+  [\#33](https://github.com/rjdverse/rjd3providers/issues/33)
 
 ### [3.5.1](https://github.com/rjdverse/rjd3providers/compare/v3.5.2...v3.5.1) - 2025-06-18
 
