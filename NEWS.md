@@ -10,6 +10,24 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [3.6.0] - 2025-11-24
 
+### Added
+
+* Missing documentation #44
+
+### Changed
+
+* Rename `spreadsheet_properties()` into `spreadsheet_id_to_properties()` #38
+* Rename `spreadsheet_id()` into `spreadsheet_properties_to_id()` #38
+* Rename `txt_id()` into `txt_properties_to_id()` #38
+* Rename `txt_properties()` into `txt_id_to_properties()` #38
+* Rename `xml_id()` into `xml_properties_to_id()` #38
+* Rename `xml_properties()` into `xml_id_to_properties()` #38
+* The arguments `period`, `aggregation` and `partialAggregation` are renamed with `gathering.` at the beginning (so `gathering.period`, `gathering.aggregation` and `gathering.partialAggregation`)
+
+### Removed
+
+* The argument `includeMissing` is removed in favour of `cleanMissing` (which is technically the contrary of `includeMissing`)
+
 
 ## [3.5.1] - 2025-06-18
 
