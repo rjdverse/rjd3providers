@@ -2,19 +2,29 @@
 % Please edit documentation in R/jd3xml.R
 \name{xml_data}
 \alias{xml_data}
-\title{Title}
+\title{Retrieves all the time series in a specified collection from an xml file.}
 \usage{
 xml_data(file, collection = 1, charset = NULL, fullNames = FALSE)
 }
 \arguments{
-\item{fullNames}{}
+\item{file}{The xml file.}
+
+\item{collection}{The name or the 1-based position of the collection containing the requested data.}
+
+\item{charset}{The character set used in the file}
+
+\item{fullNames}{Specifies if full names (containing the name of the sheet and the name of the series) are used or not.}
+}
+\value{
+A ts collection with all the series.
 }
 \description{
-Title
+Retrieves all the time series in a specified collection from an xml file.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_xml_paths(system.file("examples", package = "rjd3providers"))
-xml_all <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
+set_xml_paths(system.file("extdata", package = "rjd3providers"))
+xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
+xml_all <- xml_data("Prod.xml", "industrial production", charset = "iso-8859-1")
 \dontshow{\}) # examplesIf}
 }

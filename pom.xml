@@ -11,8 +11,8 @@
 	<description>Usage: mvn -Pcopy-jars</description>
 
 	<properties>
-		<jdplus-main.version>3.5.1</jdplus-main.version>
-		<spreadsheet4j.version>2.5.9</spreadsheet4j.version>
+		<jdplus-main.version>3.6.0</jdplus-main.version>
+		<spreadsheet4j.version>2.5.10</spreadsheet4j.version>
 	</properties>
 
 	<dependencies>
@@ -164,7 +164,17 @@
 			</snapshots>
 		</repository>
 		<repository>
-			<id>jdemetra-snapshots</id>
+			<id>central-snapshots</id>
+			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>old-snapshots</id>
 			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
 			<releases>
 				<enabled>false</enabled>

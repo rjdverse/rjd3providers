@@ -2,14 +2,18 @@
 % Please edit documentation in R/jd3txt.R
 \name{txt_name}
 \alias{txt_name}
-\title{Title}
+\title{Gets the name of the text provider}
 \usage{
 txt_name()
 }
+\value{
+The name of the text provider, to be used in monikers
+}
 \description{
-Title
+Gets the name of the text provider
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+txt_name()
 \dontshow{\}) # examplesIf}
 }

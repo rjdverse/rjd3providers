@@ -2,21 +2,28 @@
 % Please edit documentation in R/jd3spreadsheet.R
 \name{spreadsheet_change_file}
 \alias{spreadsheet_change_file}
-\title{Change the file of a moniker}
+\title{Change the file of a spreadsheet moniker.}
 \usage{
 spreadsheet_change_file(id, nfile, ofile = NULL)
 }
 \arguments{
-\item{id}{Identifier of the series (from its moniker)}
+\item{id}{Identifier of a series or of a collection of series.}
 
-\item{nfile}{New file name}
+\item{nfile}{New file name.}
 
-\item{ofile}{Old file name. NULL or "" to change any file to the new file}
+\item{ofile}{Old file name. NULL or "" to change any file to the new file.}
+}
+\value{
+Returns the new identifier.
 }
 \description{
-Change the file of a moniker
+Change the file of a spreadsheet moniker.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
+xls_all <- spreadsheet_data("Insee.xlsx", 1)
+id<-xls_all$moniker$id
+spreadsheet_change_file(id, "test.xlsx")
 \dontshow{\}) # examplesIf}
 }

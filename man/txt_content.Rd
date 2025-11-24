@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd3txt.R
 \name{txt_content}
 \alias{txt_content}
-\title{Title}
+\title{Provides the content of a text file designed for time series}
 \usage{
 txt_content(
   file,
@@ -13,7 +13,7 @@ txt_content(
   gathering.period = 0,
   gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
   gathering.partialAggregation = FALSE,
-  gathering.includeMissing = TRUE,
+  gathering.cleanMissing = TRUE,
   charset = NULL,
   delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
   txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
@@ -22,14 +22,43 @@ txt_content(
 )
 }
 \arguments{
-\item{skip}{}
+\item{file}{The text file}
+
+\item{fmt.locale}{Locale language. Null to use the default}
+
+\item{fmt.date}{Format of the date. Null to use the default of the locale}
+
+\item{fmt.number}{Format of the number. Null to use the default of the locale}
+
+\item{fmt.ignoreNumberGrouping}{Ignore number grouping}
+
+\item{gathering.period}{The annual frequency of the series. If 0, the frequency}
+
+\item{gathering.aggregation}{The type of the aggregation to be applied on the series (only used if "period" is different from 0)}
+
+\item{gathering.partialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods}
+
+\item{gathering.cleanMissing}{Specifies if missing values at the beginning or at the end of the data are removed from the series.}
+
+\item{charset}{Specifies the charset}
+
+\item{delimiter}{Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")}
+
+\item{txtQualifier}{Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")}
+
+\item{header}{The file contains headers}
+
+\item{skip}{Skips some lines}
+}
+\value{
+Provides all the names of the time series contained in the text file
 }
 \description{
-Title
+Provides the content of a text file designed for time series
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_txt_paths(system.file("examples", package = "rjd3providers"))
+set_txt_paths(system.file("extdata", package = "rjd3providers"))
 txt_all <- txt_content("ABS.csv", delimiter = "COMMA")
 \dontshow{\}) # examplesIf}
 }

@@ -2,17 +2,21 @@
 % Please edit documentation in R/jd3spreadsheet.R
 \name{.spreadsheet_moniker}
 \alias{.spreadsheet_moniker}
-\title{Generates a java moniker for the corresponding id}
+\title{Generates a java moniker for the corresponding id.}
 \usage{
 .spreadsheet_moniker(id)
 }
 \arguments{
-\item{id}{}
+\item{id}{Identifier of the requested information.}
+}
+\value{
+An internal Java moniker.
 }
 \description{
-Generates a java moniker for the corresponding id
+Generates a java moniker for the corresponding id.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+.spreadsheet_moniker("toy_id")
 \dontshow{\}) # examplesIf}
 }

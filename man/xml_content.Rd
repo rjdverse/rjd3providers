@@ -2,19 +2,25 @@
 % Please edit documentation in R/jd3xml.R
 \name{xml_content}
 \alias{xml_content}
-\title{Title}
+\title{Provides the content of an xml file designed for time series.}
 \usage{
 xml_content(file, charset = NULL)
 }
 \arguments{
-\item{file}{}
+\item{file}{The considered file.}
+
+\item{charset}{The character set used in the file (NULL to use the default).}
+}
+\value{
+Provides all the names of the time series contained in the file, grouped by collection.
 }
 \description{
-Title
+Provides the content of an xml file designed for time series.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-set_xml_paths(system.file("examples", package = "rjd3providers"))
+set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_content("Prod.xml")
+print(xml_content)
 \dontshow{\}) # examplesIf}
 }

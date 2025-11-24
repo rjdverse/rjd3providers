@@ -2,17 +2,21 @@
 % Please edit documentation in R/jd3spreadsheet.R
 \name{set_spreadsheet_paths}
 \alias{set_spreadsheet_paths}
-\title{Title}
+\title{Set the paths to spreadsheet files (to be used with relative identifiers).}
 \usage{
 set_spreadsheet_paths(paths)
 }
 \arguments{
-\item{paths}{}
+\item{paths}{The folders containing the spreadsheet files Only used in relative addresses.}
+}
+\value{
+No output.
 }
 \description{
-Title
+Set the paths to spreadsheet files (to be used with relative identifiers).
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 \dontshow{\}) # examplesIf}
 }

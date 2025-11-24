@@ -1,10 +1,15 @@
 #' @import rJava
 #' @import rjd3toolkit
 #' @include jd3spreadsheet.R jd3txt.R jd3xml.R
+NULL
 
-#' @rdname jd3_utilities
+#' Java version.
+#' @returns Current Java version.
 #' @export
+#' @examples
+#' print(jversion)
 jversion <- NULL
+
 
 .onAttach <- function(libname, pkgname) {
     # what's your java  version?  Need >= 17
@@ -15,15 +20,14 @@ jversion <- NULL
 
 .onLoad <- function(libname, pkgname) {
     if (!requireNamespace("rjd3toolkit", quietly = TRUE)) stop("Loading rjd3 libraries failed")
+    jversion <<- .jcall("java.lang.System", "S", "getProperty", "java.version")
+    jversion <<- as.integer(regmatches(jversion, regexpr(pattern = "^(\\d+)", text = jversion)))
 
     result <- rJava::.jpackage(pkgname, lib.loc = libname)
     if (!result) stop("Loading java packages failed")
 
     # proto.dir <- system.file("proto", package = pkgname)
     # RProtoBuf::readProtoFiles2(protoPath = proto.dir)
-
-    jversion <<- .jcall("java.lang.System", "S", "getProperty", "java.version")
-    jversion <<- as.integer(regmatches(jversion, regexpr(pattern = "^(\\d+)", text = jversion)))
 
     # reload providers
     tryCatch(

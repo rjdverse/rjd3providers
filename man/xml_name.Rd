@@ -2,12 +2,15 @@
 % Please edit documentation in R/jd3xml.R
 \name{xml_name}
 \alias{xml_name}
-\title{Gets the name of the provider}
+\title{Gets the name of the xml provider.}
 \usage{
 xml_name()
 }
+\value{
+The name of the xml provider, to be used in monikers.
+}
 \description{
-Gets the name of the provider
+Gets the name of the xml provider.
 }
 \examples{
 \dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
