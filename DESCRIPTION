@@ -11,7 +11,7 @@ Description: Interface to 'JDemetra+ 3.x' (<https://github.com/jdemetra>)
     time series analysis software. It offers full access to txt, csv, xml
     and spreadsheets files which are meant to be read by JDemetra+
     Graphical User Interface.
-License: file LICENSE
+License: EUPL
 URL: https://github.com/rjdverse/rjd3providers,
     https://rjdverse.github.io/rjd3providers/
 BugReports: https://github.com/rjdverse/rjd3providers/issues
