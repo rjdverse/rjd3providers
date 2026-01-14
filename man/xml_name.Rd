@@ -13,7 +13,7 @@ The name of the xml provider, to be used in monikers.
 Gets the name of the xml provider.
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
 xml_name()
 \dontshow{\}) # examplesIf}
 }

@@ -1,8 +1,9 @@
-#' Deprecated functions
+#' @title Deprecated functions
 #'
 #' @name deprecated-rjd3providers
 #' @param props The properties defining the identifier.
 #' @param id Identifier of a series or of a collection of series.
+#'
 #' @export
 spreadsheet_to_id <- function(props) {
     .Deprecated("spreadsheet_properties_to_id")

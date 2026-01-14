@@ -16,7 +16,7 @@ The identifier corresponding to the properties.
 Generates the id corresponding to a list of an xml properties.
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
 set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 q <- xml_id_to_properties(xml_1_5$moniker$id)

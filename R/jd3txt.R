@@ -99,24 +99,27 @@
     ))
 }
 
-#' Gets the name of the text provider
+#' @title Gets the name of the text provider
 #'
 #' @returns The name of the text provider, to be used in monikers
+#'
 #' @export
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf current_java_version >= minimal_java_version
 #' txt_name()
 txt_name <- function() {
     return(.jfield("jdplus/text/base/api/TxtProvider", name = "NAME"))
 }
 
-#' Generates a java moniker for the corresponding id.
+#' @title Generates a java moniker for the corresponding id.
 #'
 #' @param id Identifier of the requested information.
 #'
 #' @returns An internal java moniker.
-#' @examplesIf jversion >= 17
+#'
+#' @examplesIf current_java_version >= minimal_java_version
 #' .txt_moniker("toy_id")
+#'
 #' @export
 #'
 .txt_moniker <- function(id) {
@@ -129,22 +132,21 @@ txt_name <- function() {
     return(jmoniker)
 }
 
-#' Set the paths to txt files (to be used with relative identifiers)
+#' @title Set the paths to txt files (to be used with relative identifiers)
 #'
 #' @param paths The folders containing the txt files Only used in relative addresses.
 #'
-#' @returns No output
-#'
 #' @returns An internal java moniker
+#'
 #' @export
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf current_java_version >= minimal_java_version
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 set_txt_paths <- function(paths) {
     .jcall("jdplus/text/base/r/TxtFiles", "V", "setPaths", .jarray(paths))
 }
 
-#' Provides the content of a text file designed for time series
+#' @title Provides the content of a text file designed for time series
 #'
 #' @param file The text file
 #' @param fmt.locale Locale language. Null to use the default
@@ -162,9 +164,10 @@ set_txt_paths <- function(paths) {
 #' @param skip Skips some lines
 #'
 #' @returns Provides all the names of the time series contained in the text file
+#'
 #' @export
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf current_java_version >= minimal_java_version
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_all <- txt_content("ABS.csv", delimiter = "COMMA")
 txt_content <- function(
@@ -191,7 +194,7 @@ txt_content <- function(
     return(series)
 }
 
-#' Retrieves all the time series in a text file (.txt, .csv...)
+#' @title Retrieves all the time series in a text file (.txt, .csv...)
 #'
 #' @param file The text file
 #' @param fmt.locale Locale language. Null to use the default
@@ -209,9 +212,10 @@ txt_content <- function(
 #' @param skip Skips some lines
 #'
 #' @returns A ts collection with all the series
+#'
 #' @export
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf current_java_version >= minimal_java_version
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' all <- txt_data("ABS.csv", delimiter = "COMMA")
 txt_data <- function(
@@ -242,7 +246,7 @@ txt_data <- function(
     return(rjd3toolkit::.jd2r_tscollection(jcoll))
 }
 
-#' Retrieves a time series from a a text file (.txt, .csv...)
+#' @title Retrieves a time series from a a text file (.txt, .csv...)
 #'
 #' @param file The text file
 #' @param series The name or the 1-based position of the series in the selected sheet
@@ -263,7 +267,7 @@ txt_data <- function(
 #' @returns Returns the specified time series
 #' @export
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf current_java_version >= minimal_java_version
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 #' txt_09 <- txt_series("ABS.csv", series = "0.2.09.10.M", delimiter = "COMMA")
@@ -303,14 +307,15 @@ txt_series <- function(
     return(rjd3toolkit::.jd2r_ts(js))
 }
 
-#' Generates the id corresponding to a list of a text properties.
+#' @title Generates the id corresponding to a list of a text properties.
 #'
 #' @param props The properties defining the identifier.
 #'
 #' @returns The identifier corresponding to the properties.
+#'
 #' @export
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf current_java_version >= minimal_java_version
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 #' id<-txt_15$moniker$id
@@ -328,14 +333,15 @@ txt_properties_to_id <- function(props) {
     return(id)
 }
 
-#' Gets the list of the properties corresponding to the identifier of a moniker
+#' @title Gets the list of the properties corresponding to the identifier of a moniker
 #'
 #' @param id Identifier of a series or of a collection of series.
 #'
 #' @returns Returns a list with the elements of the id: file [, series], format, gathering, ...).
+#'
 #' @export
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf current_java_version >= minimal_java_version
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 #' id<-txt_15$moniker$id
@@ -345,16 +351,17 @@ txt_id_to_properties <- function(id) {
     return(.jd2r_txt_id(jset))
 }
 
-#' Change the file of a text moniker
+#' @title Change the file of a text moniker
 #'
 #' @param id Identifier of a series or of a collection of series.
 #' @param nfile New file name.
 #' @param ofile Old file name. NULL or "" to change any file to the new file.
 #'
 #' @returns The new identifier
+#'
 #' @export
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf current_java_version >= minimal_java_version
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 #' id<-txt_15$moniker$id
