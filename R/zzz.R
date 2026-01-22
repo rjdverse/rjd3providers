@@ -28,6 +28,7 @@ minimal_java_version <- rjd3jars::minimal_java_version
     }
 }
 
+#' @importFrom rJava .jpackage .jcall
 .onLoad <- function(libname, pkgname) {
     result <- .jpackage(pkgname, lib.loc = libname)
     if (!result) stop("Loading java packages failed")
