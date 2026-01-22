@@ -1,6 +1,6 @@
 Type: Package
 Package: rjd3providers
-Title: Interface to 'JDemetra+ 3.x' Time Series Analysis Software
+Title: Interface to 'JDemetra+ 3.x' time series analysis software
 Version: 3.6.0
 Authors@R: c(
     person("Jean", "Palate", , "jean.palate@nbb.be", role = "aut"),
@@ -11,7 +11,7 @@ Description: Interface to 'JDemetra+ 3.x' (<https://github.com/jdemetra>)
     time series analysis software. It offers full access to txt, csv, xml
     and spreadsheets files which are meant to be read by JDemetra+
     Graphical User Interface.
-License: file LICENSE
+License: EUPL
 URL: https://github.com/rjdverse/rjd3providers,
     https://rjdverse.github.io/rjd3providers/
 BugReports: https://github.com/rjdverse/rjd3providers/issues
@@ -19,10 +19,11 @@ Depends:
     R (>= 4.1.0)
 Imports:
     rJava (>= 1.0-6),
-    rjd3toolkit (>= 3.6.0)
+    rjd3toolkit (>= 3.6.0), 
+    rjd3jars
 Encoding: UTF-8
 LazyData: TRUE
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 SystemRequirements: Java (>= 17)
 Collate: 
     'deprecated.R'
