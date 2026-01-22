@@ -32,8 +32,7 @@ example, using this R package, you will be able to:
 ## Installation
 
 **{rjd3providers}** relies on the
-[**{rJava}**](https://cran.r-project.org/web/packages/rJava/index.html)
-package.
+[**{rJava}**](https://CRAN.R-project.org/package=rJava) package.
 
 Running rjd3 packages requires **Java 17 or higher**. How to set up such
 a configuration in R is explained
@@ -73,7 +72,8 @@ remotes::install_github("rjdverse/rjd3providers")
 ``` r
 library("rjd3providers")
 
-xlsx_file <- paste0(system.file("examples", package = "rjd3providers"), "/Insee.xlsx")
+xlsx_file <- paste0(system.file("extdata", package = "rjd3providers"), "/Insee.xlsx")
+
 spreadsheet_content(xlsx_file)
 #> $`FRANCE Textile`
 #> [1] "Textiles, industries de l'habillement, industrie du cuir et de la chaussure 001562874"
@@ -139,7 +139,7 @@ str(ts1)
 #>  $ name    : chr "FRANCE Textile\nPréparation de fibres textiles et filature 001563401"
 #>  $ moniker :List of 2
 #>   ..$ source: chr "XCLPRVDR"
-#>   ..$ id    : chr "demetra://tsprovider/XCLPRVDR/20111201/SERIES?cleanMissing=false&file=C%3A%5CUsers%5CUTZK0M%5CAppData%5CLocal%5"| __truncated__
+#>   ..$ id    : chr "demetra://tsprovider/XCLPRVDR/20111201/SERIES?file=C%3A%5CUsers%5CUTENTE%5CAppData%5CLocal%5CR%5Cwin-library%5C"| __truncated__
 #>   ..- attr(*, "class")= chr "JD3_TSMONIKER"
 #>  $ metadata:List of 3
 #>   ..$ series.name     : chr "Préparation de fibres textiles et filature 001563401"

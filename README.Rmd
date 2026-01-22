@@ -38,7 +38,7 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-**{rjd3providers}** relies on the [**{rJava}**](https://cran.r-project.org/web/packages/rJava/index.html) package.
+**{rjd3providers}** relies on the [**{rJava}**](https://CRAN.R-project.org/package=rJava) package.
 
 Running rjd3 packages requires **Java 17 or higher**. How to set up such a configuration in R is explained [here](https://jdemetra-new-documentation.netlify.app/#Rconfig) 
 
@@ -77,7 +77,8 @@ remotes::install_github("rjdverse/rjd3providers")
 ``` {r generate_info, echo = TRUE, eval = TRUE}
 library("rjd3providers")
 
-xlsx_file <- paste0(system.file("examples", package = "rjd3providers"), "/Insee.xlsx")
+xlsx_file <- paste0(system.file("extdata", package = "rjd3providers"), "/Insee.xlsx")
+
 spreadsheet_content(xlsx_file)
 
 ts1 <- spreadsheet_series(file = xlsx_file, sheet = 1L, series = 3)
