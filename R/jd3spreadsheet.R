@@ -309,10 +309,12 @@ spreadsheet_id_to_properties <- function(id) {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_all <- spreadsheet_data("Insee.xlsx", 1)
 #' id<-xls_all$moniker$id
 #' spreadsheet_change_file(id, "test.xlsx")
+#'}
 spreadsheet_change_file <- function(id, nfile, ofile = NULL) {
     if (is.null(ofile)) ofile <- ""
     nid <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "S", "changeFile", id, nfile, ofile)
