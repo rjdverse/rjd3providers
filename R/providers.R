@@ -11,7 +11,9 @@
 #' @returns An internal Java object.
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#'
 #' .obs_gathering(period=4, aggregationType="Sum")
+#'
 .obs_gathering <- function(period = 0,
                            aggregationType = NULL,
                            allowPartialAggregation = FALSE,
@@ -41,7 +43,9 @@
 #' @returns An internal Java object.
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#'
 #' .obs_format(locale = "french-be")
+#'
 .obs_format <- function(locale = NULL, dateFmt = NULL, numberFmt = NULL, ignoreNumberGrouping = TRUE) {
     if (is.null(locale)) locale <- ""
     if (is.null(dateFmt)) dateFmt <- ""

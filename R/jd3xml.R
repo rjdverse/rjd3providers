@@ -48,7 +48,9 @@
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#'
 #' xml_name()
+#'
 xml_name <- function() {
     return(.jfield("jdplus/text/base/api/XmlProvider", "S", name = "NAME"))
 }
@@ -60,7 +62,9 @@ xml_name <- function() {
 #' @returns An internal java moniker.
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#'
 #' .xml_moniker("toy_id")
+#'
 #' @export
 .xml_moniker <- function(id) {
     jmoniker <- .jcall(
@@ -80,7 +84,9 @@ xml_name <- function() {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#'
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
+#'
 set_xml_paths <- function(paths) {
     .jcall("jdplus/text/base/r/XmlFiles", "V", "setPaths", .jarray(paths))
 }
@@ -95,9 +101,11 @@ set_xml_paths <- function(paths) {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_content("Prod.xml")
 #' print(xml_content)
+#' }
 xml_content <- function(file, charset = NULL) {
     jsource <- .xml_source(file, charset)
     sheets <- .jcall("jdplus/text/base/r/XmlFiles", "[S", "sheets", jsource)
@@ -121,9 +129,11 @@ xml_content <- function(file, charset = NULL) {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
 #' xml_all <- xml_data("Prod.xml", "industrial production", charset = "iso-8859-1")
+#' }
 xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
     jsource <- .xml_source(file, charset)
     if (! is.numeric(collection)){
@@ -156,10 +166,12 @@ xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 #' xml_cn <- xml_series("Prod.xml", "industrial production",
 #'             "Construction navale", charset = "iso-8859-1")
+#' }
 xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullName = TRUE) {
     jsource <- .xml_source(file, charset)
     if (! is.numeric(collection)){
@@ -193,11 +205,13 @@ xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullNam
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 #' q <- xml_id_to_properties(xml_1_5$moniker$id)
 #' q$series <- 50
 #' xml_properties_to_id(q)
+#' }
 xml_properties_to_id <- function(props) {
     jset <- .r2jd_xml_properties_to_id(props)
     id <- .jcall("jdplus/text/base/r/XmlFiles", "S", "encode", jset)
@@ -212,11 +226,13 @@ xml_properties_to_id <- function(props) {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 #' xml_id_to_properties(xml_1_5$moniker$id)
 #' xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
 #' xml_id_to_properties(xml_1$moniker$id)
+#' }
 xml_id_to_properties <- function(id) {
     jset <- .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
     return(.jd2r_xml_properties_to_id(jset))
@@ -232,10 +248,12 @@ xml_id_to_properties <- function(id) {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 #' id<-xml_1_5$moniker$id
 #' xml_change_file(id, "test.xml")
+#' }
 xml_change_file <- function(id, nfile, ofile = NULL) {
     if (is.null(ofile)) ofile <- ""
     nid <- .jcall("jdplus/text/base/r/XmlFiles", "S", "changeFile", id, nfile, ofile)

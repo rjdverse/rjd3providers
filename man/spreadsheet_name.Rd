@@ -14,6 +14,7 @@ Gets the name of the spreadsheet provider.
 }
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+
 print(spreadsheet_name())
 \dontshow{\}) # examplesIf}
 }

@@ -28,6 +28,7 @@ Generates the Java object for automatic aggregation of the data
 }
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+
 .obs_gathering(period=4, aggregationType="Sum")
 \dontshow{\}) # examplesIf}
 }

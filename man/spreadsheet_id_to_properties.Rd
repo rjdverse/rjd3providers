@@ -20,10 +20,12 @@ When the period in the gathering list is defined, the user must specify the aggr
 }
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+\donttest{
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 id<-xls_s1_3$moniker$id
 print(spreadsheet_id_to_properties(id))
+}
 \dontshow{\}) # examplesIf}
 }
 \seealso{

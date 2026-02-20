@@ -37,8 +37,10 @@ Retrieves all the time series in a specified sheet from a spreadsheet file.
 }
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+\donttest{
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 xls_all <- spreadsheet_data("Insee.xlsx", 1)
 txt_all <- spreadsheet_data("Insee.xlsx", "FRANCE Textile")
+}
 \dontshow{\}) # examplesIf}
 }

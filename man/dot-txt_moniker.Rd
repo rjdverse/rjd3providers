@@ -17,6 +17,7 @@ Generates a java moniker for the corresponding id.
 }
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+
 .txt_moniker("toy_id")
 \dontshow{\}) # examplesIf}
 }

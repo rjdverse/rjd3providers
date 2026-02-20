@@ -90,7 +90,9 @@ NULL
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#'
 #' print(spreadsheet_name())
+#'
 spreadsheet_name <- function() {
     return(.jfield("jdplus/spreadsheet/base/api/SpreadSheetProvider", "S", name = "NAME"))
 }
@@ -103,7 +105,9 @@ spreadsheet_name <- function() {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#'
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
+#'
 set_spreadsheet_paths <- function(paths) {
     .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "V", "setPaths", .jarray(paths))
 }
@@ -116,7 +120,9 @@ set_spreadsheet_paths <- function(paths) {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#'
 #' .spreadsheet_moniker("toy_id")
+#'
 .spreadsheet_moniker <- function(id) {
     jmoniker <- .jcall(
         obj = "jdplus/toolkit/base/api/timeseries/TsMoniker",
@@ -142,9 +148,11 @@ set_spreadsheet_paths <- function(paths) {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_all <- spreadsheet_data("Insee.xlsx", 1)
 #' txt_all <- spreadsheet_data("Insee.xlsx", "FRANCE Textile")
+#' }
 spreadsheet_data <- function(
         file, sheet = 1,
         gathering.period = 0,
@@ -186,9 +194,11 @@ spreadsheet_data <- function(
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 #' txt_s1 <- spreadsheet_series("Insee.xlsx", "FRANCE Textile", 1)
+#' }
 spreadsheet_series <- function(
         file,
         sheet = 1,
@@ -236,8 +246,10 @@ spreadsheet_series <- function(
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' print(spreadsheet_content("Insee.xlsx"))
+#' }
 spreadsheet_content <- function(file) {
     jsource <- .spreadsheet_source(file, 0, "None", FALSE, FALSE)
     sheets <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "[S", "sheets", jsource)
@@ -259,6 +271,7 @@ spreadsheet_content <- function(file) {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 #' id<-xls_s1_3$moniker$id
@@ -270,6 +283,7 @@ spreadsheet_content <- function(file) {
 #' props$gathering$aggregation<-"Min"
 #' m<-rjd3toolkit::to_ts(spreadsheet_name(), spreadsheet_properties_to_id(props))
 #' ts.plot(ts.union(M$data,m$data), col=c("red", "blue"))
+#' }
 spreadsheet_properties_to_id <- function(props) {
     jset <- .r2jd_spreadsheet_id(props)
     id <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "S", "encode", jset)
@@ -290,10 +304,12 @@ spreadsheet_properties_to_id <- function(props) {
 #' @seealso [spreadsheet_properties_to_id()]
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 #' id<-xls_s1_3$moniker$id
 #' print(spreadsheet_id_to_properties(id))
+#' }
 spreadsheet_id_to_properties <- function(id) {
     jset <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
     return(.jd2r_spreadsheet_id(jset))

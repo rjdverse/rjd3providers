@@ -28,6 +28,7 @@ Generates the Java object for data formats
 }
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+
 .obs_format(locale = "french-be")
 \dontshow{\}) # examplesIf}
 }

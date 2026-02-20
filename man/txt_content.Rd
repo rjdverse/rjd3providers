@@ -58,7 +58,9 @@ Provides the content of a text file designed for time series
 }
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+\donttest{
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 txt_all <- txt_content("ABS.csv", delimiter = "COMMA")
+}
 \dontshow{\}) # examplesIf}
 }

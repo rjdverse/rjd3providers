@@ -58,7 +58,9 @@ Retrieves all the time series in a text file (.txt, .csv...)
 }
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+\donttest{
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 all <- txt_data("ABS.csv", delimiter = "COMMA")
+}
 \dontshow{\}) # examplesIf}
 }

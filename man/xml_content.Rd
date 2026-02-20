@@ -19,8 +19,10 @@ Provides the content of an xml file designed for time series.
 }
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+\donttest{
 set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_content("Prod.xml")
 print(xml_content)
+}
 \dontshow{\}) # examplesIf}
 }

@@ -61,8 +61,10 @@ Retrieves a time series from a a text file (.txt, .csv...)
 }
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+\donttest{
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 txt_09 <- txt_series("ABS.csv", series = "0.2.09.10.M", delimiter = "COMMA")
+}
 \dontshow{\}) # examplesIf}
 }

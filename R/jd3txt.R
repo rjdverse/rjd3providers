@@ -106,7 +106,9 @@
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#'
 #' txt_name()
+#'
 txt_name <- function() {
     return(.jfield("jdplus/text/base/api/TxtProvider", name = "NAME"))
 }
@@ -118,6 +120,7 @@ txt_name <- function() {
 #' @returns An internal java moniker.
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#'
 #' .txt_moniker("toy_id")
 #'
 #' @export
@@ -141,7 +144,9 @@ txt_name <- function() {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#'
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
+#'
 set_txt_paths <- function(paths) {
     .jcall("jdplus/text/base/r/TxtFiles", "V", "setPaths", .jarray(paths))
 }
@@ -168,8 +173,10 @@ set_txt_paths <- function(paths) {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_all <- txt_content("ABS.csv", delimiter = "COMMA")
+#' }
 txt_content <- function(
         file,
         fmt.locale = NULL,
@@ -216,8 +223,10 @@ txt_content <- function(
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' all <- txt_data("ABS.csv", delimiter = "COMMA")
+#' }
 txt_data <- function(
         file,
         fmt.locale = NULL,
@@ -268,9 +277,11 @@ txt_data <- function(
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 #' txt_09 <- txt_series("ABS.csv", series = "0.2.09.10.M", delimiter = "COMMA")
+#' }
 txt_series <- function(
         file,
         series,
@@ -316,6 +327,7 @@ txt_series <- function(
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 #' id<-txt_15$moniker$id
@@ -327,6 +339,7 @@ txt_series <- function(
 #' props$gathering$aggregation<-"Min"
 #' m<-rjd3toolkit::to_ts(txt_name(), txt_properties_to_id(props))
 #' ts.plot(ts.union(M$data,m$data), col=c("red", "blue"))
+#' }
 txt_properties_to_id <- function(props) {
     jset <- .r2jd_txt_id(props)
     id <- .jcall("jdplus/text/base/r/TxtFiles", "S", "encode", jset)
@@ -342,10 +355,12 @@ txt_properties_to_id <- function(props) {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 #' id<-txt_15$moniker$id
 #' print(txt_id_to_properties(id))
+#' }
 txt_id_to_properties <- function(id) {
     jset <- .jcall("jdplus/text/base/r/TxtFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
     return(.jd2r_txt_id(jset))
@@ -362,10 +377,12 @@ txt_id_to_properties <- function(id) {
 #' @export
 #'
 #' @examplesIf current_java_version >= minimal_java_version
+#' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 #' id<-txt_15$moniker$id
 #' txt_change_file(id, "test.csv")
+#' }
 txt_change_file <- function(id, nfile, ofile = NULL) {
     if (is.null(ofile)) ofile <- ""
     nid <- .jcall("jdplus/text/base/r/TxtFiles", "S", "changeFile", id, nfile, ofile)

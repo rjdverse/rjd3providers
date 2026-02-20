@@ -14,6 +14,7 @@ Gets the name of the xml provider.
 }
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+
 xml_name()
 \dontshow{\}) # examplesIf}
 }

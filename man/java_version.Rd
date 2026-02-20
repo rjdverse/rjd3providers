@@ -23,7 +23,9 @@ minimal_java_version
 Java version.
 }
 \examples{
+\donttest{
 print(minimal_java_version)
 print(current_java_version)
+}
 }
 \keyword{datasets}
