@@ -19,11 +19,13 @@ Gets the list of the properties corresponding to the identifier of a moniker.
 When the period in the gathering list is defined, the user must specify the aggregation type ("Sum", "Average", "First", "Last", "Min", "Max") and some additional parameters (partial aggregation and suppression of leading/trailing missing values).
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+\donttest{
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 id<-xls_s1_3$moniker$id
 print(spreadsheet_id_to_properties(id))
+}
 \dontshow{\}) # examplesIf}
 }
 \seealso{

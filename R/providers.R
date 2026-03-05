@@ -1,5 +1,5 @@
 
-#' Generates the Java object for automatic aggregation of the data
+#' @title Generates the Java object for automatic aggregation of the data
 #'
 #' @export
 #'
@@ -7,9 +7,13 @@
 #' @param aggregationType  The type of the aggregation to be applied on the series (only used if "period" is different from 0).
 #' @param allowPartialAggregation Specifies if  the aggregation is performed or not when they are missing periods.
 #' @param cleanMissing Specifies if missing values at the beginning and at the end of the data are removed from the series.
+#'
 #' @returns An internal Java object.
-#' @examplesIf jversion >= 17
+#'
+#' @examplesIf current_java_version >= minimal_java_version
+#'
 #' .obs_gathering(period=4, aggregationType="Sum")
+#'
 .obs_gathering <- function(period = 0,
                            aggregationType = NULL,
                            allowPartialAggregation = FALSE,
@@ -27,7 +31,7 @@
     return(jobs)
 }
 
-#' Generates the Java object for data formats
+#' @title Generates the Java object for data formats
 #'
 #' @export
 #'
@@ -35,9 +39,13 @@
 #' @param dateFmt Format of the date. Null to use the default of the locale
 #' @param numberFmt Format of the number. Null to use the default of the locale
 #' @param ignoreNumberGrouping Ignore number grouping
+#'
 #' @returns An internal Java object.
-#' @examplesIf jversion >= 17
-#' .obs_format(local="french-be")
+#'
+#' @examplesIf current_java_version >= minimal_java_version
+#'
+#' .obs_format(locale = "french-be")
+#'
 .obs_format <- function(locale = NULL, dateFmt = NULL, numberFmt = NULL, ignoreNumberGrouping = TRUE) {
     if (is.null(locale)) locale <- ""
     if (is.null(dateFmt)) dateFmt <- ""

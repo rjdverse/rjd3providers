@@ -27,7 +27,8 @@ An internal Java object.
 Generates the Java object for data formats
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-.obs_format(local="french-be")
+\dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+
+.obs_format(locale = "french-be")
 \dontshow{\}) # examplesIf}
 }

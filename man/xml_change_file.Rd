@@ -20,10 +20,12 @@ The new identifier.
 Change the file of an xml moniker.
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+\donttest{
 set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 id<-xml_1_5$moniker$id
 xml_change_file(id, "test.xml")
+}
 \dontshow{\}) # examplesIf}
 }

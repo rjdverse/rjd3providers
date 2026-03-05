@@ -20,10 +20,12 @@ Returns the new identifier.
 Change the file of a spreadsheet moniker.
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+\donttest{
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 xls_all <- spreadsheet_data("Insee.xlsx", 1)
 id<-xls_all$moniker$id
 spreadsheet_change_file(id, "test.xlsx")
+}
 \dontshow{\}) # examplesIf}
 }

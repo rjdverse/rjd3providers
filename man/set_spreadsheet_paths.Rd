@@ -16,7 +16,8 @@ No output.
 Set the paths to spreadsheet files (to be used with relative identifiers).
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 \dontshow{\}) # examplesIf}
 }
