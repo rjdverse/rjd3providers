@@ -26,6 +26,7 @@ by collection.
 ## Examples
 
 ``` r
+# \donttest{
 set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_content("Prod.xml")
 #> $`industrial production`
@@ -172,6 +173,7 @@ print(xml_content)
 #>     }
 #>     return(rslt)
 #> }
-#> <bytecode: 0x55bd80ed7c48>
+#> <bytecode: 0x55f010a5d628>
 #> <environment: namespace:rjd3providers>
+# }
 ```

@@ -22,6 +22,7 @@ organized by worksheet; the output is a list of lists of names.
 ## Examples
 
 ``` r
+# \donttest{
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 print(spreadsheet_content("Insee.xlsx"))
 #> $`FRANCE Textile`
@@ -82,4 +83,5 @@ print(spreadsheet_content("Insee.xlsx"))
 #> [10] "Fabrication de boissons 001563041"                                                                 
 #> [11] "Fabrication de produits à base de tabac 001563044"                                                 
 #> 
+# }
 ```

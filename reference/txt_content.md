@@ -93,6 +93,8 @@ Provides all the names of the time series contained in the text file
 ## Examples
 
 ``` r
+# \donttest{
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 txt_all <- txt_content("ABS.csv", delimiter = "COMMA")
+# }
 ```

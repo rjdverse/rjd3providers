@@ -19,7 +19,8 @@
   : Generates a java moniker for the corresponding id.
 - [`.xml_moniker()`](https://rjdverse.github.io/rjd3providers/reference/dot-xml_moniker.md)
   : Generates a java moniker for the corresponding id.
-- [`jversion`](https://rjdverse.github.io/rjd3providers/reference/jversion.md)
+- [`current_java_version`](https://rjdverse.github.io/rjd3providers/reference/java_version.md)
+  [`minimal_java_version`](https://rjdverse.github.io/rjd3providers/reference/java_version.md)
   : Java version.
 - [`set_spreadsheet_paths()`](https://rjdverse.github.io/rjd3providers/reference/set_spreadsheet_paths.md)
   : Set the paths to spreadsheet files (to be used with relative

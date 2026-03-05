@@ -94,6 +94,8 @@ A ts collection with all the series
 ## Examples
 
 ``` r
+# \donttest{
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 all <- txt_data("ABS.csv", delimiter = "COMMA")
+# }
 ```

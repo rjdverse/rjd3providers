@@ -64,7 +64,9 @@ Returns the specified time series.
 ## Examples
 
 ``` r
+# \donttest{
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 txt_s1 <- spreadsheet_series("Insee.xlsx", "FRANCE Textile", 1)
+# }
 ```

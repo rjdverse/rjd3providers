@@ -16,8 +16,6 @@ set_txt_paths(paths)
 
 ## Value
 
-No output
-
 An internal java moniker
 
 ## Examples

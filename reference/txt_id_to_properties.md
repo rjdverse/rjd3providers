@@ -23,6 +23,7 @@ gathering, ...).
 ## Examples
 
 ``` r
+# \donttest{
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 id<-txt_15$moniker$id
@@ -73,4 +74,5 @@ print(txt_id_to_properties(id))
 #> [1] TRUE
 #> 
 #> 
+# }
 ```

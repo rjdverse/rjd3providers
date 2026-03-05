@@ -21,8 +21,7 @@ example, using this R package, you will be able to:
 ## Installation
 
 **{rjd3providers}** relies on the
-[**{rJava}**](https://cran.r-project.org/web/packages/rJava/index.html)
-package.
+[**{rJava}**](https://CRAN.R-project.org/package=rJava) package.
 
 Running rjd3 packages requires **Java 17 or higher**. How to set up such
 a configuration in R is explained
@@ -61,8 +60,80 @@ remotes::install_github("rjdverse/rjd3providers")
 
 ``` r
 library("rjd3providers")
+#> my Java class path: [1] "rjd3providers"
+#> 
+#>  [1] "/usr/local/lib/R/site-library/rJava/java"                                              
+#>  [2] "/usr/local/lib/R/site-library/rjd3jars/java"                                           
+#>  [3] "/usr/local/lib/R/site-library/rjd3jars/java/protobuf-java-4.33.1.jar"                  
+#>  [4] "/usr/local/lib/R/site-library/rjd3toolkit/java"                                        
+#>  [5] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-sa-base-api-3.6.0.jar"           
+#>  [6] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-sa-base-core-3.6.0.jar"          
+#>  [7] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-sa-base-protobuf-3.6.0.jar"      
+#>  [8] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-sa-base-r-3.6.0.jar"             
+#>  [9] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-toolkit-base-api-3.6.0.jar"      
+#> [10] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-toolkit-base-core-3.6.0.jar"     
+#> [11] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-toolkit-base-protobuf-3.6.0.jar" 
+#> [12] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-toolkit-base-r-3.6.0.jar"        
+#> [13] "/usr/local/lib/R/site-library/rjd3providers/java"                                      
+#> [14] "/usr/local/lib/R/site-library/rjd3providers/java/caffeine-3.2.3.jar"                   
+#> [15] "/usr/local/lib/R/site-library/rjd3providers/java/FastInfoset-1.2.15.jar"               
+#> [16] "/usr/local/lib/R/site-library/rjd3providers/java/istack-commons-runtime-3.0.7.jar"     
+#> [17] "/usr/local/lib/R/site-library/rjd3providers/java/java-io-base-0.0.35.jar"              
+#> [18] "/usr/local/lib/R/site-library/rjd3providers/java/java-io-picocsv-0.0.35.jar"           
+#> [19] "/usr/local/lib/R/site-library/rjd3providers/java/java-io-xml-0.0.35.jar"               
+#> [20] "/usr/local/lib/R/site-library/rjd3providers/java/java-io-xml-bind-0.0.35.jar"          
+#> [21] "/usr/local/lib/R/site-library/rjd3providers/java/javax.activation-api-1.2.0.jar"       
+#> [22] "/usr/local/lib/R/site-library/rjd3providers/java/jaxb-api-2.4.0-b180830.0359.jar"      
+#> [23] "/usr/local/lib/R/site-library/rjd3providers/java/jaxb-runtime-2.4.0-b180830.0438.jar"  
+#> [24] "/usr/local/lib/R/site-library/rjd3providers/java/jdplus-spreadsheet-base-api-3.6.0.jar"
+#> [25] "/usr/local/lib/R/site-library/rjd3providers/java/jdplus-spreadsheet-base-r-3.6.0.jar"  
+#> [26] "/usr/local/lib/R/site-library/rjd3providers/java/jdplus-text-base-api-3.6.0.jar"       
+#> [27] "/usr/local/lib/R/site-library/rjd3providers/java/jdplus-text-base-r-3.6.0.jar"         
+#> [28] "/usr/local/lib/R/site-library/rjd3providers/java/jdplus-toolkit-base-tsp-3.6.0.jar"    
+#> [29] "/usr/local/lib/R/site-library/rjd3providers/java/jdplus-toolkit-base-xml-3.6.0.jar"    
+#> [30] "/usr/local/lib/R/site-library/rjd3providers/java/picocsv-2.6.0.jar"                    
+#> [31] "/usr/local/lib/R/site-library/rjd3providers/java/spreadsheet-api-2.5.10.jar"           
+#> [32] "/usr/local/lib/R/site-library/rjd3providers/java/spreadsheet-standalone-2.5.10.jar"    
+#> [33] "/usr/local/lib/R/site-library/rjd3providers/java/stax-ex-1.8.jar"                      
+#> [34] "/usr/local/lib/R/site-library/rjd3providers/java/txw2-2.4.0-b180830.0438.jar"          
+#> my Java class path:  [1] "/usr/local/lib/R/site-library/rJava/java"                                              
+#>  [2] "/usr/local/lib/R/site-library/rjd3jars/java"                                           
+#>  [3] "/usr/local/lib/R/site-library/rjd3jars/java/protobuf-java-4.33.1.jar"                  
+#>  [4] "/usr/local/lib/R/site-library/rjd3toolkit/java"                                        
+#>  [5] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-sa-base-api-3.6.0.jar"           
+#>  [6] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-sa-base-core-3.6.0.jar"          
+#>  [7] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-sa-base-protobuf-3.6.0.jar"      
+#>  [8] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-sa-base-r-3.6.0.jar"             
+#>  [9] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-toolkit-base-api-3.6.0.jar"      
+#> [10] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-toolkit-base-core-3.6.0.jar"     
+#> [11] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-toolkit-base-protobuf-3.6.0.jar" 
+#> [12] "/usr/local/lib/R/site-library/rjd3toolkit/java/jdplus-toolkit-base-r-3.6.0.jar"        
+#> [13] "/usr/local/lib/R/site-library/rjd3providers/java"                                      
+#> [14] "/usr/local/lib/R/site-library/rjd3providers/java/caffeine-3.2.3.jar"                   
+#> [15] "/usr/local/lib/R/site-library/rjd3providers/java/FastInfoset-1.2.15.jar"               
+#> [16] "/usr/local/lib/R/site-library/rjd3providers/java/istack-commons-runtime-3.0.7.jar"     
+#> [17] "/usr/local/lib/R/site-library/rjd3providers/java/java-io-base-0.0.35.jar"              
+#> [18] "/usr/local/lib/R/site-library/rjd3providers/java/java-io-picocsv-0.0.35.jar"           
+#> [19] "/usr/local/lib/R/site-library/rjd3providers/java/java-io-xml-0.0.35.jar"               
+#> [20] "/usr/local/lib/R/site-library/rjd3providers/java/java-io-xml-bind-0.0.35.jar"          
+#> [21] "/usr/local/lib/R/site-library/rjd3providers/java/javax.activation-api-1.2.0.jar"       
+#> [22] "/usr/local/lib/R/site-library/rjd3providers/java/jaxb-api-2.4.0-b180830.0359.jar"      
+#> [23] "/usr/local/lib/R/site-library/rjd3providers/java/jaxb-runtime-2.4.0-b180830.0438.jar"  
+#> [24] "/usr/local/lib/R/site-library/rjd3providers/java/jdplus-spreadsheet-base-api-3.6.0.jar"
+#> [25] "/usr/local/lib/R/site-library/rjd3providers/java/jdplus-spreadsheet-base-r-3.6.0.jar"  
+#> [26] "/usr/local/lib/R/site-library/rjd3providers/java/jdplus-text-base-api-3.6.0.jar"       
+#> [27] "/usr/local/lib/R/site-library/rjd3providers/java/jdplus-text-base-r-3.6.0.jar"         
+#> [28] "/usr/local/lib/R/site-library/rjd3providers/java/jdplus-toolkit-base-tsp-3.6.0.jar"    
+#> [29] "/usr/local/lib/R/site-library/rjd3providers/java/jdplus-toolkit-base-xml-3.6.0.jar"    
+#> [30] "/usr/local/lib/R/site-library/rjd3providers/java/picocsv-2.6.0.jar"                    
+#> [31] "/usr/local/lib/R/site-library/rjd3providers/java/spreadsheet-api-2.5.10.jar"           
+#> [32] "/usr/local/lib/R/site-library/rjd3providers/java/spreadsheet-standalone-2.5.10.jar"    
+#> [33] "/usr/local/lib/R/site-library/rjd3providers/java/stax-ex-1.8.jar"                      
+#> [34] "/usr/local/lib/R/site-library/rjd3providers/java/txw2-2.4.0-b180830.0438.jar"          
+#> [1] "aa"
 
-xlsx_file <- paste0(system.file("examples", package = "rjd3providers"), "/Insee.xlsx")
+xlsx_file <- paste0(system.file("extdata", package = "rjd3providers"), "/Insee.xlsx")
+
 spreadsheet_content(xlsx_file)
 #> $`FRANCE Textile`
 #> [1] "Textiles, industries de l'habillement, industrie du cuir et de la chaussure 001562874"
@@ -128,7 +199,7 @@ str(ts1)
 #>  $ name    : chr "FRANCE Textile\nPréparation de fibres textiles et filature 001563401"
 #>  $ moniker :List of 2
 #>   ..$ source: chr "XCLPRVDR"
-#>   ..$ id    : chr "demetra://tsprovider/XCLPRVDR/20111201/SERIES?cleanMissing=false&file=C%3A%5CUsers%5CUTZK0M%5CAppData%5CLocal%5"| __truncated__
+#>   ..$ id    : chr "demetra://tsprovider/XCLPRVDR/20111201/SERIES?file=%2Fusr%2Flocal%2Flib%2FR%2Fsite-library%2Frjd3providers%2Fex"| __truncated__
 #>   ..- attr(*, "class")= chr "JD3_TSMONIKER"
 #>  $ metadata:List of 3
 #>   ..$ series.name     : chr "Préparation de fibres textiles et filature 001563401"

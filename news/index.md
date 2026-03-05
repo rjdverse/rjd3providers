@@ -1,6 +1,8 @@
 # Changelog
 
-## rjd3providers 3.6.0.9000
+## rjd3providers 3.6.0
+
+CRAN release: 2026-02-20
 
 All notable changes to this project will be documented in this file.
 
@@ -53,9 +55,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Conversion from id to properties and vice versa
   [\#33](https://github.com/rjdverse/rjd3providers/issues/33)
 
-### [3.5.1](https://github.com/rjdverse/rjd3providers/compare/v3.5.2...v3.5.1) - 2025-06-18
-
-### [3.5.2](https://github.com/rjdverse/rjd3providers/compare/v3.5.0...v3.5.2) - 2025-06-18
+### [3.5.1](https://github.com/rjdverse/rjd3providers/compare/v3.5.0...v3.5.1) - 2025-06-18
 
 ### [3.5.0](https://github.com/rjdverse/rjd3providers/compare/v3.2.3...v3.5.0) - 2025-04-09
 

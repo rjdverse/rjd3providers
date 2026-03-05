@@ -23,6 +23,7 @@ series\], charset, fullnames.
 ## Examples
 
 ``` r
+# \donttest{
 set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 xml_id_to_properties(xml_1_5$moniker$id)
@@ -52,4 +53,5 @@ xml_id_to_properties(xml_1$moniker$id)
 #> $series
 #> numeric(0)
 #> 
+# }
 ```

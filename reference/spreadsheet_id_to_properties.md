@@ -36,6 +36,7 @@ leading/trailing missing values).
 ## Examples
 
 ``` r
+# \donttest{
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 id<-xls_s1_3$moniker$id
@@ -63,4 +64,5 @@ print(spreadsheet_id_to_properties(id))
 #> [1] TRUE
 #> 
 #> 
+# }
 ```

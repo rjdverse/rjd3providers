@@ -21,6 +21,7 @@ The identifier corresponding to the properties.
 ## Examples
 
 ``` r
+# \donttest{
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 id<-xls_s1_3$moniker$id
@@ -32,4 +33,6 @@ M<-rjd3toolkit::to_ts(spreadsheet_name(), spreadsheet_properties_to_id(props))
 props$gathering$aggregation<-"Min"
 m<-rjd3toolkit::to_ts(spreadsheet_name(), spreadsheet_properties_to_id(props))
 ts.plot(ts.union(M$data,m$data), col=c("red", "blue"))
+
+# }
 ```

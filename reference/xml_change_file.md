@@ -29,9 +29,11 @@ The new identifier.
 ## Examples
 
 ``` r
+# \donttest{
 set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 id<-xml_1_5$moniker$id
 xml_change_file(id, "test.xml")
 #> [1] "demetra://tsprovider/Xml/20111201/SERIES?charset=ISO-8859-1&file=test.xml#collectionIndex=0&seriesIndex=4"
+# }
 ```
