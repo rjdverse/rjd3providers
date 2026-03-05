@@ -16,7 +16,7 @@ Returns a list with the elements of the id: file, collection[, series], charset,
 Gets the list of the properties corresponding to the identifier of a moniker.
 }
 \examples{
-\dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 \donttest{
 set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
