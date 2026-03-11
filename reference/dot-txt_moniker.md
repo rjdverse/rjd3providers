@@ -22,5 +22,5 @@ An internal java moniker.
 
 ``` r
 .txt_moniker("toy_id")
-#> [1] "Java-Object{Txt<@>toy_id}"
+#> Error in .jfield("jdplus/text/base/api/TxtProvider", name = "NAME"): cannot find class jdplus/text/base/api/TxtProvider
 ```

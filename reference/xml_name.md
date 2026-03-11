@@ -16,5 +16,5 @@ The name of the xml provider, to be used in monikers.
 
 ``` r
 xml_name()
-#> [1] "Xml"
+#> Error in .jfield("jdplus/text/base/api/XmlProvider", "S", name = "NAME"): cannot find class jdplus/text/base/api/XmlProvider
 ```

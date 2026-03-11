@@ -95,6 +95,8 @@ Provides all the names of the time series contained in the text file
 ``` r
 # \donttest{
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
+#> Error in .jcall("jdplus/text/base/r/TxtFiles", "V", "setPaths", .jarray(paths)): RcallMethod: cannot determine object class
 txt_all <- txt_content("ABS.csv", delimiter = "COMMA")
+#> Error in .jcall(obj = "jdplus/text/base/r/Utility", returnSig = "Ljdplus/toolkit/base/tsp/util/ObsFormat;",     method = "obsFormat", as.character(locale), as.character(dateFmt),     as.character(numberFmt), as.logical(ignoreNumberGrouping)): java.lang.NoClassDefFoundError: Could not initialize class jdplus.text.base.r.TxtFiles
 # }
 ```

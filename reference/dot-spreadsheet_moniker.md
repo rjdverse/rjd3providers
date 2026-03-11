@@ -22,5 +22,5 @@ An internal Java moniker.
 
 ``` r
 .spreadsheet_moniker("toy_id")
-#> [1] "Java-Object{XCLPRVDR<@>toy_id}"
+#> Error in .jcall(obj = "jdplus/toolkit/base/api/timeseries/TsMoniker",     returnSig = "Ljdplus/toolkit/base/api/timeseries/TsMoniker;",     method = "of", spreadsheet_name(), id): java.lang.UnsupportedClassVersionError: jdplus/toolkit/base/r/util/Providers has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0
 ```

@@ -25,54 +25,12 @@ gathering, ...).
 ``` r
 # \donttest{
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
+#> Error in .jcall("jdplus/text/base/r/TxtFiles", "V", "setPaths", .jarray(paths)): RcallMethod: cannot determine object class
 txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
+#> Error in .jcall(obj = "jdplus/text/base/r/Utility", returnSig = "Ljdplus/toolkit/base/tsp/util/ObsFormat;",     method = "obsFormat", as.character(locale), as.character(dateFmt),     as.character(numberFmt), as.logical(ignoreNumberGrouping)): java.lang.NoClassDefFoundError: Could not initialize class jdplus.text.base.r.TxtFiles
 id<-txt_15$moniker$id
+#> Error: object 'txt_15' not found
 print(txt_id_to_properties(id))
-#> $file
-#> [1] "ABS.csv"
-#> 
-#> $delimiter
-#> [1] "COMMA"
-#> 
-#> $textQualifier
-#> [1] "NONE"
-#> 
-#> $headers
-#> [1] 1
-#> 
-#> $skipLines
-#> [1] 0
-#> 
-#> $series
-#> [1] 15
-#> 
-#> $gathering
-#> $gathering$period
-#> [1] -1
-#> 
-#> $gathering$aggregation
-#> [1] "None"
-#> 
-#> $gathering$partialAggregation
-#> [1] FALSE
-#> 
-#> $gathering$cleanMissing
-#> [1] TRUE
-#> 
-#> 
-#> $format
-#> $format$locale
-#> [1] "en"
-#> 
-#> $format$datePattern
-#> [1] "yyyy-MM-dd"
-#> 
-#> $format$numberPattern
-#> [1] ""
-#> 
-#> $format$ignoreNumberGrouping
-#> [1] TRUE
-#> 
-#> 
+#> Error: object 'id' not found
 # }
 ```

@@ -38,7 +38,10 @@ A ts collection with all the series.
 ``` r
 # \donttest{
 set_xml_paths(system.file("extdata", package = "rjd3providers"))
+#> Error in .jcall("jdplus/text/base/r/XmlFiles", "V", "setPaths", .jarray(paths)): RcallMethod: cannot determine object class
 xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
+#> Error in .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/tsp/DataSource;",     "source", as.character(file), as.character(charset)): java.lang.NoClassDefFoundError: Could not initialize class jdplus.text.base.r.XmlFiles
 xml_all <- xml_data("Prod.xml", "industrial production", charset = "iso-8859-1")
+#> Error in .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/tsp/DataSource;",     "source", as.character(file), as.character(charset)): RcallMethod: cannot determine object class
 # }
 ```

@@ -24,4 +24,5 @@ No output.
 
 ``` r
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
+#> Error in .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "V", "setPaths",     .jarray(paths)): RcallMethod: cannot determine object class
 ```

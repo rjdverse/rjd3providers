@@ -101,7 +101,10 @@ Returns the specified time series
 ``` r
 # \donttest{
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
+#> Error in .jcall("jdplus/text/base/r/TxtFiles", "V", "setPaths", .jarray(paths)): RcallMethod: cannot determine object class
 txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
+#> Error in .jcall(obj = "jdplus/text/base/r/Utility", returnSig = "Ljdplus/toolkit/base/tsp/util/ObsFormat;",     method = "obsFormat", as.character(locale), as.character(dateFmt),     as.character(numberFmt), as.logical(ignoreNumberGrouping)): java.lang.NoClassDefFoundError: Could not initialize class jdplus.text.base.r.TxtFiles
 txt_09 <- txt_series("ABS.csv", series = "0.2.09.10.M", delimiter = "COMMA")
+#> Error in .jcall(obj = "jdplus/toolkit/base/r/util/Providers", returnSig = "Ljdplus/toolkit/base/api/timeseries/util/ObsGathering;",     method = "obsGathering", as.integer(period), as.character(aggregationType),     as.logical(allowPartialAggregation), !as.logical(cleanMissing)): RcallMethod: cannot determine object class
 # }
 ```

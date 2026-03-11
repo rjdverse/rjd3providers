@@ -42,5 +42,5 @@ An internal Java object.
 
 ``` r
 .obs_gathering(period=4, aggregationType="Sum")
-#> [1] "Java-Object{ObsGathering(unit=P3M, aggregationType=Sum, allowPartialAggregation=false, includeMissingValues=false)}"
+#> Error in .jcall(obj = "jdplus/toolkit/base/r/util/Providers", returnSig = "Ljdplus/toolkit/base/api/timeseries/util/ObsGathering;",     method = "obsGathering", as.integer(period), as.character(aggregationType),     as.logical(allowPartialAggregation), !as.logical(cleanMissing)): RcallMethod: cannot determine object class
 ```

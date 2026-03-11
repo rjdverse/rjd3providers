@@ -66,10 +66,13 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="set_xml_paths.html">set_xml_paths</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, package <span class="op">=</span> <span class="st">"rjd3providers"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall("jdplus/text/base/r/XmlFiles", "V", "setPaths", .jarray(paths)):</span> java.lang.UnsupportedClassVersionError: jdplus/toolkit/base/r/util/Providers has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0</span>
 <span class="r-in"><span><span class="va">xml_1_5</span> <span class="op">&lt;-</span> <span class="fu"><a href="xml_series.html">xml_series</a></span><span class="op">(</span><span class="st">"Prod.xml"</span>, <span class="fl">1</span>, <span class="fl">5</span>, charset <span class="op">=</span> <span class="st">"iso-8859-1"</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/tsp/DataSource;",     "source", as.character(file), as.character(charset)):</span> RcallMethod: cannot determine object class</span>
 <span class="r-in"><span><span class="va">id</span><span class="op">&lt;-</span><span class="va">xml_1_5</span><span class="op">$</span><span class="va">moniker</span><span class="op">$</span><span class="va">id</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'xml_1_5' not found</span>
 <span class="r-in"><span><span class="fu">xml_change_file</span><span class="op">(</span><span class="va">id</span>, <span class="st">"test.xml"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "demetra://tsprovider/Xml/20111201/SERIES?charset=ISO-8859-1&amp;file=test.xml#collectionIndex=0&amp;seriesIndex=4"</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall("jdplus/text/base/r/XmlFiles", "S", "changeFile", id,     nfile, ofile):</span> java.lang.NoClassDefFoundError: Could not initialize class jdplus.text.base.r.XmlFiles</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

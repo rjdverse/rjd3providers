@@ -22,4 +22,5 @@ No output.
 
 ``` r
 set_xml_paths(system.file("extdata", package = "rjd3providers"))
+#> Error in .jcall("jdplus/text/base/r/XmlFiles", "V", "setPaths", .jarray(paths)): RcallMethod: cannot determine object class
 ```
