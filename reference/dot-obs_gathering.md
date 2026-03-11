@@ -41,8 +41,6 @@ An internal Java object.
 ## Examples
 
 ``` r
-if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
-
 .obs_gathering(period=4, aggregationType="Sum")
-}
+#> [1] "Java-Object{ObsGathering(epoch=1970-01-01T00:00, unit=P3M, aggregationType=Sum, allowPartialAggregation=false, includeMissingValues=false)}"
 ```

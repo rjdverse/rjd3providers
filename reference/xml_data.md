@@ -36,11 +36,9 @@ A ts collection with all the series.
 ## Examples
 
 ``` r
-if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 # \donttest{
 set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
 xml_all <- xml_data("Prod.xml", "industrial production", charset = "iso-8859-1")
 # }
-}
 ```

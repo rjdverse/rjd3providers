@@ -93,10 +93,8 @@ Provides all the names of the time series contained in the text file
 ## Examples
 
 ``` r
-if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 # \donttest{
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 txt_all <- txt_content("ABS.csv", delimiter = "COMMA")
 # }
-}
 ```

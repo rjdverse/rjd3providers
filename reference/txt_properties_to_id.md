@@ -21,7 +21,6 @@ The identifier corresponding to the properties.
 ## Examples
 
 ``` r
-if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 # \donttest{
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
@@ -34,6 +33,6 @@ M<-rjd3toolkit::to_ts(txt_name(), txt_properties_to_id(props))
 props$gathering$aggregation<-"Min"
 m<-rjd3toolkit::to_ts(txt_name(), txt_properties_to_id(props))
 ts.plot(ts.union(M$data,m$data), col=c("red", "blue"))
+
 # }
-}
 ```

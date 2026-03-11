@@ -36,12 +36,33 @@ leading/trailing missing values).
 ## Examples
 
 ``` r
-if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 # \donttest{
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 id<-xls_s1_3$moniker$id
 print(spreadsheet_id_to_properties(id))
+#> $file
+#> [1] "Insee.xlsx"
+#> 
+#> $sheet
+#> [1] "FRANCE Textile"
+#> 
+#> $series
+#> [1] "Préparation de fibres textiles et filature 001563401"
+#> 
+#> $gathering
+#> $gathering$period
+#> [1] -1
+#> 
+#> $gathering$aggregation
+#> [1] "None"
+#> 
+#> $gathering$partialAggregation
+#> [1] FALSE
+#> 
+#> $gathering$cleanMissing
+#> [1] TRUE
+#> 
+#> 
 # }
-}
 ```

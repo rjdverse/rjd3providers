@@ -38,8 +38,6 @@ An internal Java object.
 ## Examples
 
 ``` r
-if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
-
 .obs_format(locale = "french-be")
-}
+#> [1] "Java-Object{french_BE ~  ~  ~ ignore-grouping}"
 ```

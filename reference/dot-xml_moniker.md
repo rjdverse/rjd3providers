@@ -21,8 +21,6 @@ An internal java moniker.
 ## Examples
 
 ``` r
-if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
-
 .xml_moniker("toy_id")
-}
+#> [1] "Java-Object{Xml<@>toy_id}"
 ```

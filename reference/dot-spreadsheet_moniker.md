@@ -21,8 +21,6 @@ An internal Java moniker.
 ## Examples
 
 ``` r
-if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
-
 .spreadsheet_moniker("toy_id")
-}
+#> [1] "Java-Object{XCLPRVDR<@>toy_id}"
 ```

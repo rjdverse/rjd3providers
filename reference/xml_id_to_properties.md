@@ -23,13 +23,35 @@ series\], charset, fullnames.
 ## Examples
 
 ``` r
-if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 # \donttest{
 set_xml_paths(system.file("extdata", package = "rjd3providers"))
 xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
 xml_id_to_properties(xml_1_5$moniker$id)
+#> $file
+#> [1] "Prod.xml"
+#> 
+#> $charset
+#> [1] "ISO-8859-1"
+#> 
+#> $collection
+#> [1] 1
+#> 
+#> $series
+#> [1] 5
+#> 
 xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
 xml_id_to_properties(xml_1$moniker$id)
+#> $file
+#> [1] "Prod.xml"
+#> 
+#> $charset
+#> [1] "ISO-8859-1"
+#> 
+#> $collection
+#> [1] 1
+#> 
+#> $series
+#> numeric(0)
+#> 
 # }
-}
 ```

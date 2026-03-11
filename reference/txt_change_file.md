@@ -29,12 +29,11 @@ The new identifier
 ## Examples
 
 ``` r
-if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 # \donttest{
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 id<-txt_15$moniker$id
 txt_change_file(id, "test.csv")
+#> [1] "demetra://tsprovider/Txt/20111201/SERIES?delimiter=COMMA&file=test.csv&ignoreNumberGrouping=true#seriesIndex=14"
 # }
-}
 ```
