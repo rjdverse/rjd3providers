@@ -8,6 +8,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+* New JARS
+
+
 ## [3.6.0] - 2025-11-24
 
 ### Added
