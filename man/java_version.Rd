@@ -9,7 +9,7 @@
 \format{
 An object of class \code{integer} of length 1.
 
-An object of class \code{numeric} of length 1.
+An object of class \code{integer} of length 1.
 }
 \usage{
 current_java_version
