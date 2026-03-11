@@ -59,7 +59,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-* New JARS
+* New JARS [v3.7.1](https://github.com/jdemetra/jdplus-main/releases/tag/v3.7.1)
 
 
 ## [3.2.2] - 2024-03-15
