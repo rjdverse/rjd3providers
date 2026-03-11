@@ -21,6 +21,8 @@ An internal java moniker.
 ## Examples
 
 ``` r
+if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+
 .txt_moniker("toy_id")
-#> Error in .jfield("jdplus/text/base/api/TxtProvider", name = "NAME"): cannot find class jdplus/text/base/api/TxtProvider
+}
 ```

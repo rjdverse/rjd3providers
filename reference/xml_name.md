@@ -15,6 +15,8 @@ The name of the xml provider, to be used in monikers.
 ## Examples
 
 ``` r
+if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+
 xml_name()
-#> Error in .jfield("jdplus/text/base/api/XmlProvider", "S", name = "NAME"): cannot find class jdplus/text/base/api/XmlProvider
+}
 ```

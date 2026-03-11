@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rjd3providers</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.6.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.7.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,30 +56,21 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># rjd3toolkit::get_java_version() &gt;= rjd3toolkit::minimal_java_version</span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="set_txt_paths.html">set_txt_paths</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, package <span class="op">=</span> <span class="st">"rjd3providers"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall("jdplus/text/base/r/TxtFiles", "V", "setPaths", .jarray(paths)):</span> java.lang.UnsupportedClassVersionError: jdplus/toolkit/base/api/timeseries/TsProvider has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0</span>
 <span class="r-in"><span><span class="va">txt_15</span> <span class="op">&lt;-</span> <span class="fu"><a href="txt_series.html">txt_series</a></span><span class="op">(</span><span class="st">"ABS.csv"</span>, series <span class="op">=</span> <span class="fl">15</span>, delimiter <span class="op">=</span> <span class="st">"COMMA"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall(obj = "jdplus/toolkit/base/r/util/Providers", returnSig = "Ljdplus/toolkit/base/api/timeseries/util/ObsGathering;",     method = "obsGathering", as.integer(period), as.character(aggregationType),     as.logical(allowPartialAggregation), !as.logical(cleanMissing)):</span> RcallMethod: cannot determine object class</span>
 <span class="r-in"><span><span class="va">id</span><span class="op">&lt;-</span><span class="va">txt_15</span><span class="op">$</span><span class="va">moniker</span><span class="op">$</span><span class="va">id</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'txt_15' not found</span>
 <span class="r-in"><span><span class="va">source</span><span class="op">&lt;-</span><span class="fu"><a href="txt_name.html">txt_name</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jfield("jdplus/text/base/api/TxtProvider", name = "NAME"):</span> cannot find class jdplus/text/base/api/TxtProvider</span>
 <span class="r-in"><span><span class="va">props</span><span class="op">&lt;-</span><span class="fu"><a href="txt_id_to_properties.html">txt_id_to_properties</a></span><span class="op">(</span><span class="va">id</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall("jdplus/text/base/r/TxtFiles", "Ljdplus/toolkit/base/tsp/DataSet;",     "decode", id):</span> java.lang.UnsupportedClassVersionError: jdplus/toolkit/base/api/timeseries/TsProvider has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0</span>
 <span class="r-in"><span><span class="va">props</span><span class="op">$</span><span class="va">gathering</span><span class="op">$</span><span class="va">period</span><span class="op">&lt;-</span><span class="fl">4</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'props' not found</span>
 <span class="r-in"><span><span class="va">props</span><span class="op">$</span><span class="va">gathering</span><span class="op">$</span><span class="va">aggregation</span><span class="op">&lt;-</span><span class="st">"Max"</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'props' not found</span>
 <span class="r-in"><span><span class="va">M</span><span class="op">&lt;-</span><span class="fu">rjd3toolkit</span><span class="fu">::</span><span class="fu"><a href="https://rjdverse.github.io/rjd3toolkit/reference/to_ts.html" class="external-link">to_ts</a></span><span class="op">(</span><span class="fu"><a href="txt_name.html">txt_name</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu">txt_properties_to_id</span><span class="op">(</span><span class="va">props</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jfield("jdplus/text/base/api/TxtProvider", name = "NAME"):</span> cannot find class jdplus/text/base/api/TxtProvider</span>
 <span class="r-in"><span><span class="va">props</span><span class="op">$</span><span class="va">gathering</span><span class="op">$</span><span class="va">aggregation</span><span class="op">&lt;-</span><span class="st">"Min"</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'props' not found</span>
 <span class="r-in"><span><span class="va">m</span><span class="op">&lt;-</span><span class="fu">rjd3toolkit</span><span class="fu">::</span><span class="fu"><a href="https://rjdverse.github.io/rjd3toolkit/reference/to_ts.html" class="external-link">to_ts</a></span><span class="op">(</span><span class="fu"><a href="txt_name.html">txt_name</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu">txt_properties_to_id</span><span class="op">(</span><span class="va">props</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall(obj = "jdplus/toolkit/base/api/timeseries/TsMoniker",     returnSig = "Ljdplus/toolkit/base/api/timeseries/TsMoniker;",     method = "of", source, id):</span> java.lang.UnsupportedClassVersionError: jdplus/toolkit/base/api/timeseries/TsProvider has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/ts.plot.html" class="external-link">ts.plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/ts.union.html" class="external-link">ts.union</a></span><span class="op">(</span><span class="va">M</span><span class="op">$</span><span class="va">data</span>,<span class="va">m</span><span class="op">$</span><span class="va">data</span><span class="op">)</span>, col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'M' not found</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -87,7 +78,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Jean Palate, Alessandro Piovani, Tanguy Barthelemy.</p>
+  <p>Developed by Jean Palate, Alessandro Piovani.</p>
 </div>
 
 <div class="pkgdown-footer-right">

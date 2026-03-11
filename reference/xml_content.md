@@ -26,27 +26,11 @@ by collection.
 ## Examples
 
 ``` r
+if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 # \donttest{
 set_xml_paths(system.file("extdata", package = "rjd3providers"))
-#> Error in .jcall("jdplus/text/base/r/XmlFiles", "V", "setPaths", .jarray(paths)): RcallMethod: cannot determine object class
 xml_content("Prod.xml")
-#> Error in .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/tsp/DataSource;",     "source", as.character(file), as.character(charset)): java.lang.NoClassDefFoundError: Could not initialize class jdplus.text.base.r.XmlFiles
 print(xml_content)
-#> function (file, charset = NULL) 
-#> {
-#>     jsource <- .xml_source(file, charset)
-#>     sheets <- .jcall("jdplus/text/base/r/XmlFiles", "[S", "sheets", 
-#>         jsource)
-#>     rslt <- list()
-#>     n <- length(sheets)
-#>     for (i in 1:n) {
-#>         series <- .jcall("jdplus/text/base/r/XmlFiles", "[S", 
-#>             "series", jsource, as.integer(i))
-#>         rslt[[sheets[i]]] <- series
-#>     }
-#>     return(rslt)
-#> }
-#> <bytecode: 0x55ebece0a298>
-#> <environment: namespace:rjd3providers>
 # }
+}
 ```

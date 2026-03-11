@@ -15,6 +15,8 @@ The name of the spreadsheet provider, to be used in monikers.
 ## Examples
 
 ``` r
+if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+
 print(spreadsheet_name())
-#> Error in .jfield("jdplus/spreadsheet/base/api/SpreadSheetProvider", "S",     name = "NAME"): cannot find class jdplus/spreadsheet/base/api/SpreadSheetProvider
+}
 ```

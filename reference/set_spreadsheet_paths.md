@@ -23,6 +23,8 @@ No output.
 ## Examples
 
 ``` r
+if (FALSE) { # rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
-#> Error in .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "V", "setPaths",     .jarray(paths)): RcallMethod: cannot determine object class
+}
 ```
