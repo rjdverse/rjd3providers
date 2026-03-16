@@ -11,16 +11,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/rjdverse/rjd3providers/blob/develop/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/rjdverse/rjd3providers/blob/v3.7.1/DESCRIPTION)
 
 Palate J, Piovani A (2026). *rjd3providers: Interface to 'JDemetra+' 3.x
-Time Series Analysis Software*. R package version 3.7.0.9000,
+Time Series Analysis Software*. R package version 3.7.1,
 <https://github.com/rjdverse/rjd3providers>.
 
     @Manual{,
       title = {rjd3providers: Interface to 'JDemetra+' 3.x Time Series Analysis Software},
       author = {Jean Palate and Alessandro Piovani},
       year = {2026},
-      note = {R package version 3.7.0.9000},
+      note = {R package version 3.7.1},
       url = {https://github.com/rjdverse/rjd3providers},
     }
