@@ -10,7 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-* New JARS
+* New JARS related to version [3.7.1](https://github.com/jdemetra/jdplus-main/releases/tag/v3.7.1)
 
 
 ## [3.6.0] - 2025-11-24
@@ -29,6 +29,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Rename `xml_id()` into `xml_properties_to_id()` #38
 * Rename `xml_properties()` into `xml_id_to_properties()` #38
 * The arguments `period`, `aggregation` and `partialAggregation` are renamed with `gathering.` at the beginning (so `gathering.period`, `gathering.aggregation` and `gathering.partialAggregation`)
+* New JARS related to version [3.6.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.6.0)
 
 ### Removed
 
@@ -41,9 +42,16 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [3.5.1] - 2025-06-18
 
+### Changed
+
+* New JARS related to version [3.5.1](https://github.com/jdemetra/jdplus-main/releases/tag/v3.5.1)
+
 
 ## [3.5.0] - 2025-04-09
 
+### Changed
+
+* New JARS related to version [3.5.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.5.0)
 
 ### Removed
 
@@ -54,12 +62,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- new functions to update path for txt `txt_update_path`
-- new functions to update path for spreadsheet `spreadsheet_update_path`
+* new functions to update path for txt `txt_update_path`
+* new functions to update path for spreadsheet `spreadsheet_update_path`
 
 ### Changed
 
-* New JARS [v3.7.1](https://github.com/jdemetra/jdplus-main/releases/tag/v3.7.1)
+* New JARS related to version [3.2.3](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.3)
 
 
 ## [3.2.2] - 2024-03-15
@@ -67,14 +75,15 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 * Merge pull request #17 from rjdemetra/develop
-* v3.2.2
+* New JARS related to version [3.2.2](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.2)
+
 
 
 ## [3.2.1] - 2023-12-12
 
-### Added
+### Changed
 
-* New JARS
+* New JARS related to version [3.2.1](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.1)
 
 
 ## [3.2.0] - 2023-11-24
@@ -82,7 +91,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 * Merge pull request #11 from rjdemetra/develop
-* v3.2.0
+* New JARS related to version [3.2.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.0)
 
 
 ## [3.1.0] - 2023-10-11
@@ -90,7 +99,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 * Merge pull request #5 from rjdemetra/develop
-* v3.1.0
+* New JARS related to version [3.1.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.1.0)
 
 
 [Unreleased]: https://github.com/rjdverse/rjd3providers/compare/v3.6.0...HEAD
