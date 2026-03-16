@@ -16,8 +16,10 @@ Provides all the names of the time series contained in the workbook, organized b
 Provides the content of a spreadsheet designed for time series.
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\donttest{
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 print(spreadsheet_content("Insee.xlsx"))
+}
 \dontshow{\}) # examplesIf}
 }

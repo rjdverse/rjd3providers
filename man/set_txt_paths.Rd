@@ -10,15 +10,14 @@ set_txt_paths(paths)
 \item{paths}{The folders containing the txt files Only used in relative addresses.}
 }
 \value{
-No output
-
 An internal java moniker
 }
 \description{
 Set the paths to txt files (to be used with relative identifiers)
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 \dontshow{\}) # examplesIf}
 }

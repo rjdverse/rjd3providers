@@ -3,38 +3,23 @@
 #' @include jd3spreadsheet.R jd3txt.R jd3xml.R
 NULL
 
-#' Java version.
-#' @returns Current Java version.
-#' @export
-#' @examples
-#' print(jversion)
-jversion <- NULL
-
-
 .onAttach <- function(libname, pkgname) {
-    # what's your java  version?  Need >= 17
-    if (jversion < 17) {
-        packageStartupMessage(sprintf("Your java version is %s. 17 or higher is needed.", jversion))
+    if (rjd3toolkit::get_java_version() < rjd3toolkit::minimal_java_version) {
+        packageStartupMessage(sprintf("Your java version is %s. %s or higher is needed.",
+                                      rjd3toolkit::get_java_version(), rjd3toolkit::minimal_java_version))
     }
 }
 
+#' @importFrom rJava .jpackage .jcall
 .onLoad <- function(libname, pkgname) {
-    if (!requireNamespace("rjd3toolkit", quietly = TRUE)) stop("Loading rjd3 libraries failed")
-    jversion <<- .jcall("java.lang.System", "S", "getProperty", "java.version")
-    jversion <<- as.integer(regmatches(jversion, regexpr(pattern = "^(\\d+)", text = jversion)))
-
-    result <- rJava::.jpackage(pkgname, lib.loc = libname)
+    result <- .jpackage(pkgname, lib.loc = libname)
     if (!result) stop("Loading java packages failed")
 
-    # proto.dir <- system.file("proto", package = pkgname)
-    # RProtoBuf::readProtoFiles2(protoPath = proto.dir)
-
-    # reload providers
-    tryCatch(
-        {
+    if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) {
+        # reload providers
+        try({
             .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "V", "updateTsFactory")
             .jcall("jdplus/text/base/r/Utility", "V", "updateTsFactory")
-        },
-        error = function(err) {}
-    )
+        })
+    }
 }

@@ -39,9 +39,11 @@ Returns the specified time series.
 Retrieves a time series from a spreadsheet file.
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\donttest{
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 txt_s1 <- spreadsheet_series("Insee.xlsx", "FRANCE Textile", 1)
+}
 \dontshow{\}) # examplesIf}
 }
