@@ -1,7 +1,7 @@
 Type: Package
 Package: rjd3providers
 Title: Interface to 'JDemetra+' 3.x Time Series Analysis Software
-Version: 3.7.1
+Version: 3.7.1.9000
 Authors@R: c(
     person("Jean", "Palate", , "jean.palate@nbb.be", role = "aut"),
     person("Alessandro", "Piovani", , "alessandro.piovani@istat.it", role = c("aut", "cre")),
