@@ -12,7 +12,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 #### Changed
 
-- New JARS
+- New JARS related to version
+  [3.7.1](https://github.com/jdemetra/jdplus-main/releases/tag/v3.7.1)
 
 ### [3.6.0](https://github.com/rjdverse/rjd3providers/compare/v3.5.1...v3.6.0) - 2025-11-24
 
@@ -46,6 +47,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - The arguments `period`, `aggregation` and `partialAggregation` are
   renamed with `gathering.` at the beginning (so `gathering.period`,
   `gathering.aggregation` and `gathering.partialAggregation`)
+- New JARS related to version
+  [3.6.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.6.0)
 
 #### Removed
 
@@ -59,7 +62,17 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### [3.5.1](https://github.com/rjdverse/rjd3providers/compare/v3.5.0...v3.5.1) - 2025-06-18
 
+#### Changed
+
+- New JARS related to version
+  [3.5.1](https://github.com/jdemetra/jdplus-main/releases/tag/v3.5.1)
+
 ### [3.5.0](https://github.com/rjdverse/rjd3providers/compare/v3.2.3...v3.5.0) - 2025-04-09
+
+#### Changed
+
+- New JARS related to version
+  [3.5.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.5.0)
 
 #### Removed
 
@@ -74,8 +87,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 #### Changed
 
-- New JARS
-  [v3.7.1](https://github.com/jdemetra/jdplus-main/releases/tag/v3.7.1)
+- New JARS related to version
+  [3.2.3](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.3)
 
 ### [3.2.2](https://github.com/rjdverse/rjd3providers/compare/v3.2.1...v3.2.2) - 2024-03-15
 
@@ -84,13 +97,15 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Merge pull request
   [\#17](https://github.com/rjdverse/rjd3providers/issues/17) from
   rjdemetra/develop
-- v3.2.2
+- New JARS related to version
+  [3.2.2](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.2)
 
 ### [3.2.1](https://github.com/rjdverse/rjd3providers/compare/v3.2.0...v3.2.1) - 2023-12-12
 
-#### Added
+#### Changed
 
-- New JARS
+- New JARS related to version
+  [3.2.1](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.1)
 
 ### [3.2.0](https://github.com/rjdverse/rjd3providers/compare/v3.1.0...v3.2.0) - 2023-11-24
 
@@ -99,7 +114,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Merge pull request
   [\#11](https://github.com/rjdverse/rjd3providers/issues/11) from
   rjdemetra/develop
-- v3.2.0
+- New JARS related to version
+  [3.2.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.0)
 
 ### [3.1.0](https://github.com/rjdverse/rjd3providers/releases/tag/v3.1.0) - 2023-10-11
 
@@ -108,4 +124,5 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Merge pull request
   [\#5](https://github.com/rjdverse/rjd3providers/issues/5) from
   rjdemetra/develop
-- v3.1.0
+- New JARS related to version
+  [3.1.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.1.0)
