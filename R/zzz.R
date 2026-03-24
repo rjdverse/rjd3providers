@@ -12,14 +12,18 @@ NULL
 
 #' @importFrom rJava .jpackage .jcall
 .onLoad <- function(libname, pkgname) {
-    result <- .jpackage(pkgname, lib.loc = libname)
+    jar_dir <- file.path(libname, pkgname, "inst", "java")
+    jars <- list.files(jar_dir, pattern = "\\.jar$", full.names = TRUE, all.files = TRUE)
+    rJava::.jaddClassPath(jars)
+    result <- rJava::.jpackage(pkgname, lib.loc = libname)
+
     if (!result) stop("Loading java packages failed")
 
     if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) {
-        # reload providers
+        # Reload providers
         try({
-            .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "V", "updateTsFactory")
-            .jcall("jdplus/text/base/r/Utility", "V", "updateTsFactory")
+            rJava::.jcall("jdplus/spreadsheet/base/r/SpreadSheets", "V", "updateTsFactory")
+            rJava::.jcall("jdplus/text/base/r/Utility", "V", "updateTsFactory")
         })
     }
 }
