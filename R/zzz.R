@@ -3,6 +3,7 @@
 #' @include jd3spreadsheet.R jd3txt.R jd3xml.R
 NULL
 
+#' @importFrom rjd3toolkit get_java_version minimal_java_version
 .onAttach <- function(libname, pkgname) {
     if (rjd3toolkit::get_java_version() < rjd3toolkit::minimal_java_version) {
         packageStartupMessage(sprintf("Your java version is %s. %s or higher is needed.",
@@ -10,7 +11,8 @@ NULL
     }
 }
 
-#' @importFrom rJava .jpackage .jcall
+#' @importFrom rJava .jpackage .jcall .jaddClassPath
+#' @importFrom rjd3toolkit get_java_version minimal_java_version
 .onLoad <- function(libname, pkgname) {
     jar_dir <- file.path(libname, pkgname, "inst", "java")
     jars <- list.files(jar_dir, pattern = "\\.jar$", full.names = TRUE, all.files = TRUE)
