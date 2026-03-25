@@ -18,7 +18,6 @@ NULL
     jars <- list.files(jar_dir, pattern = "\\.jar$", full.names = TRUE, all.files = TRUE)
     rJava::.jaddClassPath(jars)
     result <- rJava::.jpackage(pkgname, lib.loc = libname)
-
     if (!result) stop("Loading java packages failed")
 
     if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) {
