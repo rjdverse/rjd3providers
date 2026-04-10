@@ -1,8 +1,6 @@
 # Changelog
 
-## rjd3providers 3.7.1
-
-CRAN release: 2026-03-11
+## rjd3providers 3.7.1.9000
 
 All notable changes to this project will be documented in this file.
 

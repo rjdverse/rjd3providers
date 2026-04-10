@@ -8,12 +8,13 @@ built](https://github.com/rjdverse/rjd3providers/actions/workflows/pkgdown.yaml/
 
 ## Overview
 
-**{rjd3providers}** provides tools to explore the default time series
-providers (.xslx, .csv, .txt and .xml files) for JDemetra+ v3.x
-Graphical User Interface. It allows to manipulate raw series files. For
-example, using this R package, you will be able to:
+**{rjd3providers}** contains functions to explore and modify the
+parameters of JDemetra 3.x time series providers (.xslx, .csv, .txt and
+.xml files) used in the Graphical User Interface. It allows to
+manipulate raw series files. For example, using this R package, you will
+be able to:
 
-- change the **path** of the raw data
+- change the **path** of raw data
 - change the file **type**
 - manipulate **monikers**
 - change file **read properties**
@@ -26,6 +27,14 @@ example, using this R package, you will be able to:
 Running rjd3 packages requires **Java 21 or higher**. How to set up such
 a configuration in R is explained
 [here](https://jdemetra-new-documentation.netlify.app/#Rconfig)
+
+**🎉 {rjd3providers} is now available on CRAN! 🎉**
+
+To install it, just launch the following command line:
+
+``` r
+install.packages("rjd3providers")
+```
 
 ### Latest release
 

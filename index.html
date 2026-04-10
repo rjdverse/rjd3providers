@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">rjd3providers</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.7.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.7.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,9 +65,9 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p><strong>{rjd3providers}</strong> provides tools to explore the default time series providers (.xslx, .csv, .txt and .xml files) for JDemetra+ v3.x Graphical User Interface. It allows to manipulate raw series files. For example, using this R package, you will be able to:</p>
+<p><strong>{rjd3providers}</strong> contains functions to explore and modify the parameters of JDemetra 3.x time series providers (.xslx, .csv, .txt and .xml files) used in the Graphical User Interface. It allows to manipulate raw series files. For example, using this R package, you will be able to:</p>
 <ul>
-<li>change the <strong>path</strong> of the raw data</li>
+<li>change the <strong>path</strong> of raw data</li>
 <li>change the file <strong>type</strong>
 </li>
 <li>manipulate <strong>monikers</strong>
@@ -81,6 +81,10 @@
 </h2>
 <p><strong>{rjd3providers}</strong> relies on the <a href="https://CRAN.R-project.org/package=rJava" class="external-link"><strong>{rJava}</strong></a> package.</p>
 <p>Running rjd3 packages requires <strong>Java 21 or higher</strong>. How to set up such a configuration in R is explained <a href="https://jdemetra-new-documentation.netlify.app/#Rconfig" class="external-link">here</a></p>
+<p><strong>🎉 {rjd3providers} is now available on CRAN! 🎉</strong></p>
+<p>To install it, just launch the following command line:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rjd3providers"</span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="latest-release">Latest release<a class="anchor" aria-label="anchor" href="#latest-release"></a>
 </h3>
@@ -88,20 +92,20 @@
 <ul>
 <li>From GitHub:</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rjdverse/rjd3providers@*release"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>From <a href="https://rjdverse.r-universe.dev/rjd3providers" class="external-link">r-universe</a>:</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rjd3providers"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://rjdverse.r-universe.dev"</span>, <span class="st">"https://cloud.r-project.org"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="development-version">Development version<a class="anchor" aria-label="anchor" href="#development-version"></a>
 </h3>
 <p>You can install the development version of <strong>{rjd3providers}</strong> from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rjdverse/rjd3providers"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -112,7 +116,7 @@
 <div class="section level3">
 <h3 id="generate-all-the-ts-information">Generate all the TS information<a class="anchor" aria-label="anchor" href="#generate-all-the-ts-information"></a>
 </h3>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/rjdverse/rjd3providers" class="external-link">"rjd3providers"</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; my Java class path: [1] "rjd3providers"</span></span>
 <span><span class="co">#&gt; </span></span>
