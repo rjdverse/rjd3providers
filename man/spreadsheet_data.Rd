@@ -36,7 +36,7 @@ A ts collection with all the series.
 Retrieves all the time series in a specified sheet from a spreadsheet file.
 }
 \examples{
-\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::check_java_version()) withAutoprint(\{ # examplesIf}
 \donttest{
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 xls_all <- spreadsheet_data("Insee.xlsx", 1)
