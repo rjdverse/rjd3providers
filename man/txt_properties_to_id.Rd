@@ -16,7 +16,7 @@ The identifier corresponding to the properties.
 Generates the id corresponding to a list of a text properties.
 }
 \examples{
-\dontshow{if (rjd3toolkit::check_java_version()) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
 \donttest{
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")

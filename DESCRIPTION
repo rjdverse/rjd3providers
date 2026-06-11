@@ -18,11 +18,11 @@ BugReports: https://github.com/rjdverse/rjd3providers/issues
 Depends:
     R (>= 4.1.0)
 Imports:
-    rJava (>= 1.0-18),
+    rJava (>= 1.0-6),
+    rjd3jars (>= 0.0.4),
     rjd3toolkit (>= 3.7.1.9100)
 Encoding: UTF-8
 LazyData: TRUE
-RoxygenNote: 7.3.3
 SystemRequirements: Java (>= 21)
 Collate: 
     'deprecated.R'
@@ -31,3 +31,5 @@ Collate:
     'jd3txt.R'
     'jd3xml.R'
     'zzz.R'
+Config/roxygen2/version: 8.0.0
+RoxygenNote: 7.3.3

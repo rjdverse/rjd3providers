@@ -13,7 +13,7 @@ The name of the xml provider, to be used in monikers.
 Gets the name of the xml provider.
 }
 \examples{
-\dontshow{if (rjd3toolkit::check_java_version()) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
 
 xml_name()
 \dontshow{\}) # examplesIf}
