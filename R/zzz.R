@@ -1,5 +1,6 @@
-#' @import rJava
+#' @importFrom rJava .jpackage .jcall .jarray .jfield .jnull
 #' @importFrom rjd3jars reload_tsproviders check_java_version
+#' @importFrom rjd3toolkit result
 #' @include jd3spreadsheet.R jd3txt.R jd3xml.R
 NULL
 
@@ -12,39 +13,39 @@ NULL
         rjd3jars::reload_tsproviders()
     }
 
-    assign("providers", list(), rjd3toolkit::.jd3_env)
+#    assign("providers", list(), rjd3toolkit::.jd3_env)
 
 
 }
 
-#' Set an option for providers
+#' #' Set an option for providers
+#' #'
+#' #' @param name Name of the option
+#' #' @param obj Option
+#' #'
+#' #' @export
+#' #'
+#' #' @examples
+#' #' providers_option("test", "DUMMY")
+#' providers_option<-function(name, obj){
+#'     options<-rjd3toolkit::.jd3_env$providers
+#'     options[[name]]<-obj
+#'     assign("providers", options, rjd3toolkit::.jd3_env)
+#'     invisible()
+#' }
 #'
-#' @param name Name of the option
-#' @param obj Option
+#' #' Set an option for providers
+#' #'
+#' #' @param name Name of the option
+#' #'
+#' #' @returns The requested option or NULL if it doesn't exist
+#' #' @export
+#' #'
+#' #' @examples
+#' #' providers_option("test", "DUMMY")
+#' #' get_providers_option("test")
+#' get_providers_option<-function(name){
+#'     options<-rjd3toolkit::.jd3_env$providers
+#'     return (options[[name]])
+#' }
 #'
-#' @export
-#'
-#' @examples
-#' providers_option("test", "DUMMY")
-providers_option<-function(name, obj){
-    options<-rjd3toolkit::.jd3_env$providers
-    options[[name]]<-obj
-    assign("providers", options, rjd3toolkit::.jd3_env)
-    invisible()
-}
-
-#' Set an option for providers
-#'
-#' @param name Name of the option
-#'
-#' @returns The requested option or NULL if it doesn't exist
-#' @export
-#'
-#' @examples
-#' providers_option("test", "DUMMY")
-#' get_providers_option("test")
-get_providers_option<-function(name){
-    options<-rjd3toolkit::.jd3_env$providers
-    return (options[[name]])
-}
-

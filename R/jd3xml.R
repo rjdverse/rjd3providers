@@ -222,7 +222,7 @@ xml_properties_to_id <- function(props) {
 #'
 #' @param id Identifier of a series or of a collection of series.
 #'
-#' @returns Returns a list with the elements of the id: file, collection[, series], charset, fullnames.
+#' @returns Returns a list with the elements of the id: file, collection, series, charset, fullnames.
 #' @export
 #'
 #' @examplesIf rjd3jars::check_java_version()

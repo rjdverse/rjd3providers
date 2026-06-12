@@ -29,5 +29,5 @@ print(spreadsheet_id_to_properties(id))
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-[spreadsheet_properties_to_id()]
+\code{\link[=spreadsheet_properties_to_id]{spreadsheet_properties_to_id()}}
 }

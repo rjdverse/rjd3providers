@@ -353,7 +353,7 @@ txt_properties_to_id <- function(props) {
 #'
 #' @param id Identifier of a series or of a collection of series.
 #'
-#' @returns Returns a list with the elements of the id: file [, series], format, gathering, ...).
+#' @returns Returns a list with the elements of the id: file , series, format, gathering, ....
 #'
 #' @export
 #'

@@ -25,11 +25,10 @@ Encoding: UTF-8
 LazyData: TRUE
 SystemRequirements: Java (>= 21)
 Collate: 
-    'deprecated.R'
     'providers.R'
     'jd3spreadsheet.R'
     'jd3txt.R'
     'jd3xml.R'
     'zzz.R'
-Config/roxygen2/version: 8.0.0
-RoxygenNote: 7.3.3
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 8.0.0
