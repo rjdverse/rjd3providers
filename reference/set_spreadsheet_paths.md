@@ -23,5 +23,6 @@ No output.
 ## Examples
 
 ``` r
+
 set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 ```

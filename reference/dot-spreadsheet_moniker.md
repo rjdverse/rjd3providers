@@ -21,6 +21,7 @@ An internal Java moniker.
 ## Examples
 
 ``` r
+
 .spreadsheet_moniker("toy_id")
 #> [1] "Java-Object{XCLPRVDR<@>toy_id}"
 ```

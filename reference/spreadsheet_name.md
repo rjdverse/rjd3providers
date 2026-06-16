@@ -15,6 +15,7 @@ The name of the spreadsheet provider, to be used in monikers.
 ## Examples
 
 ``` r
+
 print(spreadsheet_name())
 #> [1] "XCLPRVDR"
 ```

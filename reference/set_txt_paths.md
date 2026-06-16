@@ -21,5 +21,6 @@ An internal java moniker
 ## Examples
 
 ``` r
+
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 ```

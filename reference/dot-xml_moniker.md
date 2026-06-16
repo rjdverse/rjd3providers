@@ -21,6 +21,7 @@ An internal java moniker.
 ## Examples
 
 ``` r
+
 .xml_moniker("toy_id")
 #> [1] "Java-Object{Xml<@>toy_id}"
 ```

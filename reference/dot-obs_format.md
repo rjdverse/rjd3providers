@@ -38,6 +38,7 @@ An internal Java object.
 ## Examples
 
 ``` r
+
 .obs_format(locale = "french-be")
 #> [1] "Java-Object{french_BE ~  ~  ~ ignore-grouping}"
 ```

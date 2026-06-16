@@ -15,6 +15,7 @@ The name of the xml provider, to be used in monikers.
 ## Examples
 
 ``` r
+
 xml_name()
 #> [1] "Xml"
 ```

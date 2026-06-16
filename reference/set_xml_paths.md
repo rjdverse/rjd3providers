@@ -21,5 +21,6 @@ No output.
 ## Examples
 
 ``` r
+
 set_xml_paths(system.file("extdata", package = "rjd3providers"))
 ```

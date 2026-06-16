@@ -21,6 +21,7 @@ An internal java moniker.
 ## Examples
 
 ``` r
+
 .txt_moniker("toy_id")
 #> [1] "Java-Object{Txt<@>toy_id}"
 ```
