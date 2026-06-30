@@ -16,7 +16,7 @@ An internal java moniker
 Set the paths to txt files (to be used with relative identifiers)
 }
 \examples{
-\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
 
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 \dontshow{\}) # examplesIf}
