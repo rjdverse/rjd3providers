@@ -17,8 +17,8 @@ txt_id_to_properties(id)
 
 ## Value
 
-Returns a list with the elements of the id: file \[, series\], format,
-gathering, ...).
+Returns a list with the elements of the id: file , series, format,
+gathering, ....
 
 ## Examples
 

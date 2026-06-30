@@ -2,13 +2,6 @@
 
 ## All functions
 
-- [`spreadsheet_to_id()`](https://rjdverse.github.io/rjd3providers/reference/deprecated-rjd3providers.md)
-  [`spreadsheet_id_properties()`](https://rjdverse.github.io/rjd3providers/reference/deprecated-rjd3providers.md)
-  [`txt_to_id()`](https://rjdverse.github.io/rjd3providers/reference/deprecated-rjd3providers.md)
-  [`txt_id_properties()`](https://rjdverse.github.io/rjd3providers/reference/deprecated-rjd3providers.md)
-  [`xml_to_id()`](https://rjdverse.github.io/rjd3providers/reference/deprecated-rjd3providers.md)
-  [`xml_id_properties()`](https://rjdverse.github.io/rjd3providers/reference/deprecated-rjd3providers.md)
-  : Deprecated functions
 - [`.obs_format()`](https://rjdverse.github.io/rjd3providers/reference/dot-obs_format.md)
   : Generates the Java object for data formats
 - [`.obs_gathering()`](https://rjdverse.github.io/rjd3providers/reference/dot-obs_gathering.md)
@@ -19,6 +12,10 @@
   : Generates a java moniker for the corresponding id.
 - [`.xml_moniker()`](https://rjdverse.github.io/rjd3providers/reference/dot-xml_moniker.md)
   : Generates a java moniker for the corresponding id.
+- [`get_providers_option()`](https://rjdverse.github.io/rjd3providers/reference/get_providers_option.md)
+  : Set an option for providers
+- [`providers_option()`](https://rjdverse.github.io/rjd3providers/reference/providers_option.md)
+  : Set an option for providers
 - [`set_spreadsheet_paths()`](https://rjdverse.github.io/rjd3providers/reference/set_spreadsheet_paths.md)
   : Set the paths to spreadsheet files (to be used with relative
   identifiers).

@@ -31,7 +31,7 @@ leading/trailing missing values).
 
 ## See also
 
-\[spreadsheet_properties_to_id()\]
+[`spreadsheet_properties_to_id()`](https://rjdverse.github.io/rjd3providers/reference/spreadsheet_properties_to_id.md)
 
 ## Examples
 

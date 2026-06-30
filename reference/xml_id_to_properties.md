@@ -17,8 +17,8 @@ xml_id_to_properties(id)
 
 ## Value
 
-Returns a list with the elements of the id: file, collection\[,
-series\], charset, fullnames.
+Returns a list with the elements of the id: file, collection, series,
+charset, fullnames.
 
 ## Examples
 
