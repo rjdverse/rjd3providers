@@ -108,7 +108,7 @@ NULL
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' txt_name()
 #'
@@ -122,7 +122,7 @@ txt_name <- function() {
 #'
 #' @returns An internal java moniker.
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' .txt_moniker("toy_id")
 #'
@@ -146,7 +146,7 @@ txt_name <- function() {
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #'
@@ -175,7 +175,7 @@ set_txt_paths <- function(paths) {
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_all <- txt_content("ABS.csv", delimiter = "COMMA")
@@ -225,7 +225,7 @@ txt_content <- function(
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' all <- txt_data("ABS.csv", delimiter = "COMMA")
@@ -279,7 +279,7 @@ txt_data <- function(
 #' @returns Returns the specified time series
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
@@ -329,7 +329,7 @@ txt_series <- function(
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
@@ -357,7 +357,7 @@ txt_properties_to_id <- function(props) {
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
@@ -379,7 +379,7 @@ txt_id_to_properties <- function(id) {
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")

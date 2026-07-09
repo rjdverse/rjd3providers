@@ -10,7 +10,7 @@
 #'
 #' @returns An internal Java object.
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' .obs_gathering(period=4, aggregationType="Sum")
 #'
@@ -42,7 +42,7 @@
 #'
 #' @returns An internal Java object.
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' .obs_format(locale = "french-be")
 #'

@@ -47,7 +47,7 @@
 #' @returns The name of the xml provider, to be used in monikers.
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' xml_name()
 #'
@@ -61,7 +61,7 @@ xml_name <- function() {
 #'
 #' @returns An internal java moniker.
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' .xml_moniker("toy_id")
 #'
@@ -83,7 +83,7 @@ xml_name <- function() {
 #' @returns No output.
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #'
@@ -100,7 +100,7 @@ set_xml_paths <- function(paths) {
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_content("Prod.xml")
@@ -128,7 +128,7 @@ xml_content <- function(file, charset = NULL) {
 #' @returns A ts collection with all the series.
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1 <- xml_data("Prod.xml", 1, charset = "iso-8859-1")
@@ -165,7 +165,7 @@ xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
 #' @returns Returns the specified time series
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
@@ -204,7 +204,7 @@ xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullNam
 #' @returns The identifier corresponding to the properties.
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
@@ -225,7 +225,7 @@ xml_properties_to_id <- function(props) {
 #' @returns Returns a list with the elements of the id: file, collection, series, charset, fullnames.
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")
@@ -247,7 +247,7 @@ xml_id_to_properties <- function(id) {
 #' @returns The new identifier.
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_xml_paths(system.file("extdata", package = "rjd3providers"))
 #' xml_1_5 <- xml_series("Prod.xml", 1, 5, charset = "iso-8859-1")

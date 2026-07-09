@@ -89,7 +89,7 @@ NULL
 #' @returns The name of the spreadsheet provider, to be used in monikers.
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' print(spreadsheet_name())
 #'
@@ -104,7 +104,7 @@ spreadsheet_name <- function() {
 #' @returns No output.
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #'
@@ -119,7 +119,7 @@ set_spreadsheet_paths <- function(paths) {
 #' @returns An internal Java moniker.
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' .spreadsheet_moniker("toy_id")
 #'
@@ -147,7 +147,7 @@ set_spreadsheet_paths <- function(paths) {
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_all <- spreadsheet_data("Insee.xlsx", 1)
@@ -193,7 +193,7 @@ spreadsheet_data <- function(
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
@@ -245,7 +245,7 @@ spreadsheet_series <- function(
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' print(spreadsheet_content("Insee.xlsx"))
@@ -270,7 +270,7 @@ spreadsheet_content <- function(file) {
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
@@ -303,7 +303,7 @@ spreadsheet_properties_to_id <- function(props) {
 #'
 #' @seealso [spreadsheet_properties_to_id()]
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
@@ -324,7 +324,7 @@ spreadsheet_id_to_properties <- function(id) {
 #' @returns Returns the new identifier.
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_all <- spreadsheet_data("Insee.xlsx", 1)
