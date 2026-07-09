@@ -58,9 +58,9 @@ NULL
 #'
 #' @examples
 #' providers_option("test", "DUMMY")
-providers_option<-function(name, obj){
-    options<-rjd3toolkit::.jd3_env$providers
-    options[[name]]<-obj
+providers_option <- function(name, obj) {
+    options <- rjd3toolkit::.jd3_env$providers
+    options[[name]] <- obj
     assign("providers", options, rjd3toolkit::.jd3_env)
     invisible()
 }
@@ -75,7 +75,7 @@ providers_option<-function(name, obj){
 #' @examples
 #' providers_option("test", "DUMMY")
 #' get_providers_option("test")
-get_providers_option<-function(name){
-    options<-rjd3toolkit::.jd3_env$providers
-    return (options[[name]])
+get_providers_option <- function(name) {
+    options <- rjd3toolkit::.jd3_env$providers
+    return(options[[name]])
 }

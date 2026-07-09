@@ -1,4 +1,3 @@
-
 #' @title Generates the Java object for automatic aggregation of the data
 #'
 #' @export
@@ -14,19 +13,29 @@
 #'
 #' .obs_gathering(period=4, aggregationType="Sum")
 #'
-.obs_gathering <- function(period = 0,
-                           aggregationType = NULL,
-                           allowPartialAggregation = FALSE,
-                           cleanMissing = TRUE) {
-    if (is.null(aggregationType)) aggregationType <- "None"
-    if (is.null(allowPartialAggregation)) allowPartialAggregation <- FALSE
-    if (is.null(cleanMissing)) cleanMissing <- TRUE
+.obs_gathering <- function(
+    period = 0,
+    aggregationType = NULL,
+    allowPartialAggregation = FALSE,
+    cleanMissing = TRUE
+) {
+    if (is.null(aggregationType)) {
+        aggregationType <- "None"
+    }
+    if (is.null(allowPartialAggregation)) {
+        allowPartialAggregation <- FALSE
+    }
+    if (is.null(cleanMissing)) {
+        cleanMissing <- TRUE
+    }
     jobs <- .jcall(
         obj = "jdplus/toolkit/base/r/util/Providers",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/util/ObsGathering;",
         method = "obsGathering",
-        as.integer(period), as.character(aggregationType),
-        as.logical(allowPartialAggregation), ! as.logical(cleanMissing)
+        as.integer(period),
+        as.character(aggregationType),
+        as.logical(allowPartialAggregation),
+        !as.logical(cleanMissing)
     )
     return(jobs)
 }
@@ -46,15 +55,29 @@
 #'
 #' .obs_format(locale = "french-be")
 #'
-.obs_format <- function(locale = NULL, dateFmt = NULL, numberFmt = NULL, ignoreNumberGrouping = TRUE) {
-    if (is.null(locale)) locale <- ""
-    if (is.null(dateFmt)) dateFmt <- ""
-    if (is.null(numberFmt)) numberFmt <- ""
+.obs_format <- function(
+    locale = NULL,
+    dateFmt = NULL,
+    numberFmt = NULL,
+    ignoreNumberGrouping = TRUE
+) {
+    if (is.null(locale)) {
+        locale <- ""
+    }
+    if (is.null(dateFmt)) {
+        dateFmt <- ""
+    }
+    if (is.null(numberFmt)) {
+        numberFmt <- ""
+    }
     jobs <- .jcall(
         obj = "jdplus/text/base/r/Utility",
         returnSig = "Ljdplus/toolkit/base/tsp/util/ObsFormat;",
         method = "obsFormat",
-        as.character(locale), as.character(dateFmt), as.character(numberFmt), as.logical(ignoreNumberGrouping)
+        as.character(locale),
+        as.character(dateFmt),
+        as.character(numberFmt),
+        as.logical(ignoreNumberGrouping)
     )
     return(jobs)
 }

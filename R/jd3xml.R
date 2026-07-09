@@ -5,8 +5,11 @@
         charset <- "utf-8"
     }
     jsource <- .jcall(
-        "jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/tsp/DataSource;", "source",
-        as.character(file), as.character(charset)
+        "jdplus/text/base/r/XmlFiles",
+        "Ljdplus/toolkit/base/tsp/DataSource;",
+        "source",
+        as.character(file),
+        as.character(charset)
     )
     return(jsource)
 }
@@ -17,28 +20,39 @@
         output <- .jcall(
             obj = "jdplus/text/base/r/XmlFiles",
             returnSig = "Ljdplus/toolkit/base/tsp/DataSet;",
-            method = "sheetDataSet", jsrc, as.integer(id$collection)
+            method = "sheetDataSet",
+            jsrc,
+            as.integer(id$collection)
         )
     } else {
         output <- .jcall(
             obj = "jdplus/text/base/r/XmlFiles",
             returnSig = "Ljdplus/toolkit/base/tsp/DataSet;",
             method = "seriesDataSet",
-            jsrc, as.integer(id$collection), as.integer(id$series)
+            jsrc,
+            as.integer(id$collection),
+            as.integer(id$series)
         )
     }
     return(output)
 }
 
 .jd2r_xml_properties_to_id <- function(jset) {
-    jbean <- .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/text/base/api/XmlBean;", "sourceOf", jset)
+    jbean <- .jcall(
+        "jdplus/text/base/r/XmlFiles",
+        "Ljdplus/text/base/api/XmlBean;",
+        "sourceOf",
+        jset
+    )
     jfile <- .jcall(jbean, "Ljava/io/File;", "getFile")
     jcharset <- .jcall(jbean, "Ljava/nio/charset/Charset;", "getCharset")
     return(list(
         file = .jcall(jfile, "S", "getPath"),
         charset = .jcall(jcharset, "S", "name"),
-        collection = 1 + as.integer(.jcall(jset, "S", "getParameter", "collectionIndex")),
-        series = 1 + as.integer(.jcall(jset, "S", "getParameter", "seriesIndex"))
+        collection = 1 +
+            as.integer(.jcall(jset, "S", "getParameter", "collectionIndex")),
+        series = 1 +
+            as.integer(.jcall(jset, "S", "getParameter", "seriesIndex"))
     ))
 }
 
@@ -71,7 +85,8 @@ xml_name <- function() {
         obj = "jdplus/toolkit/base/api/timeseries/TsMoniker",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/TsMoniker;",
         method = "of",
-        xml_name(), id
+        xml_name(),
+        id
     )
     return(jmoniker)
 }
@@ -112,7 +127,13 @@ xml_content <- function(file, charset = NULL) {
     rslt <- list()
     n <- length(sheets)
     for (i in 1:n) {
-        series <- .jcall("jdplus/text/base/r/XmlFiles", "[S", "series", jsource, as.integer(i))
+        series <- .jcall(
+            "jdplus/text/base/r/XmlFiles",
+            "[S",
+            "series",
+            jsource,
+            as.integer(i)
+        )
         rslt[[sheets[i]]] <- series
     }
     return(rslt)
@@ -136,20 +157,23 @@ xml_content <- function(file, charset = NULL) {
 #' }
 xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
     jsource <- .xml_source(file, charset)
-    if (! is.numeric(collection)){
-        sheets<-.jcall(
+    if (!is.numeric(collection)) {
+        sheets <- .jcall(
             obj = "jdplus/text/base/r/XmlFiles",
             returnSig = "[S",
             method = "sheets",
-            jsource)
-        collection<-match(collection, sheets)[1]
+            jsource
+        )
+        collection <- match(collection, sheets)[1]
         if (is.na(collection)) stop("Invalid collection name")
     }
     jcoll <- .jcall(
         obj = "jdplus/text/base/r/XmlFiles",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/TsCollection;",
         method = "collection",
-        jsource, as.integer(collection), fullNames
+        jsource,
+        as.integer(collection),
+        fullNames
     )
     return(rjd3toolkit::.jd2r_tscollection(jcoll))
 }
@@ -172,27 +196,43 @@ xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
 #' xml_cn <- xml_series("Prod.xml", "industrial production",
 #'             "Construction navale", charset = "iso-8859-1")
 #' }
-xml_series <- function(file, collection = 1, series = 1, charset = NULL, fullName = TRUE) {
+xml_series <- function(
+    file,
+    collection = 1,
+    series = 1,
+    charset = NULL,
+    fullName = TRUE
+) {
     jsource <- .xml_source(file, charset)
-    if (! is.numeric(collection)){
-        sheets<-.jcall(
+    if (!is.numeric(collection)) {
+        sheets <- .jcall(
             obj = "jdplus/text/base/r/XmlFiles",
             returnSig = "[S",
             method = "sheets",
-            jsource)
-        collection<-match(collection, sheets)[1]
+            jsource
+        )
+        collection <- match(collection, sheets)[1]
         if (is.na(collection)) stop("Invalid collection name")
     }
-    if (! is.numeric(series)){
-        all <- .jcall("jdplus/text/base/r/XmlFiles", "[S", "series", jsource, as.integer(collection))
-        series<-match(series, all)[1]
+    if (!is.numeric(series)) {
+        all <- .jcall(
+            "jdplus/text/base/r/XmlFiles",
+            "[S",
+            "series",
+            jsource,
+            as.integer(collection)
+        )
+        series <- match(series, all)[1]
         if (is.na(series)) stop("Invalid series name")
     }
     jcoll <- .jcall(
         obj = "jdplus/text/base/r/XmlFiles",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/Ts;",
         method = "series",
-        jsource, as.integer(collection), as.integer(series), fullName
+        jsource,
+        as.integer(collection),
+        as.integer(series),
+        fullName
     )
     return(rjd3toolkit::.jd2r_ts(jcoll))
 }
@@ -234,7 +274,12 @@ xml_properties_to_id <- function(props) {
 #' xml_id_to_properties(xml_1$moniker$id)
 #' }
 xml_id_to_properties <- function(id) {
-    jset <- .jcall("jdplus/text/base/r/XmlFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
+    jset <- .jcall(
+        "jdplus/text/base/r/XmlFiles",
+        "Ljdplus/toolkit/base/tsp/DataSet;",
+        "decode",
+        id
+    )
     return(.jd2r_xml_properties_to_id(jset))
 }
 
@@ -255,7 +300,16 @@ xml_id_to_properties <- function(id) {
 #' xml_change_file(id, "test.xml")
 #' }
 xml_change_file <- function(id, nfile, ofile = NULL) {
-    if (is.null(ofile)) ofile <- ""
-    nid <- .jcall("jdplus/text/base/r/XmlFiles", "S", "changeFile", id, nfile, ofile)
+    if (is.null(ofile)) {
+        ofile <- ""
+    }
+    nid <- .jcall(
+        "jdplus/text/base/r/XmlFiles",
+        "S",
+        "changeFile",
+        id,
+        nfile,
+        ofile
+    )
     return(nid)
 }
