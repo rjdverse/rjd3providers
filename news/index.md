@@ -1,6 +1,6 @@
 # Changelog
 
-## rjd3providers 3.7.1.9100
+## rjd3providers 3.8.0
 
 All notable changes to this project will be documented in this file.
 
@@ -9,6 +9,11 @@ Changelog](https://keepachangelog.com/en/1.1.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### [Unreleased](https://github.com/rjdverse/rjd3providers/compare/v3.7.1...HEAD)
+
+#### Changed
+
+- Updated JARS from jdplus-main to
+  [3.8.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.8.0)
 
 ### [3.7.1](https://github.com/rjdverse/rjd3providers/compare/v3.6.0...v3.7.1) - 2026-03-16
 
