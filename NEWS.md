@@ -8,8 +8,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [3.7.1] - 2026-03-16
+### Changed
 
+- Updated JARS from jdplus-main to [3.8.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.8.0)
+
+
+## [3.7.1] - 2026-03-16
 
 ### Changed
 
@@ -20,17 +24,17 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-* Missing documentation #44
-* New way to read a spreadsheet with name and index of a sheet or of a series #25
+* Missing documentation [#44](https://github.com/rjdverse/rjd3providers/issues/44)
+* New way to read a spreadsheet with name and index of a sheet or of a series [#25](https://github.com/rjdverse/rjd3providers/issues/25)
 
 ### Changed
 
-* Rename `spreadsheet_properties()` into `spreadsheet_id_to_properties()` #38
-* Rename `spreadsheet_id()` into `spreadsheet_properties_to_id()` #38
-* Rename `txt_id()` into `txt_properties_to_id()` #38
-* Rename `txt_properties()` into `txt_id_to_properties()` #38
-* Rename `xml_id()` into `xml_properties_to_id()` #38
-* Rename `xml_properties()` into `xml_id_to_properties()` #38
+* Rename `spreadsheet_properties()` into `spreadsheet_id_to_properties()` [#38](https://github.com/rjdverse/rjd3providers/issues/38)
+* Rename `spreadsheet_id()` into `spreadsheet_properties_to_id()` [#38](https://github.com/rjdverse/rjd3providers/issues/38)
+* Rename `txt_id()` into `txt_properties_to_id()` [#38](https://github.com/rjdverse/rjd3providers/issues/38)
+* Rename `txt_properties()` into `txt_id_to_properties()` [#38](https://github.com/rjdverse/rjd3providers/issues/38)
+* Rename `xml_id()` into `xml_properties_to_id()` [#38](https://github.com/rjdverse/rjd3providers/issues/38)
+* Rename `xml_properties()` into `xml_id_to_properties()` [#38](https://github.com/rjdverse/rjd3providers/issues/38)
 * The arguments `period`, `aggregation` and `partialAggregation` are renamed with `gathering.` at the beginning (so `gathering.period`, `gathering.aggregation` and `gathering.partialAggregation`)
 * New JARS related to version [3.6.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.6.0)
 
@@ -40,7 +44,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
-* Conversion from id to properties and vice versa #33
+* Conversion from id to properties and vice versa [#33](https://github.com/rjdverse/rjd3providers/issues/33)
 
 
 ## [3.5.1] - 2025-06-18
@@ -77,9 +81,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-* Merge pull request #17 from rjdemetra/develop
+* Merge pull request [#17](https://github.com/rjdverse/rjd3providers/issues/17) from rjdemetra/develop
 * New JARS related to version [3.2.2](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.2)
-
 
 
 ## [3.2.1] - 2023-12-12
@@ -93,7 +96,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-* Merge pull request #11 from rjdemetra/develop
+* Merge pull request [#11](https://github.com/rjdverse/rjd3providers/issues/11) from rjdemetra/develop
 * New JARS related to version [3.2.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.0)
 
 
@@ -101,7 +104,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-* Merge pull request #5 from rjdemetra/develop
+* Merge pull request [#5](https://github.com/rjdverse/rjd3providers/issues/5) from rjdemetra/develop
 * New JARS related to version [3.1.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.1.0)
 
 

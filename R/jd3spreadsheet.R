@@ -2,16 +2,26 @@
 NULL
 
 .spreadsheet_source <- function(
-        file,
-        period = 0,
-        aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
-        partialAggregation = FALSE,
-        cleanMissing = TRUE) {
+    file,
+    period = 0,
+    aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
+    partialAggregation = FALSE,
+    cleanMissing = TRUE
+) {
     aggregation <- match.arg(aggregation)
-    jgathering <- .obs_gathering(period, aggregation, partialAggregation, cleanMissing)
+    jgathering <- .obs_gathering(
+        period,
+        aggregation,
+        partialAggregation,
+        cleanMissing
+    )
     jsource <- .jcall(
-        "jdplus/spreadsheet/base/r/SpreadSheets", "Ljdplus/toolkit/base/tsp/DataSource;", "source",
-        as.character(file), .jnull("jdplus/toolkit/base/tsp/util/ObsFormat"), jgathering
+        "jdplus/spreadsheet/base/r/SpreadSheets",
+        "Ljdplus/toolkit/base/tsp/DataSource;",
+        "source",
+        as.character(file),
+        .jnull("jdplus/toolkit/base/tsp/util/ObsFormat"),
+        jgathering
     )
     return(jsource)
 }
@@ -29,14 +39,17 @@ NULL
             obj = "jdplus/spreadsheet/base/r/SpreadSheets",
             returnSig = "Ljdplus/toolkit/base/tsp/DataSet;",
             method = "sheetDataSet",
-            jsrc, id$sheet
+            jsrc,
+            id$sheet
         )
     } else {
         output <- .jcall(
             obj = "jdplus/spreadsheet/base/r/SpreadSheets",
             returnSig = "Ljdplus/toolkit/base/tsp/DataSet;",
             method = "seriesDataSet",
-            jsrc, id$sheet, id$series
+            jsrc,
+            id$sheet,
+            id$series
         )
     }
 
@@ -77,8 +90,12 @@ NULL
         gathering = list(
             period = .jcall(junit, "I", "getAnnualFrequency"),
             aggregation = .jcall(jagg, "S", "name"),
-            partialAggregation = .jcall(jgathering, "Z", "isAllowPartialAggregation"),
-            cleanMissing = ! .jcall(jgathering, "Z", "isIncludeMissingValues")
+            partialAggregation = .jcall(
+                jgathering,
+                "Z",
+                "isAllowPartialAggregation"
+            ),
+            cleanMissing = !.jcall(jgathering, "Z", "isIncludeMissingValues")
         )
     )
     return(output)
@@ -89,12 +106,16 @@ NULL
 #' @returns The name of the spreadsheet provider, to be used in monikers.
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' print(spreadsheet_name())
 #'
 spreadsheet_name <- function() {
-    return(.jfield("jdplus/spreadsheet/base/api/SpreadSheetProvider", "S", name = "NAME"))
+    return(.jfield(
+        "jdplus/spreadsheet/base/api/SpreadSheetProvider",
+        "S",
+        name = "NAME"
+    ))
 }
 
 #' @title Set the paths to spreadsheet files (to be used with relative identifiers).
@@ -104,12 +125,17 @@ spreadsheet_name <- function() {
 #' @returns No output.
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #'
 set_spreadsheet_paths <- function(paths) {
-    .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "V", "setPaths", .jarray(paths))
+    .jcall(
+        "jdplus/spreadsheet/base/r/SpreadSheets",
+        "V",
+        "setPaths",
+        .jarray(paths)
+    )
 }
 
 #' @title Generates a java moniker for the corresponding id.
@@ -119,7 +145,7 @@ set_spreadsheet_paths <- function(paths) {
 #' @returns An internal Java moniker.
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' .spreadsheet_moniker("toy_id")
 #'
@@ -128,7 +154,8 @@ set_spreadsheet_paths <- function(paths) {
         obj = "jdplus/toolkit/base/api/timeseries/TsMoniker",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/TsMoniker;",
         method = "of",
-        spreadsheet_name(), id
+        spreadsheet_name(),
+        id
     )
     return(jmoniker)
 }
@@ -147,33 +174,53 @@ set_spreadsheet_paths <- function(paths) {
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_all <- spreadsheet_data("Insee.xlsx", 1)
 #' txt_all <- spreadsheet_data("Insee.xlsx", "FRANCE Textile")
 #' }
 spreadsheet_data <- function(
-        file, sheet = 1,
-        gathering.period = 0,
-        gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
-        gathering.partialAggregation = FALSE,
-        gathering.cleanMissing = TRUE,
-        fullNames = FALSE) {
-    jsource <- .spreadsheet_source(file, gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.cleanMissing)
-    if (! is.numeric(sheet)){
-        sheets<-.jcall(
+    file,
+    sheet = 1,
+    gathering.period = 0,
+    gathering.aggregation = c(
+        "None",
+        "Sum",
+        "Average",
+        "First",
+        "Last",
+        "Max",
+        "Min"
+    ),
+    gathering.partialAggregation = FALSE,
+    gathering.cleanMissing = TRUE,
+    fullNames = FALSE
+) {
+    jsource <- .spreadsheet_source(
+        file,
+        gathering.period,
+        gathering.aggregation,
+        gathering.partialAggregation,
+        gathering.cleanMissing
+    )
+    if (!is.numeric(sheet)) {
+        sheets <- .jcall(
             obj = "jdplus/spreadsheet/base/r/SpreadSheets",
             returnSig = "[S",
             method = "sheets",
-            jsource)
-        sheet<-match(sheet, sheets)[1]
+            jsource
+        )
+        sheet <- match(sheet, sheets)[1]
         if (is.na(sheet)) stop("Invalid sheet name")
     }
     jcoll <- .jcall(
         obj = "jdplus/spreadsheet/base/r/SpreadSheets",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/TsCollection;",
-        method = "collection", jsource, as.integer(sheet), fullNames
+        method = "collection",
+        jsource,
+        as.integer(sheet),
+        fullNames
     )
     return(rjd3toolkit::.jd2r_tscollection(jcoll))
 }
@@ -193,46 +240,66 @@ spreadsheet_data <- function(
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
 #' txt_s1 <- spreadsheet_series("Insee.xlsx", "FRANCE Textile", 1)
 #' }
 spreadsheet_series <- function(
+    file,
+    sheet = 1,
+    series = 1,
+    gathering.period = 0,
+    gathering.aggregation = c(
+        "None",
+        "Sum",
+        "Average",
+        "First",
+        "Last",
+        "Max",
+        "Min"
+    ),
+    gathering.partialAggregation = FALSE,
+    gathering.cleanMissing = TRUE,
+    fullName = TRUE
+) {
+    jsource <- .spreadsheet_source(
         file,
-        sheet = 1,
-        series = 1,
-        gathering.period = 0,
-        gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
-        gathering.partialAggregation = FALSE,
-        gathering.cleanMissing = TRUE,
-        fullName = TRUE) {
-
-    jsource <- .spreadsheet_source(file, gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.cleanMissing)
-    if (! is.numeric(sheet)){
-        sheets<-.jcall(
+        gathering.period,
+        gathering.aggregation,
+        gathering.partialAggregation,
+        gathering.cleanMissing
+    )
+    if (!is.numeric(sheet)) {
+        sheets <- .jcall(
             obj = "jdplus/spreadsheet/base/r/SpreadSheets",
             returnSig = "[S",
             method = "sheets",
-            jsource)
-        sheet<-match(sheet, sheets)[1]
+            jsource
+        )
+        sheet <- match(sheet, sheets)[1]
         if (is.na(sheet)) stop("Invalid sheet name")
     }
-    if (! is.numeric(series)){
-        all<-.jcall(
+    if (!is.numeric(series)) {
+        all <- .jcall(
             obj = "jdplus/spreadsheet/base/r/SpreadSheets",
             returnSig = "[S",
             method = "series",
-            jsource, as.integer(sheet))
-        series<-match(series, all)[1]
+            jsource,
+            as.integer(sheet)
+        )
+        series <- match(series, all)[1]
         if (is.na(series)) stop("Invalid series name")
     }
     jcoll <- .jcall(
         obj = "jdplus/spreadsheet/base/r/SpreadSheets",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/Ts;",
         method = "series",
-        jsource, as.integer(sheet), as.integer(series), fullName
+        jsource,
+        as.integer(sheet),
+        as.integer(series),
+        fullName
     )
     return(rjd3toolkit::.jd2r_ts(jcoll))
 }
@@ -245,18 +312,29 @@ spreadsheet_series <- function(
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' print(spreadsheet_content("Insee.xlsx"))
 #' }
 spreadsheet_content <- function(file) {
     jsource <- .spreadsheet_source(file, 0, "None", FALSE, FALSE)
-    sheets <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "[S", "sheets", jsource)
+    sheets <- .jcall(
+        "jdplus/spreadsheet/base/r/SpreadSheets",
+        "[S",
+        "sheets",
+        jsource
+    )
     rslt <- list()
     n <- length(sheets)
     for (i in 1:n) {
-        series <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "[S", "series", jsource, as.integer(i))
+        series <- .jcall(
+            "jdplus/spreadsheet/base/r/SpreadSheets",
+            "[S",
+            "series",
+            jsource,
+            as.integer(i)
+        )
         rslt[[sheets[i]]] <- series
     }
     return(rslt)
@@ -270,7 +348,7 @@ spreadsheet_content <- function(file) {
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
@@ -303,7 +381,7 @@ spreadsheet_properties_to_id <- function(props) {
 #'
 #' @seealso [spreadsheet_properties_to_id()]
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_s1_3 <- spreadsheet_series("Insee.xlsx", 1, 3)
@@ -311,7 +389,12 @@ spreadsheet_properties_to_id <- function(props) {
 #' print(spreadsheet_id_to_properties(id))
 #' }
 spreadsheet_id_to_properties <- function(id) {
-    jset <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
+    jset <- .jcall(
+        "jdplus/spreadsheet/base/r/SpreadSheets",
+        "Ljdplus/toolkit/base/tsp/DataSet;",
+        "decode",
+        id
+    )
     return(.jd2r_spreadsheet_id(jset))
 }
 
@@ -324,7 +407,7 @@ spreadsheet_id_to_properties <- function(id) {
 #' @returns Returns the new identifier.
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_spreadsheet_paths(system.file("extdata", package = "rjd3providers"))
 #' xls_all <- spreadsheet_data("Insee.xlsx", 1)
@@ -332,7 +415,16 @@ spreadsheet_id_to_properties <- function(id) {
 #' spreadsheet_change_file(id, "test.xlsx")
 #'}
 spreadsheet_change_file <- function(id, nfile, ofile = NULL) {
-    if (is.null(ofile)) ofile <- ""
-    nid <- .jcall("jdplus/spreadsheet/base/r/SpreadSheets", "S", "changeFile", id, nfile, ofile)
+    if (is.null(ofile)) {
+        ofile <- ""
+    }
+    nid <- .jcall(
+        "jdplus/spreadsheet/base/r/SpreadSheets",
+        "S",
+        "changeFile",
+        id,
+        nfile,
+        ofile
+    )
     return(nid)
 }

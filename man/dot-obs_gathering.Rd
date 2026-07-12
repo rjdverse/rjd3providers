@@ -27,7 +27,7 @@ An internal Java object.
 Generates the Java object for automatic aggregation of the data
 }
 \examples{
-\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
 .obs_gathering(period=4, aggregationType="Sum")
 \dontshow{\}) # examplesIf}

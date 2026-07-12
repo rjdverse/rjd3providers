@@ -16,7 +16,7 @@ An internal java moniker.
 Generates a java moniker for the corresponding id.
 }
 \examples{
-\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
 .txt_moniker("toy_id")
 \dontshow{\}) # examplesIf}
