@@ -5,20 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-
 ## [Unreleased]
+
+## [3.8.0] - 2026-07-15
 
 ### Changed
 
 - Updated JARS from jdplus-main to [3.8.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.8.0)
-
 
 ## [3.7.1] - 2026-03-16
 
 ### Changed
 
 * New JARS related to version [3.7.1](https://github.com/jdemetra/jdplus-main/releases/tag/v3.7.1)
-
 
 ## [3.6.0] - 2025-11-24
 
@@ -46,13 +45,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 * Conversion from id to properties and vice versa [#33](https://github.com/rjdverse/rjd3providers/issues/33)
 
-
 ## [3.5.1] - 2025-06-18
 
 ### Changed
 
 * New JARS related to version [3.5.1](https://github.com/jdemetra/jdplus-main/releases/tag/v3.5.1)
-
 
 ## [3.5.0] - 2025-04-09
 
@@ -63,7 +60,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Removed
 
 * functions to change path of a WS
-
 
 ## [3.2.3] - 2024-07-12
 
@@ -76,7 +72,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 * New JARS related to version [3.2.3](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.3)
 
-
 ## [3.2.2] - 2024-03-15
 
 ### Changed
@@ -84,13 +79,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Merge pull request [#17](https://github.com/rjdverse/rjd3providers/issues/17) from rjdemetra/develop
 * New JARS related to version [3.2.2](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.2)
 
-
 ## [3.2.1] - 2023-12-12
 
 ### Changed
 
 * New JARS related to version [3.2.1](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.1)
-
 
 ## [3.2.0] - 2023-11-24
 
@@ -99,7 +92,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Merge pull request [#11](https://github.com/rjdverse/rjd3providers/issues/11) from rjdemetra/develop
 * New JARS related to version [3.2.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.0)
 
-
 ## [3.1.0] - 2023-10-11
 
 ### Changed
@@ -107,8 +99,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Merge pull request [#5](https://github.com/rjdverse/rjd3providers/issues/5) from rjdemetra/develop
 * New JARS related to version [3.1.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.1.0)
 
-
-[Unreleased]: https://github.com/rjdverse/rjd3providers/compare/v3.7.1...HEAD
+[Unreleased]: https://github.com/rjdverse/rjd3providers/compare/3.8.0...HEAD
+[3.8.0]: https://github.com/rjdverse/rjd3providers/compare/v3.7.1...3.8.0
 [3.7.1]: https://github.com/rjdverse/rjd3providers/compare/v3.6.0...v3.7.1
 [3.6.0]: https://github.com/rjdverse/rjd3providers/compare/v3.5.1...v3.6.0
 [3.5.1]: https://github.com/rjdverse/rjd3providers/compare/v3.5.0...v3.5.1
