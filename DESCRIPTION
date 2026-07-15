@@ -1,7 +1,7 @@
 Type: Package
 Package: rjd3providers
 Title: Interface to 'JDemetra+' 3.x Time Series Analysis Software
-Version: 3.8.0
+Version: 3.8.0.9000
 Authors@R: c(
     person("Jean", "Palate", , "jean.palate@nbb.be", role = "aut"),
     person("Alessandro", "Piovani", , "alessandro.piovani@istat.it", role = c("aut", "cre")),
@@ -33,3 +33,6 @@ Collate:
     'jd3xml.R'
     'rjd3providers-package.R'
     'zzz.R'
+Remotes:  
+    github::rjdverse/rjd3jars,
+    github::rjdverse/rjd3toolkit
