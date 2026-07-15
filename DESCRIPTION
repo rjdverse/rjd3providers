@@ -1,7 +1,7 @@
 Type: Package
 Package: rjd3providers
 Title: Interface to 'JDemetra+' 3.x Time Series Analysis Software
-Version: 3.7.1
+Version: 3.8.0
 Authors@R: c(
     person("Jean", "Palate", , "jean.palate@nbb.be", role = "aut"),
     person("Alessandro", "Piovani", , "alessandro.piovani@istat.it", role = c("aut", "cre")),
@@ -19,15 +19,17 @@ Depends:
     R (>= 4.1.0)
 Imports:
     rJava (>= 1.0-6),
-    rjd3toolkit (>= 3.7.1)
+    rjd3jars (>= 0.0.5),
+    rjd3toolkit (>= 3.8.0)
 Encoding: UTF-8
 LazyData: TRUE
-RoxygenNote: 7.3.3
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 8.0.0
 SystemRequirements: Java (>= 21)
 Collate: 
-    'deprecated.R'
     'providers.R'
     'jd3spreadsheet.R'
     'jd3txt.R'
     'jd3xml.R'
+    'rjd3providers-package.R'
     'zzz.R'

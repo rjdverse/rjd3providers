@@ -57,7 +57,7 @@ A ts collection with all the series
 Retrieves all the time series in a text file (.txt, .csv...)
 }
 \examples{
-\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 \donttest{
 set_txt_paths(system.file("extdata", package = "rjd3providers"))
 all <- txt_data("ABS.csv", delimiter = "COMMA")

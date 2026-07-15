@@ -1,34 +1,65 @@
 #' @include providers.R
+NULL
 
 .txt_source <- function(
-        file,
-        fmt.locale = NULL,
-        fmt.date = NULL,
-        fmt.number = NULL,
-        fmt.ignoreNumberGrouping = TRUE,
-        gathering.period = 0,
-        gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
-        gathering.partialAggregation = FALSE,
-        gathering.cleanMissing = TRUE,
-        charset = NULL,
-        delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
-        textQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
-        headers = TRUE,
-        skipLines = 0) {
+    file,
+    fmt.locale = NULL,
+    fmt.date = NULL,
+    fmt.number = NULL,
+    fmt.ignoreNumberGrouping = TRUE,
+    gathering.period = 0,
+    gathering.aggregation = c(
+        "None",
+        "Sum",
+        "Average",
+        "First",
+        "Last",
+        "Max",
+        "Min"
+    ),
+    gathering.partialAggregation = FALSE,
+    gathering.cleanMissing = TRUE,
+    charset = NULL,
+    delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
+    textQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
+    headers = TRUE,
+    skipLines = 0
+) {
     gathering.aggregation <- match.arg(gathering.aggregation)
     delimiter <- match.arg(delimiter)
     textQualifier <- match.arg(textQualifier)
-    jfmt <- .obs_format(fmt.locale, fmt.date, fmt.number, fmt.ignoreNumberGrouping)
-    jgathering <- .obs_gathering(gathering.period, gathering.aggregation,
-                                 gathering.partialAggregation, gathering.cleanMissing)
-    if (is.null(charset)) charset <- "utf-8"
+    jfmt <- .obs_format(
+        fmt.locale,
+        fmt.date,
+        fmt.number,
+        fmt.ignoreNumberGrouping
+    )
+    jgathering <- .obs_gathering(
+        gathering.period,
+        gathering.aggregation,
+        gathering.partialAggregation,
+        gathering.cleanMissing
+    )
+    if (is.null(charset)) {
+        charset <- "utf-8"
+    }
     jsource <- .jcall(
-        "jdplus/text/base/r/TxtFiles", "Ljdplus/toolkit/base/tsp/DataSource;", "source",
-        as.character(file), jfmt, jgathering, as.character(charset), as.character(delimiter),
-        as.character(textQualifier), as.logical(headers), as.integer(skipLines)
+        "jdplus/text/base/r/TxtFiles",
+        "Ljdplus/toolkit/base/tsp/DataSource;",
+        "source",
+        as.character(file),
+        jfmt,
+        jgathering,
+        as.character(charset),
+        as.character(delimiter),
+        as.character(textQualifier),
+        as.logical(headers),
+        as.integer(skipLines)
     )
     return(jsource)
 }
+
+txt_initialized <- FALSE
 
 .r2jd_txt_id <- function(id) {
     jsrc <- .txt_source(
@@ -59,7 +90,8 @@
             obj = "jdplus/text/base/r/TxtFiles",
             returnSig = "Ljdplus/toolkit/base/tsp/DataSet;",
             method = "seriesDataSet",
-            jsrc, as.integer(id$series)
+            jsrc,
+            as.integer(id$series)
         )
     }
 
@@ -67,34 +99,72 @@
 }
 
 .jd2r_txt_id <- function(jset) {
-    jbean <- .jcall("jdplus/text/base/r/TxtFiles", "Ljdplus/text/base/api/TxtBean;", "sourceOf", jset)
+    jbean <- .jcall(
+        "jdplus/text/base/r/TxtFiles",
+        "Ljdplus/text/base/api/TxtBean;",
+        "sourceOf",
+        jset
+    )
     jfile <- .jcall(jbean, "Ljava/io/File;", "getFile")
     jcharset <- .jcall(jbean, "Ljava/nio/charset/Charset;", "getCharset")
-    jformat <- .jcall(jbean, "Ljdplus/toolkit/base/tsp/util/ObsFormat;", "getFormat")
-    jgathering <- .jcall(jbean, "Ljdplus/toolkit/base/api/timeseries/util/ObsGathering;", "getGathering")
-    junit <- .jcall(jgathering, "Ljdplus/toolkit/base/api/timeseries/TsUnit;", "getUnit")
-    jagg <- .jcall(jgathering, "Ljdplus/toolkit/base/api/data/AggregationType;", "getAggregationType")
+    jformat <- .jcall(
+        jbean,
+        "Ljdplus/toolkit/base/tsp/util/ObsFormat;",
+        "getFormat"
+    )
+    jgathering <- .jcall(
+        jbean,
+        "Ljdplus/toolkit/base/api/timeseries/util/ObsGathering;",
+        "getGathering"
+    )
+    junit <- .jcall(
+        jgathering,
+        "Ljdplus/toolkit/base/api/timeseries/TsUnit;",
+        "getUnit"
+    )
+    jagg <- .jcall(
+        jgathering,
+        "Ljdplus/toolkit/base/api/data/AggregationType;",
+        "getAggregationType"
+    )
     jlocale <- .jcall(jformat, "Ljava/util/Locale;", "getLocale")
-    jdelimiter <- .jcall(jbean, "Ljdplus/text/base/api/TxtBean$Delimiter;", "getDelimiter")
-    jqual <- .jcall(jbean, "Ljdplus/text/base/api/TxtBean$TextQualifier;", "getTextQualifier")
+    jdelimiter <- .jcall(
+        jbean,
+        "Ljdplus/text/base/api/TxtBean$Delimiter;",
+        "getDelimiter"
+    )
+    jqual <- .jcall(
+        jbean,
+        "Ljdplus/text/base/api/TxtBean$TextQualifier;",
+        "getTextQualifier"
+    )
     return(list(
         file = .jcall(jfile, "S", "getPath"),
         delimiter = .jcall(jdelimiter, "S", "name"),
         textQualifier = .jcall(jqual, "S", "name"),
         headers = as.integer(.jcall(jbean, "Z", "isHeaders")),
         skipLines = as.integer(.jcall(jbean, "I", "getSkipLines")),
-        series = 1 + as.integer(.jcall(jset, "S", "getParameter", "seriesIndex")),
+        series = 1 +
+            as.integer(.jcall(jset, "S", "getParameter", "seriesIndex")),
         gathering = list(
             period = .jcall(junit, "I", "getAnnualFrequency"),
             aggregation = .jcall(jagg, "S", "name"),
-            partialAggregation = .jcall(jgathering, "Z", "isAllowPartialAggregation"),
-            cleanMissing = ! .jcall(jgathering, "Z", "isIncludeMissingValues")
+            partialAggregation = .jcall(
+                jgathering,
+                "Z",
+                "isAllowPartialAggregation"
+            ),
+            cleanMissing = !.jcall(jgathering, "Z", "isIncludeMissingValues")
         ),
         format = list(
             locale = .jcall(jlocale, "S", "toLanguageTag"),
             datePattern = .jcall(jformat, "S", "getDateTimePattern"),
             numberPattern = .jcall(jformat, "S", "getNumberPattern"),
-            ignoreNumberGrouping = .jcall(jformat, "Z", "isIgnoreNumberGrouping")
+            ignoreNumberGrouping = .jcall(
+                jformat,
+                "Z",
+                "isIgnoreNumberGrouping"
+            )
         )
     ))
 }
@@ -105,7 +175,7 @@
 #'
 #' @export
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' txt_name()
 #'
@@ -119,7 +189,7 @@ txt_name <- function() {
 #'
 #' @returns An internal java moniker.
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' .txt_moniker("toy_id")
 #'
@@ -130,7 +200,8 @@ txt_name <- function() {
         obj = "jdplus/toolkit/base/api/timeseries/TsMoniker",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/TsMoniker;",
         method = "of",
-        txt_name(), id
+        txt_name(),
+        id
     )
     return(jmoniker)
 }
@@ -143,7 +214,7 @@ txt_name <- function() {
 #'
 #' @export
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #'
@@ -172,30 +243,50 @@ set_txt_paths <- function(paths) {
 #'
 #' @export
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_all <- txt_content("ABS.csv", delimiter = "COMMA")
 #' }
 txt_content <- function(
-        file,
-        fmt.locale = NULL,
-        fmt.date = NULL,
-        fmt.number = NULL,
-        fmt.ignoreNumberGrouping = TRUE,
-        gathering.period = 0,
-        gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
-        gathering.partialAggregation = FALSE,
-        gathering.cleanMissing = TRUE,
-        charset = NULL,
-        delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
-        txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
-        header = TRUE,
-        skip = 0) {
+    file,
+    fmt.locale = NULL,
+    fmt.date = NULL,
+    fmt.number = NULL,
+    fmt.ignoreNumberGrouping = TRUE,
+    gathering.period = 0,
+    gathering.aggregation = c(
+        "None",
+        "Sum",
+        "Average",
+        "First",
+        "Last",
+        "Max",
+        "Min"
+    ),
+    gathering.partialAggregation = FALSE,
+    gathering.cleanMissing = TRUE,
+    charset = NULL,
+    delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
+    txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
+    header = TRUE,
+    skip = 0
+) {
     jsource <- .txt_source(
-        file, fmt.locale, fmt.date, fmt.number, fmt.ignoreNumberGrouping,
-        gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.cleanMissing,
-        charset, delimiter, txtQualifier, header, skip
+        file,
+        fmt.locale,
+        fmt.date,
+        fmt.number,
+        fmt.ignoreNumberGrouping,
+        gathering.period,
+        gathering.aggregation,
+        gathering.partialAggregation,
+        gathering.cleanMissing,
+        charset,
+        delimiter,
+        txtQualifier,
+        header,
+        skip
     )
     series <- .jcall("jdplus/text/base/r/TxtFiles", "[S", "series", jsource)
     return(series)
@@ -222,29 +313,50 @@ txt_content <- function(
 #'
 #' @export
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' all <- txt_data("ABS.csv", delimiter = "COMMA")
 #' }
 txt_data <- function(
-        file,
-        fmt.locale = NULL,
-        fmt.date = NULL,
-        fmt.number = NULL,
-        fmt.ignoreNumberGrouping = TRUE,
-        gathering.period = 0,
-        gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
-        gathering.partialAggregation = FALSE, gathering.cleanMissing = TRUE,
-        charset = NULL,
-        delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
-        txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
-        header = TRUE,
-        skip = 0) {
+    file,
+    fmt.locale = NULL,
+    fmt.date = NULL,
+    fmt.number = NULL,
+    fmt.ignoreNumberGrouping = TRUE,
+    gathering.period = 0,
+    gathering.aggregation = c(
+        "None",
+        "Sum",
+        "Average",
+        "First",
+        "Last",
+        "Max",
+        "Min"
+    ),
+    gathering.partialAggregation = FALSE,
+    gathering.cleanMissing = TRUE,
+    charset = NULL,
+    delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
+    txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
+    header = TRUE,
+    skip = 0
+) {
     jsource <- .txt_source(
-        file, fmt.locale, fmt.date, fmt.number, fmt.ignoreNumberGrouping,
-        gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.cleanMissing,
-        charset, delimiter, txtQualifier, header, skip
+        file,
+        fmt.locale,
+        fmt.date,
+        fmt.number,
+        fmt.ignoreNumberGrouping,
+        gathering.period,
+        gathering.aggregation,
+        gathering.partialAggregation,
+        gathering.cleanMissing,
+        charset,
+        delimiter,
+        txtQualifier,
+        header,
+        skip
     )
     jcoll <- .jcall(
         obj = "jdplus/text/base/r/TxtFiles",
@@ -276,36 +388,56 @@ txt_data <- function(
 #' @returns Returns the specified time series
 #' @export
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
 #' txt_09 <- txt_series("ABS.csv", series = "0.2.09.10.M", delimiter = "COMMA")
 #' }
 txt_series <- function(
-        file,
-        series,
-        fmt.locale = NULL,
-        fmt.date = NULL,
-        fmt.number = NULL,
-        fmt.ignoreNumberGrouping = TRUE,
-        gathering.period = 0,
-        gathering.aggregation = c("None", "Sum", "Average", "First", "Last", "Max", "Min"),
-        gathering.partialAggregation = FALSE,
-        gathering.cleanMissing = TRUE,
-        charset = NULL,
-        delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
-        txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
-        header = TRUE,
-        skip = 0) {
+    file,
+    series,
+    fmt.locale = NULL,
+    fmt.date = NULL,
+    fmt.number = NULL,
+    fmt.ignoreNumberGrouping = TRUE,
+    gathering.period = 0,
+    gathering.aggregation = c(
+        "None",
+        "Sum",
+        "Average",
+        "First",
+        "Last",
+        "Max",
+        "Min"
+    ),
+    gathering.partialAggregation = FALSE,
+    gathering.cleanMissing = TRUE,
+    charset = NULL,
+    delimiter = c("TAB", "SEMICOLON", "COMMA", "SPACE"),
+    txtQualifier = c("NONE", "QUOTE", "DOUBLE_QUOTE"),
+    header = TRUE,
+    skip = 0
+) {
     jsource <- .txt_source(
-        file, fmt.locale, fmt.date, fmt.number, fmt.ignoreNumberGrouping,
-        gathering.period, gathering.aggregation, gathering.partialAggregation, gathering.cleanMissing,
-        charset, delimiter, txtQualifier, header, skip
+        file,
+        fmt.locale,
+        fmt.date,
+        fmt.number,
+        fmt.ignoreNumberGrouping,
+        gathering.period,
+        gathering.aggregation,
+        gathering.partialAggregation,
+        gathering.cleanMissing,
+        charset,
+        delimiter,
+        txtQualifier,
+        header,
+        skip
     )
-    if (! is.numeric(series)){
+    if (!is.numeric(series)) {
         all <- .jcall("jdplus/text/base/r/TxtFiles", "[S", "series", jsource)
-        series<-match(series, all)[1]
+        series <- match(series, all)[1]
         if (is.na(series)) stop("Invalid series name")
     }
 
@@ -313,7 +445,8 @@ txt_series <- function(
         obj = "jdplus/text/base/r/TxtFiles",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/Ts;",
         method = "series",
-        jsource, as.integer(series)
+        jsource,
+        as.integer(series)
     )
     return(rjd3toolkit::.jd2r_ts(js))
 }
@@ -326,7 +459,7 @@ txt_series <- function(
 #'
 #' @export
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
@@ -350,11 +483,11 @@ txt_properties_to_id <- function(props) {
 #'
 #' @param id Identifier of a series or of a collection of series.
 #'
-#' @returns Returns a list with the elements of the id: file [, series], format, gathering, ...).
+#' @returns Returns a list with the elements of the id: file , series, format, gathering, ....
 #'
 #' @export
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
@@ -362,7 +495,12 @@ txt_properties_to_id <- function(props) {
 #' print(txt_id_to_properties(id))
 #' }
 txt_id_to_properties <- function(id) {
-    jset <- .jcall("jdplus/text/base/r/TxtFiles", "Ljdplus/toolkit/base/tsp/DataSet;", "decode", id)
+    jset <- .jcall(
+        "jdplus/text/base/r/TxtFiles",
+        "Ljdplus/toolkit/base/tsp/DataSet;",
+        "decode",
+        id
+    )
     return(.jd2r_txt_id(jset))
 }
 
@@ -376,7 +514,7 @@ txt_id_to_properties <- function(id) {
 #'
 #' @export
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' \donttest{
 #' set_txt_paths(system.file("extdata", package = "rjd3providers"))
 #' txt_15 <- txt_series("ABS.csv", series = 15, delimiter = "COMMA")
@@ -384,7 +522,16 @@ txt_id_to_properties <- function(id) {
 #' txt_change_file(id, "test.csv")
 #' }
 txt_change_file <- function(id, nfile, ofile = NULL) {
-    if (is.null(ofile)) ofile <- ""
-    nid <- .jcall("jdplus/text/base/r/TxtFiles", "S", "changeFile", id, nfile, ofile)
+    if (is.null(ofile)) {
+        ofile <- ""
+    }
+    nid <- .jcall(
+        "jdplus/text/base/r/TxtFiles",
+        "S",
+        "changeFile",
+        id,
+        nfile,
+        ofile
+    )
     return(nid)
 }
