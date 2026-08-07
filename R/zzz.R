@@ -6,7 +6,7 @@ NULL
 
 #' @importFrom rjd3jars check_java_version
 .onAttach <- function(libname, pkgname) {
-    # Check java version
+    # Check Java version
     rjd3jars::check_java_version(silent = FALSE, startup = TRUE)
 }
 
@@ -36,7 +36,7 @@ NULL
         morePaths = jars_inst
     )
     if (!result) {
-        stop("Loading java packages failed")
+        stop("Loading Java packages failed")
     }
 
     # If java >= 21, then reload dictionnaries
