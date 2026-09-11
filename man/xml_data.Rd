@@ -9,11 +9,13 @@ xml_data(file, collection = 1, charset = NULL, fullNames = FALSE)
 \arguments{
 \item{file}{The xml file.}
 
-\item{collection}{The name or the 1-based position of the collection containing the requested data.}
+\item{collection}{The name or the 1-based position of the collection
+containing the requested data.}
 
 \item{charset}{The character set used in the file}
 
-\item{fullNames}{Specifies if full names (containing the name of the sheet and the name of the series) are used or not.}
+\item{fullNames}{Specifies if full names (containing the name of the sheet
+and the name of the series) are used or not.}
 }
 \value{
 A ts collection with all the series.

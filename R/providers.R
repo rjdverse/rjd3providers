@@ -3,9 +3,12 @@
 #' @export
 #'
 #' @param period The annual frequency of the series. If 0, the frequency.
-#' @param aggregationType  The type of the aggregation to be applied on the series (only used if "period" is different from 0).
-#' @param allowPartialAggregation Specifies if  the aggregation is performed or not when they are missing periods.
-#' @param cleanMissing Specifies if missing values at the beginning and at the end of the data are removed from the series.
+#' @param aggregationType  The type of the aggregation to be applied on the
+#'   series (only used if "period" is different from 0).
+#' @param allowPartialAggregation Specifies if  the aggregation is performed or
+#'   not when they are missing periods.
+#' @param cleanMissing Specifies if missing values at the beginning and at the
+#'   end of the data are removed from the series.
 #'
 #' @returns An internal Java object.
 #'

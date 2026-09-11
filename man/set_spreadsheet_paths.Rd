@@ -7,7 +7,8 @@
 set_spreadsheet_paths(paths)
 }
 \arguments{
-\item{paths}{The folders containing the spreadsheet files Only used in relative addresses.}
+\item{paths}{The folders containing the spreadsheet files Only used in
+relative addresses.}
 }
 \value{
 No output.

@@ -93,7 +93,8 @@ xml_name <- function() {
 
 #' @title Set the paths to xml files (to be used with relative identifiers).
 #'
-#' @param paths The folders containing the xml files. Only used in relative addresses.
+#' @param paths The folders containing the xml files. Only used in relative
+#'   addresses.
 #'
 #' @returns No output.
 #' @export
@@ -111,7 +112,8 @@ set_xml_paths <- function(paths) {
 #' @param file The considered file.
 #' @param charset The character set used in the file (NULL to use the default).
 #'
-#' @returns Provides all the names of the time series contained in the file, grouped by collection.
+#' @returns Provides all the names of the time series contained in the file,
+#' grouped by collection.
 #'
 #' @export
 #'
@@ -142,9 +144,11 @@ xml_content <- function(file, charset = NULL) {
 #' @title Retrieves all the time series in a specified collection from an xml file.
 #'
 #' @param file The xml file.
-#' @param collection The name or the 1-based position of the collection containing the requested data.
+#' @param collection The name or the 1-based position of the collection
+#'   containing the requested data.
 #' @param charset The character set used in the file
-#' @param fullNames Specifies if full names (containing the name of the sheet and the name of the series) are used or not.
+#' @param fullNames Specifies if full names (containing the name of the sheet
+#'   and the name of the series) are used or not.
 #'
 #' @returns A ts collection with all the series.
 #' @export
@@ -181,10 +185,13 @@ xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
 #' @title Retrieves a time series from an xml file
 #'
 #' @param file The xml file.
-#' @param collection The name or the 1-based position of the collection containing the requested data.
-#' @param series The name or the 1-based position of the series in the selected collection.
+#' @param collection The name or the 1-based position of the collection
+#'   containing the requested data.
+#' @param series The name or the 1-based position of the series in the selected
+#'   collection.
 #' @param charset The character set used in the file.
-#' @param fullName Specifies if a full name (containing the name of the collection and the name of the series) is used or not.
+#' @param fullName Specifies if a full name (containing the name of the
+#'   collection and the name of the series) is used or not.
 #'
 #' @returns Returns the specified time series
 #' @export
@@ -262,7 +269,8 @@ xml_properties_to_id <- function(props) {
 #'
 #' @param id Identifier of a series or of a collection of series.
 #'
-#' @returns Returns a list with the elements of the id: file, collection, series, charset, fullnames.
+#' @returns Returns a list with the elements of the id: file, collection,
+#' series, charset, fullnames.
 #' @export
 #'
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)

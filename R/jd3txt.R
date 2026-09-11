@@ -208,7 +208,8 @@ txt_name <- function() {
 
 #' @title Set the paths to txt files (to be used with relative identifiers)
 #'
-#' @param paths The folders containing the txt files Only used in relative addresses.
+#' @param paths The folders containing the txt files Only used in relative
+#'   addresses.
 #'
 #' @returns An internal java moniker
 #'
@@ -229,13 +230,19 @@ set_txt_paths <- function(paths) {
 #' @param fmt.date Format of the date. Null to use the default of the locale
 #' @param fmt.number Format of the number. Null to use the default of the locale
 #' @param fmt.ignoreNumberGrouping Ignore number grouping
-#' @param gathering.period The annual frequency of the series. If 0, the frequency
-#' @param gathering.aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0)
-#' @param gathering.partialAggregation Specifies if  the aggregation is performed or not when they are missing periods
-#' @param gathering.cleanMissing Specifies if missing values at the beginning or at the end of the data are removed from the series.
+#' @param gathering.period The annual frequency of the series. If 0, the
+#'   frequency
+#' @param gathering.aggregation  The type of the aggregation to be applied on
+#'   the series (only used if "period" is different from 0)
+#' @param gathering.partialAggregation Specifies if  the aggregation is
+#'   performed or not when they are missing periods
+#' @param gathering.cleanMissing Specifies if missing values at the beginning
+#'   or at the end of the data are removed from the series.
 #' @param charset Specifies the charset
-#' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")
-#' @param txtQualifier Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")
+#' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON",
+#'   "COMMA", "SPACE")
+#' @param txtQualifier Character used to qualify text. Should be in ("NONE",
+#'   "QUOTE", "DOUBLE_QUOTE")
 #' @param header The file contains headers
 #' @param skip Skips some lines
 #'
@@ -299,13 +306,19 @@ txt_content <- function(
 #' @param fmt.date Format of the date. Null to use the default of the locale
 #' @param fmt.number Format of the number. Null to use the default of the locale
 #' @param fmt.ignoreNumberGrouping Ignore number grouping
-#' @param gathering.period The annual frequency of the transformed series. If 0, the actual frequency is used.
-#' @param gathering.aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0)
-#' @param gathering.partialAggregation Specifies if  the aggregation is performed or not when they are missing periods
-#' @param gathering.cleanMissing Specifies if missing values at the beginning or at the end of the data are removed from the series.
+#' @param gathering.period The annual frequency of the transformed series. If
+#'   0, the actual frequency is used.
+#' @param gathering.aggregation  The type of the aggregation to be applied on
+#'   the series (only used if "period" is different from 0)
+#' @param gathering.partialAggregation Specifies if  the aggregation is
+#'   performed or not when they are missing periods
+#' @param gathering.cleanMissing Specifies if missing values at the beginning
+#'   or at the end of the data are removed from the series.
 #' @param charset Specifies the charset
-#' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")
-#' @param txtQualifier Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")
+#' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON",
+#'   "COMMA", "SPACE")
+#' @param txtQualifier Character used to qualify text. Should be in ("NONE",
+#'   "QUOTE", "DOUBLE_QUOTE")
 #' @param header The file contains headers
 #' @param skip Skips some lines
 #'
@@ -370,18 +383,25 @@ txt_data <- function(
 #' @title Retrieves a time series from a a text file (.txt, .csv...)
 #'
 #' @param file The text file
-#' @param series The name or the 1-based position of the series in the selected sheet
+#' @param series The name or the 1-based position of the series in the selected
+#'   sheet
 #' @param fmt.locale Locale language. Null to use the default
 #' @param fmt.date Format of the date. Null to use the default of the locale
 #' @param fmt.number Format of the number. Null to use the default of the locale
 #' @param fmt.ignoreNumberGrouping Ignore number grouping
-#' @param gathering.period The annual frequency of the transformed series. If 0, the actual frequency is used.
-#' @param gathering.aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0)
-#' @param gathering.partialAggregation Specifies if  the aggregation is performed or not when they are missing periods
-#' @param gathering.cleanMissing Specifies if missing values at the beginning or at the end of the data are removed from the series.
+#' @param gathering.period The annual frequency of the transformed series. If
+#'   0, the actual frequency is used.
+#' @param gathering.aggregation  The type of the aggregation to be applied on
+#'   the series (only used if "period" is different from 0)
+#' @param gathering.partialAggregation Specifies if  the aggregation is
+#'   performed or not when they are missing periods
+#' @param gathering.cleanMissing Specifies if missing values at the beginning
+#'   or at the end of the data are removed from the series.
 #' @param charset Specifies the charset
-#' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")
-#' @param txtQualifier Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")
+#' @param delimiter Specifies the delimiter. Should be in ("TAB", "SEMICOLON",
+#'   "COMMA", "SPACE")
+#' @param txtQualifier Character used to qualify text. Should be in ("NONE",
+#'   "QUOTE", "DOUBLE_QUOTE")
 #' @param header The file contains headers
 #' @param skip Skips some lines
 #'
@@ -483,7 +503,8 @@ txt_properties_to_id <- function(props) {
 #'
 #' @param id Identifier of a series or of a collection of series.
 #'
-#' @returns Returns a list with the elements of the id: file , series, format, gathering, ....
+#' @returns Returns a list with the elements of the id: file , series, format,
+#' gathering, ....
 #'
 #' @export
 #'
