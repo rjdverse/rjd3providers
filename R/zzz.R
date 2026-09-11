@@ -6,7 +6,7 @@ NULL
 
 #' @importFrom rjd3jars check_java_version
 .onAttach <- function(libname, pkgname) {
-    # Check java version
+    # Check Java version
     rjd3jars::check_java_version(silent = FALSE, startup = TRUE)
 }
 
@@ -36,7 +36,7 @@ NULL
         morePaths = jars_inst
     )
     if (!result) {
-        stop("Loading java packages failed")
+        stop("Loading Java packages failed", call. = FALSE)
     }
 
     # If java >= 21, then reload dictionnaries
@@ -45,37 +45,4 @@ NULL
         rjd3jars::reload_dictionaries()
         rjd3jars::reload_tsproviders()
     }
-
-    #assign("providers", list(), rjd3toolkit::.jd3_env)
-}
-
-#' Set an option for providers
-#'
-#' @param name Name of the option
-#' @param obj Option
-#'
-#' @export
-#'
-#' @examples
-#' providers_option("test", "DUMMY")
-providers_option <- function(name, obj) {
-    options <- rjd3toolkit::.jd3_env$providers
-    options[[name]] <- obj
-    assign("providers", options, rjd3toolkit::.jd3_env)
-    invisible()
-}
-
-#' Set an option for providers
-#'
-#' @param name Name of the option
-#'
-#' @returns The requested option or NULL if it doesn't exist
-#' @export
-#'
-#' @examples
-#' providers_option("test", "DUMMY")
-#' get_providers_option("test")
-get_providers_option <- function(name) {
-    options <- rjd3toolkit::.jd3_env$providers
-    return(options[[name]])
 }

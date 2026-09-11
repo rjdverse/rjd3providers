@@ -20,17 +20,13 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Alessandro Piovani \email{alessandro.piovani@istat.it}
+\strong{Maintainer}: Alessandro Piovani \email{alessandro.piovani@istat.it} [copyright holder]
 
 Authors:
 \itemize{
-  \item Alessandro Piovani \email{alessandro.piovani@istat.it}
+  \item Alessandro Piovani \email{alessandro.piovani@istat.it} [copyright holder]
   \item Jean Palate \email{jean.palate@nbb.be}
-}
-
-Other contributors:
-\itemize{
-  \item Tanguy Barthelemy \email{tanguy.barthelemy@insee.fr} [contributor, artist]
+  \item Tanguy Barthelemy \email{tanguy.barthelemy@insee.fr} [artist]
 }
 
 }

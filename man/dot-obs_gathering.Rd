@@ -14,11 +14,14 @@
 \arguments{
 \item{period}{The annual frequency of the series. If 0, the frequency.}
 
-\item{aggregationType}{The type of the aggregation to be applied on the series (only used if "period" is different from 0).}
+\item{aggregationType}{The type of the aggregation to be applied on the
+series (only used if "period" is different from 0).}
 
-\item{allowPartialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods.}
+\item{allowPartialAggregation}{Specifies if  the aggregation is performed or
+not when they are missing periods.}
 
-\item{cleanMissing}{Specifies if missing values at the beginning and at the end of the data are removed from the series.}
+\item{cleanMissing}{Specifies if missing values at the beginning and at the
+end of the data are removed from the series.}
 }
 \value{
 An internal Java object.

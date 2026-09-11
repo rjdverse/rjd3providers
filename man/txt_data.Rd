@@ -32,19 +32,25 @@ txt_data(
 
 \item{fmt.ignoreNumberGrouping}{Ignore number grouping}
 
-\item{gathering.period}{The annual frequency of the transformed series. If 0, the actual frequency is used.}
+\item{gathering.period}{The annual frequency of the transformed series. If
+0, the actual frequency is used.}
 
-\item{gathering.aggregation}{The type of the aggregation to be applied on the series (only used if "period" is different from 0)}
+\item{gathering.aggregation}{The type of the aggregation to be applied on
+the series (only used if "period" is different from 0)}
 
-\item{gathering.partialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods}
+\item{gathering.partialAggregation}{Specifies if  the aggregation is
+performed or not when they are missing periods}
 
-\item{gathering.cleanMissing}{Specifies if missing values at the beginning or at the end of the data are removed from the series.}
+\item{gathering.cleanMissing}{Specifies if missing values at the beginning
+or at the end of the data are removed from the series.}
 
 \item{charset}{Specifies the charset}
 
-\item{delimiter}{Specifies the delimiter. Should be in ("TAB", "SEMICOLON", "COMMA", "SPACE")}
+\item{delimiter}{Specifies the delimiter. Should be in ("TAB", "SEMICOLON",
+"COMMA", "SPACE")}
 
-\item{txtQualifier}{Character used to qualify text. Should be in ("NONE", "QUOTE", "DOUBLE_QUOTE")}
+\item{txtQualifier}{Character used to qualify text. Should be in ("NONE",
+"QUOTE", "DOUBLE_QUOTE")}
 
 \item{header}{The file contains headers}
 

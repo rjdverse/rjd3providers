@@ -12,7 +12,8 @@ xml_content(file, charset = NULL)
 \item{charset}{The character set used in the file (NULL to use the default).}
 }
 \value{
-Provides all the names of the time series contained in the file, grouped by collection.
+Provides all the names of the time series contained in the file,
+grouped by collection.
 }
 \description{
 Provides the content of an xml file designed for time series.

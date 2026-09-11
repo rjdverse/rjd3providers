@@ -10,7 +10,8 @@ txt_id_to_properties(id)
 \item{id}{Identifier of a series or of a collection of series.}
 }
 \value{
-Returns a list with the elements of the id: file , series, format, gathering, ....
+Returns a list with the elements of the id: file , series, format,
+gathering, ....
 }
 \description{
 Gets the list of the properties corresponding to the identifier of a moniker

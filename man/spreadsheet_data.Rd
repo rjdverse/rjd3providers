@@ -17,17 +17,23 @@ spreadsheet_data(
 \arguments{
 \item{file}{The spreadsheet file.}
 
-\item{sheet}{The name or the 1-based position of the sheet containing the requested data.}
+\item{sheet}{The name or the 1-based position of the sheet containing the
+requested data.}
 
-\item{gathering.period}{The annual frequency of the transformed series. If 0, the actual frequency is used.}
+\item{gathering.period}{The annual frequency of the transformed series.
+If 0, the actual frequency is used.}
 
-\item{gathering.aggregation}{The type of the aggregation to be applied on the series (only used if "period" is different from 0).}
+\item{gathering.aggregation}{The type of the aggregation to be applied on
+the series (only used if "period" is different from 0).}
 
-\item{gathering.partialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods.}
+\item{gathering.partialAggregation}{Specifies if  the aggregation is
+performed or not when they are missing periods.}
 
-\item{gathering.cleanMissing}{Specifies if missing values at the beginning or at the end of the data are removed from the series.}
+\item{gathering.cleanMissing}{Specifies if missing values at the beginning
+or at the end of the data are removed from the series.}
 
-\item{fullNames}{Specifies if full names (containing the name of the sheet and the name of the series) are used or not.}
+\item{fullNames}{Specifies if full names (containing the name of the sheet
+and the name of the series) are used or not.}
 }
 \value{
 A ts collection with all the series.
