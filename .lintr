@@ -4,6 +4,7 @@ linters: lintr::all_linters(
         line_length_linter = lintr::line_length_linter(90L),
         return_linter = NULL,
         nonportable_path_linter = NULL,
+        namespace_linter = NULL,
         cyclocomp_linter = NULL,
         object_name_linter = NULL,
         implicit_integer_linter = NULL
