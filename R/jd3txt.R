@@ -106,7 +106,6 @@ txt_initialized <- FALSE
         jset
     )
     jfile <- .jcall(jbean, "Ljava/io/File;", "getFile")
-    jcharset <- .jcall(jbean, "Ljava/nio/charset/Charset;", "getCharset")
     jformat <- .jcall(
         jbean,
         "Ljdplus/toolkit/base/tsp/util/ObsFormat;",
@@ -456,9 +455,9 @@ txt_series <- function(
         skip
     )
     if (!is.numeric(series)) {
-        all <- .jcall("jdplus/text/base/r/TxtFiles", "[S", "series", jsource)
-        series <- match(series, all)[1]
-        if (is.na(series)) stop("Invalid series name")
+        all_ptrn <- .jcall("jdplus/text/base/r/TxtFiles", "[S", "series", jsource)
+        series <- match(series, all_ptrn)[1]
+        if (is.na(series)) stop("Invalid series name", call. = FALSE)
     }
 
     js <- .jcall(

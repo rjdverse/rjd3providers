@@ -169,7 +169,7 @@ xml_data <- function(file, collection = 1, charset = NULL, fullNames = FALSE) {
             jsource
         )
         collection <- match(collection, sheets)[1]
-        if (is.na(collection)) stop("Invalid collection name")
+        if (is.na(collection)) stop("Invalid collection name", call. = FALSE)
     }
     jcoll <- .jcall(
         obj = "jdplus/text/base/r/XmlFiles",
@@ -219,18 +219,18 @@ xml_series <- function(
             jsource
         )
         collection <- match(collection, sheets)[1]
-        if (is.na(collection)) stop("Invalid collection name")
+        if (is.na(collection)) stop("Invalid collection name", call. = FALSE)
     }
     if (!is.numeric(series)) {
-        all <- .jcall(
+        all_ptrn <- .jcall(
             "jdplus/text/base/r/XmlFiles",
             "[S",
             "series",
             jsource,
             as.integer(collection)
         )
-        series <- match(series, all)[1]
-        if (is.na(series)) stop("Invalid series name")
+        series <- match(series, all_ptrn)[1]
+        if (is.na(series)) stop("Invalid series name", call. = FALSE)
     }
     jcoll <- .jcall(
         obj = "jdplus/text/base/r/XmlFiles",

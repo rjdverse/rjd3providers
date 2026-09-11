@@ -219,7 +219,7 @@ spreadsheet_data <- function(
             jsource
         )
         sheet <- match(sheet, sheets)[1]
-        if (is.na(sheet)) stop("Invalid sheet name")
+        if (is.na(sheet)) stop("Invalid sheet name", call. = FALSE)
     }
     jcoll <- .jcall(
         obj = "jdplus/spreadsheet/base/r/SpreadSheets",
@@ -293,18 +293,18 @@ spreadsheet_series <- function(
             jsource
         )
         sheet <- match(sheet, sheets)[1]
-        if (is.na(sheet)) stop("Invalid sheet name")
+        if (is.na(sheet)) stop("Invalid sheet name", call. = FALSE)
     }
     if (!is.numeric(series)) {
-        all <- .jcall(
+        all_ptrn <- .jcall(
             obj = "jdplus/spreadsheet/base/r/SpreadSheets",
             returnSig = "[S",
             method = "series",
             jsource,
             as.integer(sheet)
         )
-        series <- match(series, all)[1]
-        if (is.na(series)) stop("Invalid series name")
+        series <- match(series, all_ptrn)[1]
+        if (is.na(series)) stop("Invalid series name", call. = FALSE)
     }
     jcoll <- .jcall(
         obj = "jdplus/spreadsheet/base/r/SpreadSheets",

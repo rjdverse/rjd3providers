@@ -36,7 +36,7 @@ NULL
         morePaths = jars_inst
     )
     if (!result) {
-        stop("Loading Java packages failed")
+        stop("Loading Java packages failed", call. = FALSE)
     }
 
     # If java >= 21, then reload dictionnaries
@@ -45,8 +45,6 @@ NULL
         rjd3jars::reload_dictionaries()
         rjd3jars::reload_tsproviders()
     }
-
-    #assign("providers", list(), rjd3toolkit::.jd3_env)
 }
 
 #' Set an option for providers
