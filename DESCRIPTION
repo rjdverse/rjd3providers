@@ -4,8 +4,8 @@ Title: Interface to 'JDemetra+' 3.x Time Series Analysis Software
 Version: 3.8.0.9000
 Authors@R: c(
     person("Jean", "Palate", , "jean.palate@nbb.be", role = "aut"),
-    person("Alessandro", "Piovani", , "alessandro.piovani@istat.it", role = c("aut", "cre")),
-    person("Tanguy", "Barthelemy", , "tanguy.barthelemy@insee.fr", role = c("ctb", "art"))
+    person("Alessandro", "Piovani", , "alessandro.piovani@istat.it", role = c("aut", "cre", "cph")),
+    person("Tanguy", "Barthelemy", , "tanguy.barthelemy@insee.fr", role = c("aut", "art"))
   )
 Description: Interface to 'JDemetra+' 3.x (<https://github.com/jdemetra>)
     time series analysis software. It offers full access to txt, csv, xml
@@ -30,6 +30,7 @@ Collate:
     'jd3spreadsheet.R'
     'jd3txt.R'
     'jd3xml.R'
+    'options.R'
     'rjd3providers-package.R'
     'zzz.R'
 Remotes: 
