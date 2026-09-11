@@ -455,7 +455,12 @@ txt_series <- function(
         skip
     )
     if (!is.numeric(series)) {
-        all_ptrn <- .jcall("jdplus/text/base/r/TxtFiles", "[S", "series", jsource)
+        all_ptrn <- .jcall(
+            "jdplus/text/base/r/TxtFiles",
+            "[S",
+            "series",
+            jsource
+        )
         series <- match(series, all_ptrn)[1]
         if (is.na(series)) stop("Invalid series name", call. = FALSE)
     }
