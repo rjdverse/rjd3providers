@@ -18,13 +18,12 @@ Useful links:
 ## Author
 
 **Maintainer**: Alessandro Piovani <alessandro.piovani@istat.it>
+\[copyright holder\]
 
 Authors:
 
-- Alessandro Piovani <alessandro.piovani@istat.it>
+- Alessandro Piovani <alessandro.piovani@istat.it> \[copyright holder\]
 
 - Jean Palate <jean.palate@nbb.be>
 
-Other contributors:
-
-- Tanguy Barthelemy <tanguy.barthelemy@insee.fr> \[contributor, artist\]
+- Tanguy Barthelemy <tanguy.barthelemy@insee.fr> \[artist\]
