@@ -7,7 +7,8 @@
 set_txt_paths(paths)
 }
 \arguments{
-\item{paths}{The folders containing the txt files Only used in relative addresses.}
+\item{paths}{The folders containing the txt files Only used in relative
+addresses.}
 }
 \value{
 An internal java moniker

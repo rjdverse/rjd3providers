@@ -120,7 +120,8 @@ spreadsheet_name <- function() {
 
 #' @title Set the paths to spreadsheet files (to be used with relative identifiers).
 #'
-#' @param paths The folders containing the spreadsheet files Only used in relative addresses.
+#' @param paths The folders containing the spreadsheet files Only used in
+#'   relative addresses.
 #'
 #' @returns No output.
 #' @export
@@ -163,12 +164,18 @@ set_spreadsheet_paths <- function(paths) {
 #' @title Retrieves all the time series in a specified sheet from a spreadsheet file.
 #'
 #' @param file The spreadsheet file.
-#' @param sheet The name or the 1-based position of the sheet containing the requested data.
-#' @param gathering.period The annual frequency of the transformed series. If 0, the actual frequency is used.
-#' @param gathering.aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0).
-#' @param gathering.partialAggregation Specifies if  the aggregation is performed or not when they are missing periods.
-#' @param gathering.cleanMissing Specifies if missing values at the beginning or at the end of the data are removed from the series.
-#' @param fullNames Specifies if full names (containing the name of the sheet and the name of the series) are used or not.
+#' @param sheet The name or the 1-based position of the sheet containing the
+#'   requested data.
+#' @param gathering.period The annual frequency of the transformed series.
+#'   If 0, the actual frequency is used.
+#' @param gathering.aggregation  The type of the aggregation to be applied on
+#'   the series (only used if "period" is different from 0).
+#' @param gathering.partialAggregation Specifies if  the aggregation is
+#'   performed or not when they are missing periods.
+#' @param gathering.cleanMissing Specifies if missing values at the beginning
+#'   or at the end of the data are removed from the series.
+#' @param fullNames Specifies if full names (containing the name of the sheet
+#'   and the name of the series) are used or not.
 #'
 #' @returns A ts collection with all the series.
 #'
@@ -212,7 +219,7 @@ spreadsheet_data <- function(
             jsource
         )
         sheet <- match(sheet, sheets)[1]
-        if (is.na(sheet)) stop("Invalid sheet name")
+        if (is.na(sheet)) stop("Invalid sheet name", call. = FALSE)
     }
     jcoll <- .jcall(
         obj = "jdplus/spreadsheet/base/r/SpreadSheets",
@@ -228,13 +235,20 @@ spreadsheet_data <- function(
 #' @title Retrieves a time series from a spreadsheet file.
 #'
 #' @param file The spreadsheet file.
-#' @param sheet The name or the 1-based position of the sheet containing the requested data.
-#' @param series The name or the 1-based position of the series in the selected sheet.
-#' @param gathering.period The annual frequency of the transformed series. If 0, the actual frequency is used.
-#' @param gathering.aggregation  The type of the aggregation to be applied on the series (only used if "period" is different from 0).
-#' @param gathering.partialAggregation Specifies if  the aggregation is performed or not when they are missing periods.
-#' @param gathering.cleanMissing Specifies if missing values are removed at the beginning or at the end of the data.
-#' @param fullName Specifies if a full name (containing the name of the sheet and the name of the series) is used or not.
+#' @param sheet The name or the 1-based position of the sheet containing the
+#'   requested data.
+#' @param series The name or the 1-based position of the series in the selected
+#'   sheet.
+#' @param gathering.period The annual frequency of the transformed series.
+#'   If 0, the actual frequency is used.
+#' @param gathering.aggregation  The type of the aggregation to be applied on
+#'   the series (only used if "period" is different from 0).
+#' @param gathering.partialAggregation Specifies if  the aggregation is
+#'   performed or not when they are missing periods.
+#' @param gathering.cleanMissing Specifies if missing values are removed at the
+#'   beginning or at the end of the data.
+#' @param fullName Specifies if a full name (containing the name of the sheet
+#'   and the name of the series) is used or not.
 #'
 #' @returns Returns the specified time series.
 #'
@@ -279,18 +293,18 @@ spreadsheet_series <- function(
             jsource
         )
         sheet <- match(sheet, sheets)[1]
-        if (is.na(sheet)) stop("Invalid sheet name")
+        if (is.na(sheet)) stop("Invalid sheet name", call. = FALSE)
     }
     if (!is.numeric(series)) {
-        all <- .jcall(
+        all_ptrn <- .jcall(
             obj = "jdplus/spreadsheet/base/r/SpreadSheets",
             returnSig = "[S",
             method = "series",
             jsource,
             as.integer(sheet)
         )
-        series <- match(series, all)[1]
-        if (is.na(series)) stop("Invalid series name")
+        series <- match(series, all_ptrn)[1]
+        if (is.na(series)) stop("Invalid series name", call. = FALSE)
     }
     jcoll <- .jcall(
         obj = "jdplus/spreadsheet/base/r/SpreadSheets",
@@ -308,7 +322,8 @@ spreadsheet_series <- function(
 #'
 #' @param file The considered workbook.
 #'
-#' @returns Provides all the names of the time series contained in the workbook, organized by worksheet; the output is a list of lists of names.
+#' @returns Provides all the names of the time series contained in the workbook,
+#' organized by worksheet; the output is a list of lists of names.
 #'
 #' @export
 #'
@@ -372,12 +387,18 @@ spreadsheet_properties_to_id <- function(props) {
 #'
 #' @param id Identifier of a series or of a collection of series.
 #'
-#' @returns Returns a list with the elements of the id: file, sheet, series, gathering); the gathering is a list with the following items: period (-1 by default), the aggregation ("None"), partialAggregation (FALSE), includeMissing (FALSE).
+#' @returns Returns a list with the elements of the id: file, sheet, series,
+#' gathering); the gathering is a list with the following items: period (-1 by
+#' default), the aggregation ("None"), partialAggregation (FALSE),
+#' includeMissing (FALSE).
 #'
 #' @export
 #'
 #' @details
-#' When the period in the gathering list is defined, the user must specify the aggregation type ("Sum", "Average", "First", "Last", "Min", "Max") and some additional parameters (partial aggregation and suppression of leading/trailing missing values).
+#' When the period in the gathering list is defined, the user must specify the
+#' aggregation type ("Sum", "Average", "First", "Last", "Min", "Max") and some
+#' additional parameters (partial aggregation and suppression of
+#' leading/trailing missing values).
 #'
 #' @seealso [spreadsheet_properties_to_id()]
 #'

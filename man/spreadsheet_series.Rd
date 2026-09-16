@@ -18,19 +18,26 @@ spreadsheet_series(
 \arguments{
 \item{file}{The spreadsheet file.}
 
-\item{sheet}{The name or the 1-based position of the sheet containing the requested data.}
+\item{sheet}{The name or the 1-based position of the sheet containing the
+requested data.}
 
-\item{series}{The name or the 1-based position of the series in the selected sheet.}
+\item{series}{The name or the 1-based position of the series in the selected
+sheet.}
 
-\item{gathering.period}{The annual frequency of the transformed series. If 0, the actual frequency is used.}
+\item{gathering.period}{The annual frequency of the transformed series.
+If 0, the actual frequency is used.}
 
-\item{gathering.aggregation}{The type of the aggregation to be applied on the series (only used if "period" is different from 0).}
+\item{gathering.aggregation}{The type of the aggregation to be applied on
+the series (only used if "period" is different from 0).}
 
-\item{gathering.partialAggregation}{Specifies if  the aggregation is performed or not when they are missing periods.}
+\item{gathering.partialAggregation}{Specifies if  the aggregation is
+performed or not when they are missing periods.}
 
-\item{gathering.cleanMissing}{Specifies if missing values are removed at the beginning or at the end of the data.}
+\item{gathering.cleanMissing}{Specifies if missing values are removed at the
+beginning or at the end of the data.}
 
-\item{fullName}{Specifies if a full name (containing the name of the sheet and the name of the series) is used or not.}
+\item{fullName}{Specifies if a full name (containing the name of the sheet
+and the name of the series) is used or not.}
 }
 \value{
 Returns the specified time series.

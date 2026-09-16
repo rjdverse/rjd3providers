@@ -7,7 +7,8 @@
 set_xml_paths(paths)
 }
 \arguments{
-\item{paths}{The folders containing the xml files. Only used in relative addresses.}
+\item{paths}{The folders containing the xml files. Only used in relative
+addresses.}
 }
 \value{
 No output.
