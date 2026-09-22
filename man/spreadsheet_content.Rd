@@ -10,7 +10,8 @@ spreadsheet_content(file)
 \item{file}{The considered workbook.}
 }
 \value{
-Provides all the names of the time series contained in the workbook, organized by worksheet; the output is a list of lists of names.
+Provides all the names of the time series contained in the workbook,
+organized by worksheet; the output is a list of lists of names.
 }
 \description{
 Provides the content of a spreadsheet designed for time series.

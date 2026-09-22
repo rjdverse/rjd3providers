@@ -31,13 +31,17 @@ export(xml_id_to_properties)
 export(xml_name)
 export(xml_properties_to_id)
 export(xml_series)
-importFrom(rJava,.jaddClassPath)
-importFrom(rJava,.jarray)
-importFrom(rJava,.jcall)
-importFrom(rJava,.jfield)
-importFrom(rJava,.jnull)
-importFrom(rJava,.jpackage)
-importFrom(rjd3jars,check_java_version)
-importFrom(rjd3jars,reload_dictionaries)
-importFrom(rjd3jars,reload_tsproviders)
+importFrom(rJava,
+  .jaddClassPath,
+  .jarray,
+  .jcall,
+  .jfield,
+  .jnull,
+  .jpackage
+)
+importFrom(rjd3jars,
+  check_java_version,
+  reload_dictionaries,
+  reload_tsproviders
+)
 importFrom(rjd3toolkit,result)
