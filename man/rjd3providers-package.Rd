@@ -27,6 +27,7 @@ Authors:
   \item Alessandro Piovani \email{alessandro.piovani@istat.it} [copyright holder]
   \item Jean Palate \email{jean.palate@nbb.be}
   \item Tanguy Barthelemy \email{tanguy.barthelemy@insee.fr} [artist]
+  \item Eulalie Delaune \email{eulalie.delaune-virrion@insee.fr}
 }
 
 }
