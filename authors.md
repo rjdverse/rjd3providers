@@ -13,7 +13,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/rjdverse/rjd3providers/blob/develop/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/rjdverse/rjd3providers/blob/v3.9.0/DESCRIPTION)
 
 Palate J, Piovani A, Barthelemy T, Delaune E (2026). *rjd3providers:
 Interface to 'JDemetra+' 3.x Time Series Analysis Software*. R package
