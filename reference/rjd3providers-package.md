@@ -27,3 +27,5 @@ Authors:
 - Jean Palate <jean.palate@nbb.be>
 
 - Tanguy Barthelemy <tanguy.barthelemy@insee.fr> \[artist\]
+
+- Eulalie Delaune <eulalie.delaune-virrion@insee.fr>
