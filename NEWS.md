@@ -103,7 +103,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Merge pull request [#5](https://github.com/rjdverse/rjd3providers/issues/5) from rjdemetra/develop
 * New JARS related to version [3.1.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.1.0)
 
-[Unreleased]: https://github.com/rjdverse/rjd3providers/compare/v3.8.0...HEAD
+[Unreleased]: https://github.com/rjdverse/rjd3providers/compare/v3.9.0...HEAD
+[3.9.0]: https://github.com/rjdverse/rjd3providers/compare/v3.8.0...v3.9.0
 [3.8.0]: https://github.com/rjdverse/rjd3providers/compare/v3.7.1...v3.8.0
 [3.7.1]: https://github.com/rjdverse/rjd3providers/compare/v3.6.0...v3.7.1
 [3.6.0]: https://github.com/rjdverse/rjd3providers/compare/v3.5.1...v3.6.0
