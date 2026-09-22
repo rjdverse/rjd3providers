@@ -9,7 +9,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- Updated jdplus-main JARS from 3.8.0 to 3.9.0
+- Updated jdplus-main JARS from 3.8.0 to [3.9.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.9.0)
 
 ## [3.8.0] - 2026-07-15
 
