@@ -1,7 +1,7 @@
 Type: Package
 Package: rjd3providers
 Title: Interface to 'JDemetra+' 3.x Time Series Analysis Software
-Version: 3.8.0.9000
+Version: 3.9.0.9000
 Authors@R: c(
     person("Jean", "Palate", , "jean.palate@nbb.be", role = "aut"),
     person("Alessandro", "Piovani", , "alessandro.piovani@istat.it", role = c("aut", "cre", "cph")),
@@ -20,7 +20,7 @@ Depends:
 Imports:
     rJava (>= 1.0-6),
     rjd3jars (>= 0.0.5),
-    rjd3toolkit (>= 3.8.0)
+    rjd3toolkit (>= 3.9.0)
 Encoding: UTF-8
 LazyData: TRUE
 Roxygen: list(markdown = TRUE)
